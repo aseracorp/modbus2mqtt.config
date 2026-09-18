@@ -1,0 +1,537 @@
+filename: thermokon-wrf06
+model: WRF06
+manufacturer: Thermokon
+version: "0.5"
+nextEntityId: 30
+entities:
+  # ---- Sensor identification register (used as the condition register) ----
+  # Register 501 bitmask: bit0=Temp, bit1=rH, bit2=AbsHum, bit3=Enthalpy,
+  # bit4=DewPoint, bit5=CO2, bit6=VOC, bit7=CO2VOCMix (1 = sensor present)
+  - id: 1
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 501
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: sensor_identification
+    entityCategory: diagnostic
+
+  # ---- Value registers (conditional on the sensor-identification bitmask) ----
+  - id: 2
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 0
+    condition:
+      register: 501
+      bit: 0
+      comparator: eq
+      value: 1
+    valueDescription: 'Temperature in °C'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 1
+      identification:
+        min: -40
+        max: 125
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+    valid: true
+    mqttname: temperature
+
+  - id: 3
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1
+    condition:
+      register: 501
+      bit: 1
+      comparator: eq
+      value: 1
+    valueDescription: 'Relative humidity in %'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 100
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+    valid: true
+    mqttname: relative_humidity
+
+  - id: 4
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 2
+    condition:
+      register: 501
+      bit: 2
+      comparator: eq
+      value: 1
+    valueDescription: 'Absolute humidity in g/m³'
+    converterParameters:
+      multiplier: 0.01
+      offset: 0
+      decimals: 2
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 100
+      device_class: humidity
+      state_class: 1
+      uom: "g/m³"
+    valid: true
+    mqttname: absolute_humidity
+
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 3
+    condition:
+      register: 501
+      bit: 3
+      comparator: eq
+      value: 1
+    valueDescription: 'Enthalpy in kJ/kg'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 300
+      state_class: 1
+      uom: "kJ/kg"
+    valid: true
+    mqttname: enthalpy
+
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 4
+    condition:
+      register: 501
+      bit: 4
+      comparator: eq
+      value: 1
+    valueDescription: 'Dew point in °C'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 1
+      identification:
+        min: -110
+        max: 60
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+    valid: true
+    mqttname: dew_point
+
+  - id: 7
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 5
+    condition:
+      register: 501
+      bit: 5
+      comparator: eq
+      value: 1
+    valueDescription: 'CO₂ concentration in ppm'
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 5000
+      device_class: carbon_dioxide
+      state_class: 1
+      uom: "ppm"
+    valid: true
+    mqttname: co2
+
+  - id: 8
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 6
+    condition:
+      register: 501
+      bit: 6
+      comparator: eq
+      value: 1
+    valueDescription: 'VOC level in %'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 100
+      state_class: 1
+      uom: "%"
+    valid: true
+    mqttname: voc
+
+  - id: 9
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 7
+    condition:
+      register: 501
+      bit: 7
+      comparator: eq
+      value: 1
+    valueDescription: 'CO₂/VOC mix level in %'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 100
+      state_class: 1
+      uom: "%"
+    valid: true
+    mqttname: co2_voc_mix
+
+  # ---- Config registers (device configuration - NOT published to MQTT/HA) ----
+  - id: 10
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 400
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 2
+    valid: true
+    mqttname: unit_system
+
+  - id: 11
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 100
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 1
+      identification:
+        min: -200
+        max: 200
+      uom: "°C"
+    valid: true
+    mqttname: offset_temperature
+
+  - id: 12
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 101
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: -100
+        max: 100
+      uom: "%"
+    valid: true
+    mqttname: offset_relative_humidity
+
+  - id: 13
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 102
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1000
+        max: 1000
+      uom: "ppm"
+    valid: true
+    mqttname: offset_co2
+
+  - id: 14
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 103
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: -100
+        max: 100
+      uom: "%"
+    valid: true
+    mqttname: offset_voc
+
+  - id: 15
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 200
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 1
+      identification:
+        min: -400
+        max: 1250
+      uom: "°C"
+    valid: true
+    mqttname: temp_lower_limit
+
+  - id: 16
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 201
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 1
+      identification:
+        min: -400
+        max: 1250
+      uom: "°C"
+    valid: true
+    mqttname: temp_upper_limit
+
+  - id: 17
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 202
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1000
+      uom: "%"
+    valid: true
+    mqttname: rH_lower_limit
+
+  - id: 18
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 203
+    category: config
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1000
+      uom: "%"
+    valid: true
+    mqttname: rH_upper_limit
+
+  - id: 19
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 210
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 5000
+      uom: "ppm"
+    valid: true
+    mqttname: co2_lower_limit
+
+  - id: 20
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 211
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 5000
+      uom: "ppm"
+    valid: true
+    mqttname: co2_upper_limit
+
+  - id: 21
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 615
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+    valid: true
+    mqttname: tlf_threshold_1_2
+
+  - id: 22
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 616
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+    valid: true
+    mqttname: tlf_threshold_2_3
+
+  - id: 23
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 502
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+    valid: true
+    mqttname: hw_version
+    entityCategory: diagnostic
+
+  - id: 24
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 503
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+    valid: true
+    mqttname: fw_version
+    entityCategory: diagnostic
+
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: Thermokon WRF06
+      - textId: e1
+        text: Sensor identification
+      - textId: e2
+        text: Temperature
+      - textId: e3
+        text: Relative humidity
+      - textId: e4
+        text: Absolute humidity
+      - textId: e5
+        text: Enthalpy
+      - textId: e6
+        text: Dew point
+      - textId: e7
+        text: CO2
+      - textId: e8
+        text: VOC
+      - textId: e9
+        text: CO2 VOC mix
+testdata:
+  holdingRegisters:
+    - address: 501
+      value: 99
+    - address: 0
+      value: 215
+    - address: 1
+      value: 452
+    - address: 5
+      value: 623
+    - address: 6
+      value: 88
