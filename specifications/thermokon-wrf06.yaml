@@ -2,7 +2,7 @@ filename: thermokon-wrf06
 model: WRF06
 manufacturer: Thermokon
 version: "0.5"
-nextEntityId: 30
+nextEntityId: 26
 entities:
   # ---- Sensor identification register (used as the condition register) ----
   # Register 501 bitmask: bit0=Temp, bit1=rH, bit2=AbsHum, bit3=Enthalpy,
@@ -34,11 +34,10 @@ entities:
       name: number
     modbusAddress: 0
     condition:
-      register: 501
-      bit: 0
+      register: 400
       comparator: eq
       value: 1
-    valueDescription: 'Temperature in °C'
+    valueDescription: 'Temperature in °C (SI unit system)'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -53,6 +52,32 @@ entities:
     valid: true
     mqttname: temperature
     name: Temperature
+
+  - id: 25
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 0
+    condition:
+      register: 400
+      comparator: eq
+      value: 2
+    valueDescription: 'Temperature in °F (Imperial unit system)'
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: -40
+        max: 257
+      device_class: temperature
+      state_class: 1
+      uom: "°F"
+    valid: true
+    mqttname: temperature_imperial
+    name: Temperature (Imperial)
 
   - id: 3
     registerType: 3
@@ -552,6 +577,8 @@ i18n:
         text: VOC
       - textId: e9
         text: CO2 VOC mix
+      - textId: e25
+        text: Temperature (Imperial)
 testdata:
   holdingRegisters:
     - address: 501
