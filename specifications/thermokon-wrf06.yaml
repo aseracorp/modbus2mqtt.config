@@ -42,7 +42,7 @@ entities:
       multiplier: 0.1
       offset: 0
       decimals: 1
-      numberFormat: 1
+      numberFormat: 0
       identification:
         min: -40
         max: 125
@@ -145,7 +145,7 @@ entities:
       multiplier: 0.1
       offset: 0
       decimals: 1
-      numberFormat: 1
+      numberFormat: 0
       identification:
         min: -110
         max: 60
@@ -261,7 +261,7 @@ entities:
       multiplier: 0.1
       offset: 0
       decimals: 1
-      numberFormat: 1
+      numberFormat: 0
       identification:
         min: -200
         max: 200
@@ -337,7 +337,7 @@ entities:
       multiplier: 0.1
       offset: 0
       decimals: 1
-      numberFormat: 1
+      numberFormat: 0
       identification:
         min: -400
         max: 1250
@@ -356,7 +356,7 @@ entities:
       multiplier: 0.1
       offset: 0
       decimals: 1
-      numberFormat: 1
+      numberFormat: 0
       identification:
         min: -400
         max: 1250
