@@ -33,10 +33,14 @@ entities:
     converter:
       name: number
     modbusAddress: 0
-    condition:
-      register: 400
-      comparator: eq
-      value: 1
+    conditions:
+      - register: 400
+        comparator: eq
+        value: 1
+      - register: 501
+        bit: 0
+        comparator: eq
+        value: 1
     valueDescription: 'Temperature in °C (SI unit system)'
     converterParameters:
       multiplier: 0.1
@@ -59,10 +63,14 @@ entities:
     converter:
       name: number
     modbusAddress: 0
-    condition:
-      register: 400
-      comparator: eq
-      value: 2
+    conditions:
+      - register: 400
+        comparator: eq
+        value: 2
+      - register: 501
+        bit: 0
+        comparator: eq
+        value: 1
     valueDescription: 'Temperature in °F (Imperial unit system)'
     converterParameters:
       multiplier: 0.1
@@ -125,7 +133,7 @@ entities:
       numberFormat: 0
       identification:
         min: 0
-        max: 100
+        max: 83
       device_class: humidity
       state_class: 1
       uom: "g/m³"
@@ -152,7 +160,7 @@ entities:
       numberFormat: 0
       identification:
         min: 0
-        max: 300
+        max: 274
       state_class: 1
       uom: "kJ/kg"
     valid: true
@@ -178,7 +186,7 @@ entities:
       numberFormat: 0
       identification:
         min: -110
-        max: 60
+        max: 50
       device_class: temperature
       state_class: 1
       uom: "°C"
@@ -303,8 +311,8 @@ entities:
       decimals: 1
       numberFormat: 0
       identification:
-        min: -200
-        max: 200
+        min: -40
+        max: 125
       uom: "°C"
     valid: true
     mqttname: offset_temperature
@@ -343,8 +351,8 @@ entities:
       decimals: 0
       numberFormat: 0
       identification:
-        min: -1000
-        max: 1000
+        min: -500
+        max: 500
       uom: "ppm"
     valid: true
     mqttname: offset_co2
@@ -383,8 +391,8 @@ entities:
       decimals: 0
       numberFormat: 0
       identification:
-        min: -400
-        max: 1250
+        min: -40
+        max: 125
       uom: "°C"
     valid: true
     mqttname: temp_lower_limit
@@ -403,8 +411,8 @@ entities:
       decimals: 0
       numberFormat: 0
       identification:
-        min: -400
-        max: 1250
+        min: -40
+        max: 125
       uom: "°C"
     valid: true
     mqttname: temp_upper_limit
@@ -424,7 +432,7 @@ entities:
       numberFormat: 0
       identification:
         min: 0
-        max: 1000
+        max: 100
       uom: "%"
     valid: true
     mqttname: rH_lower_limit
@@ -444,7 +452,7 @@ entities:
       numberFormat: 0
       identification:
         min: 0
-        max: 1000
+        max: 100
       uom: "%"
     valid: true
     mqttname: rH_upper_limit
