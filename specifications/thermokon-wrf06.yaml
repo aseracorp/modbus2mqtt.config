@@ -358,9 +358,9 @@ entities:
     modbusAddress: 103
     category: config
     converterParameters:
-      multiplier: 0.1
+      multiplier: 1
       offset: 0
-      decimals: 1
+      decimals: 0
       numberFormat: 0
       identification:
         min: -100
@@ -378,9 +378,9 @@ entities:
     modbusAddress: 200
     category: config
     converterParameters:
-      multiplier: 0.1
+      multiplier: 1
       offset: 0
-      decimals: 1
+      decimals: 0
       numberFormat: 0
       identification:
         min: -400
@@ -398,9 +398,9 @@ entities:
     modbusAddress: 201
     category: config
     converterParameters:
-      multiplier: 0.1
+      multiplier: 1
       offset: 0
-      decimals: 1
+      decimals: 0
       numberFormat: 0
       identification:
         min: -400
@@ -418,9 +418,9 @@ entities:
     modbusAddress: 202
     category: config
     converterParameters:
-      multiplier: 0.1
+      multiplier: 1
       offset: 0
-      decimals: 1
+      decimals: 0
       numberFormat: 0
       identification:
         min: 0
@@ -438,9 +438,9 @@ entities:
     modbusAddress: 203
     category: config
     converterParameters:
-      multiplier: 0.1
+      multiplier: 1
       offset: 0
-      decimals: 1
+      decimals: 0
       numberFormat: 0
       identification:
         min: 0
@@ -579,6 +579,10 @@ i18n:
         text: CO2 VOC mix
       - textId: e25
         text: Temperature (Imperial)
+      - textId: e23
+        text: Hardware version
+      - textId: e24
+        text: Firmware version
 testdata:
   holdingRegisters:
     - address: 501
