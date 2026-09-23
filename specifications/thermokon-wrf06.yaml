@@ -23,6 +23,7 @@ entities:
         max: 255
     valid: true
     mqttname: sensor_identification
+    name: Sensor identification
     entityCategory: diagnostic
 
   # ---- Value registers (conditional on the sensor-identification bitmask) ----
@@ -51,6 +52,7 @@ entities:
       uom: "°C"
     valid: true
     mqttname: temperature
+    name: Temperature
 
   - id: 3
     registerType: 3
@@ -77,6 +79,7 @@ entities:
       uom: "%"
     valid: true
     mqttname: relative_humidity
+    name: Relative humidity
 
   - id: 4
     registerType: 3
@@ -103,6 +106,7 @@ entities:
       uom: "g/m³"
     valid: true
     mqttname: absolute_humidity
+    name: Absolute humidity
 
   - id: 5
     registerType: 3
@@ -128,6 +132,7 @@ entities:
       uom: "kJ/kg"
     valid: true
     mqttname: enthalpy
+    name: Enthalpy
 
   - id: 6
     registerType: 3
@@ -154,6 +159,7 @@ entities:
       uom: "°C"
     valid: true
     mqttname: dew_point
+    name: Dew point
 
   - id: 7
     registerType: 3
@@ -180,6 +186,7 @@ entities:
       uom: "ppm"
     valid: true
     mqttname: co2
+    name: CO2
 
   - id: 8
     registerType: 3
@@ -205,6 +212,7 @@ entities:
       uom: "%"
     valid: true
     mqttname: voc
+    name: VOC
 
   - id: 9
     registerType: 3
@@ -230,13 +238,14 @@ entities:
       uom: "%"
     valid: true
     mqttname: co2_voc_mix
+    name: CO2 VOC Mix
 
   # ---- Config registers (device configuration - NOT published to MQTT/HA) ----
   - id: 10
     registerType: 3
     readonly: false
     converter:
-      name: number
+      name: select
     modbusAddress: 400
     category: config
     converterParameters:
@@ -244,11 +253,17 @@ entities:
       offset: 0
       decimals: 0
       numberFormat: 0
+      options:
+        - key: 1
+          name: SI
+        - key: 2
+          name: Imperial
       identification:
         min: 1
         max: 2
     valid: true
     mqttname: unit_system
+    name: Unit system
 
   - id: 11
     registerType: 3
@@ -268,6 +283,7 @@ entities:
       uom: "°C"
     valid: true
     mqttname: offset_temperature
+    name: Offset temperature
 
   - id: 12
     registerType: 3
@@ -287,6 +303,7 @@ entities:
       uom: "%"
     valid: true
     mqttname: offset_relative_humidity
+    name: Offset relative humidity
 
   - id: 13
     registerType: 3
@@ -306,6 +323,7 @@ entities:
       uom: "ppm"
     valid: true
     mqttname: offset_co2
+    name: Offset CO2
 
   - id: 14
     registerType: 3
@@ -325,6 +343,7 @@ entities:
       uom: "%"
     valid: true
     mqttname: offset_voc
+    name: Offset VOC
 
   - id: 15
     registerType: 3
@@ -344,6 +363,7 @@ entities:
       uom: "°C"
     valid: true
     mqttname: temp_lower_limit
+    name: Temperature lower limit
 
   - id: 16
     registerType: 3
@@ -363,6 +383,7 @@ entities:
       uom: "°C"
     valid: true
     mqttname: temp_upper_limit
+    name: Temperature upper limit
 
   - id: 17
     registerType: 3
@@ -382,6 +403,7 @@ entities:
       uom: "%"
     valid: true
     mqttname: rH_lower_limit
+    name: Relative humidity lower limit
 
   - id: 18
     registerType: 3
@@ -401,6 +423,7 @@ entities:
       uom: "%"
     valid: true
     mqttname: rH_upper_limit
+    name: Relative humidity upper limit
 
   - id: 19
     registerType: 3
@@ -420,6 +443,7 @@ entities:
       uom: "ppm"
     valid: true
     mqttname: co2_lower_limit
+    name: CO2 lower limit
 
   - id: 20
     registerType: 3
@@ -439,6 +463,7 @@ entities:
       uom: "ppm"
     valid: true
     mqttname: co2_upper_limit
+    name: CO2 upper limit
 
   - id: 21
     registerType: 3
@@ -454,6 +479,7 @@ entities:
       numberFormat: 0
     valid: true
     mqttname: tlf_threshold_1_2
+    name: Traffic-light threshold range 1-2
 
   - id: 22
     registerType: 3
@@ -469,6 +495,7 @@ entities:
       numberFormat: 0
     valid: true
     mqttname: tlf_threshold_2_3
+    name: Traffic-light threshold range 2-3
 
   - id: 23
     registerType: 3
@@ -483,6 +510,7 @@ entities:
       numberFormat: 2
     valid: true
     mqttname: hw_version
+    name: Hardware version
     entityCategory: diagnostic
 
   - id: 24
@@ -498,6 +526,7 @@ entities:
       numberFormat: 2
     valid: true
     mqttname: fw_version
+    name: Firmware version
     entityCategory: diagnostic
 
 i18n:
