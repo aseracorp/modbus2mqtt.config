@@ -45,10 +45,12 @@ jobs:
       - name: Sparse checkout modbus2mqtt backend (fork)
         if: ${{ steps.changed.outputs.spec_files != '' }}
         run: |
-          git clone --filter=blob:none --sparse \
+          git clone --filter=blob:none --no-checkout \
             https://github.com/aseracorp/modbus2mqtt.git m2m-server
           cd m2m-server
+          git sparse-checkout init --no-cone
           git sparse-checkout set backend .nvmrc .npmrc package.json
+          git checkout
 
       - name: Setup pnpm (pinned to repo packageManager)
         if: ${{ steps.changed.outputs.spec_files != '' }}
