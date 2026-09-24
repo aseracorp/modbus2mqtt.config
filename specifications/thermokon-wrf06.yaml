@@ -1,8 +1,22 @@
 filename: thermokon-wrf06
 model: WRF06
 manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-wrf06/thermokon-wrf06.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf06/Specifikation_WRF06_AQ_FTW06_Modbus_en_Rev_C.pdf
+    fileLocation: 0
+    usage: doc
 version: "0.5"
 nextEntityId: 26
+files:
+  - url: specifications/files/thermokon-wrf06/thermokon-wrf06.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf06/Specifikation_WRF06_AQ_FTW06_Modbus_en_Rev_C.pdf
+    fileLocation: 0
+    usage: doc
 entities:
   # ---- Sensor identification register (used as the condition register) ----
   # Register 501 bitmask: bit0=Temp, bit1=rH, bit2=AbsHum, bit3=Enthalpy,

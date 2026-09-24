@@ -1,0 +1,8 @@
+version: "0.1"
+files:
+  - url: specifications/files/thermokon-wrf06/thermokon-wrf06.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf06/Specifikation_WRF06_AQ_FTW06_Modbus_en_Rev_C.pdf
+    fileLocation: 0
+    usage: doc
