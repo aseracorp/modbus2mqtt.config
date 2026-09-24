@@ -1,0 +1,11 @@
+version: "0.1"
+files:
+  - url: specifications/files/thermokon-novos/thermokon-novos.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-novos/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
+    fileLocation: 0
+    usage: doc
+  - url: specifications/files/thermokon-novos/NOVOS_3_RS485-Modbus_english_RevL.pdf
+    fileLocation: 0
+    usage: doc
