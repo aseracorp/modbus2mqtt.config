@@ -21,7 +21,7 @@ if (!BACKEND) {
   console.error('validate.mjs: M2M_BACKEND env var must point at a modbus2mqtt checkout')
   process.exit(2)
 }
-const require = createRequire(BACKEND + '/')
+const require = createRequire(BACKEND + '/backend/')   // monorepo: backend deps live here
 const { parse } = require('yaml') // yaml is a backend dependency
 const { M2mSpecification } = await import(path.join(BACKEND, 'dist/specification/m2mspecification.js'))
 const { Migrator } = await import(path.join(BACKEND, 'dist/specification/migrator.js'))
