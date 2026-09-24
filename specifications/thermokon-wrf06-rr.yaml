@@ -5,10 +5,10 @@ files:
   - url: specifications/files/thermokon-wrf06-rr/thermokon-wrf06-rr.jpg
     fileLocation: 0
     usage: img
-  - url: specifications/files/thermokon-wrf06-rr/WRF06_(LCD)_RS485-Modbus_Manual_RevT_english.pdf
+  - url: specifications/files/thermokon-wrf06-rr/WRF06_LCD_RS485-Modbus_Manual_RevT_english.pdf
     fileLocation: 0
     usage: doc
-version: "0.1"
+version: "0.5"
 nextEntityId: 40
 entities:
   - id: 1
@@ -156,8 +156,8 @@ entities:
       numberFormat: 2
       state_class: 1
       identification:
-        min: -253
-        max: 3
+        min: 0
+        max: 65535
     valid: true
     mqttname: fan_stage
     name: Fan stage
@@ -577,8 +577,8 @@ entities:
       decimals: 0
       numberFormat: 2
       identification:
-        min: -253
-        max: 3
+        min: 0
+        max: 65535
     valid: true
     mqttname: fan_stage_set
     name: Fan stage set
@@ -1084,3 +1084,84 @@ i18n:
         text: Uscita analogica manuale 1
       - textId: e39
         text: Temperatura esterna
+testdata:
+  holdingRegisters:
+    - address: 513
+      value: 30
+    - address: 514
+      value: 30
+    - address: 515
+      value: 12
+    - address: 516
+      value: 16
+    - address: 517
+      value: 7
+    - address: 518
+      value: 2050
+    - address: 520
+      value: 0
+    - address: 521
+      value: 0
+    - address: 522
+      value: 0
+    - address: 523
+      value: 0
+    - address: 524
+      value: 0
+    - address: 525
+      value: 0
+    - address: 526
+      value: 128
+    - address: 527
+      value: 128
+    - address: 528
+      value: 32767
+    - address: 529
+      value: 1
+    - address: 530
+      value: 1
+    - address: 531
+      value: 1
+    - address: 532
+      value: 1
+    - address: 533
+      value: 1
+    - address: 534
+      value: 2
+    - address: 535
+      value: 511
+    - address: 536
+      value: 511
+    - address: 537
+      value: 0
+  analogInputs:
+    - address: 257
+      value: 1
+    - address: 258
+      value: 8
+    - address: 259
+      value: 0
+    - address: 260
+      value: 0
+    - address: 261
+      value: 0
+    - address: 262
+      value: 0
+    - address: 263
+      value: 0
+    - address: 264
+      value: 32767
+    - address: 265
+      value: 1
+    - address: 266
+      value: 1
+    - address: 267
+      value: 1
+    - address: 268
+      value: 512
+    - address: 269
+      value: 512
+    - address: 270
+      value: 2
+    - address: 271
+      value: 500

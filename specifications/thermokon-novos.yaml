@@ -8,10 +8,7 @@ files:
   - url: specifications/files/thermokon-novos/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
     fileLocation: 0
     usage: doc
-  - url: specifications/files/thermokon-novos/NOVOS_3_RS485-Modbus_english_RevL.pdf
-    fileLocation: 0
-    usage: doc
-version: "0.1"
+version: "0.5"
 nextEntityId: 54
 entities:
   - id: 1
@@ -43,8 +40,8 @@ entities:
       decimals: 0
       numberFormat: 2
       identification:
-        min: 0
-        max: 65535
+        min: -32768
+        max: 32767
     valid: true
     mqttname: hardware_version
     name: Hardware version
@@ -60,8 +57,8 @@ entities:
       decimals: 0
       numberFormat: 2
       identification:
-        min: 0
-        max: 65535
+        min: -32768
+        max: 32767
     valid: true
     mqttname: firmware_version_main
     name: Firmware version main
@@ -77,8 +74,8 @@ entities:
       decimals: 0
       numberFormat: 2
       identification:
-        min: 0
-        max: 65535
+        min: -32768
+        max: 32767
     valid: true
     mqttname: firmware_version_revision
     name: Firmware version revision
@@ -1450,3 +1447,111 @@ i18n:
         text: "Velocità ventilatore dopo reset"
       - textId: e53
         text: "Modalità display"
+testdata:
+  holdingRegisters:
+    - address: 1025
+      value: 128
+    - address: 1034
+      value: 0
+    - address: 1035
+      value: 0
+    - address: 1036
+      value: 0
+    - address: 100
+      value: 1
+    - address: 101
+      value: 1
+    - address: 103
+      value: 250
+    - address: 104
+      value: 3
+    - address: 105
+      value: 3
+    - address: 426
+      value: 2
+    - address: 427
+      value: 5
+    - address: 500
+      value: 425
+    - address: 501
+      value: 500
+    - address: 502
+      value: 415
+    - address: 503
+      value: 1370
+    - address: 504
+      value: 0
+    - address: 505
+      value: 2500
+    - address: 506
+      value: 500
+    - address: 507
+      value: 500
+    - address: 1100
+      value: 2
+    - address: 514
+      value: 1
+    - address: 2111
+      value: 0
+    - address: 2511
+      value: 0
+    - address: 2611
+      value: 0
+    - address: 2011
+      value: 0
+    - address: 2112
+      value: 500
+    - address: 2113
+      value: 500
+    - address: 2512
+      value: 2500
+    - address: 2513
+      value: 2500
+    - address: 2612
+      value: 500
+    - address: 2613
+      value: 500
+    - address: 2712
+      value: 500
+    - address: 2713
+      value: 500
+    - address: 2012
+      value: 425
+    - address: 2013
+      value: 425
+    - address: 2212
+      value: 415
+    - address: 2213
+      value: 415
+    - address: 2312
+      value: 1370
+    - address: 2313
+      value: 1370
+    - address: 2412
+      value: 0
+    - address: 2413
+      value: 0
+    - address: 1301
+      value: 1
+    - address: 1302
+      value: 250
+    - address: 1303
+      value: 250
+    - address: 1304
+      value: 25
+    - address: 1305
+      value: 1
+    - address: 1306
+      value: 1
+    - address: 1307
+      value: 1
+    - address: 1309
+      value: 3
+    - address: 1310
+      value: 1
+    - address: 1311
+      value: 1
+    - address: 1312
+      value: 3
+    - address: 1206
+      value: 2

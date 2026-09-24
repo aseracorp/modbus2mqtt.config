@@ -8,7 +8,7 @@ files:
   - url: specifications/files/thermokon-joy/Joy-RS485_Modbus_Manual_en.pdf
     fileLocation: 0
     usage: doc
-version: "0.1"
+version: "0.5"
 nextEntityId: 48
 entities:
   - id: 1
@@ -1288,3 +1288,100 @@ i18n:
         text: "Velocità ventilatore"
       - textId: e47
         text: "Modalità ECO predefinita"
+testdata:
+  holdingRegisters:
+    - address: 3
+      value: 5
+    - address: 4
+      value: 0
+    - address: 5
+      value: 0
+    - address: 6
+      value: 2
+    - address: 20
+      value: 250
+    - address: 21
+      value: 50
+    - address: 22
+      value: 25
+    - address: 23
+      value: 50
+    - address: 24
+      value: 50
+    - address: 25
+      value: 50
+    - address: 26
+      value: 50
+    - address: 27
+      value: 50
+    - address: 28
+      value: 50
+    - address: 29
+      value: 2
+    - address: 102
+      value: 50
+    - address: 103
+      value: 128
+    - address: 104
+      value: 50
+    - address: 105
+      value: 50
+    - address: 107
+      value: 128
+    - address: 124
+      value: 1
+    - address: 158
+      value: 0
+    - address: 255
+      value: 250
+    - address: 256
+      value: 0
+    - address: 257
+      value: 1
+    - address: 261
+      value: 1
+    - address: 262
+      value: 1
+    - address: 269
+      value: 2
+    - address: 270
+      value: 3
+    - address: 274
+      value: 1
+  analogInputs:
+    - address: 515
+      value: 250
+    - address: 516
+      value: 250
+    - address: 566
+      value: 500
+    - address: 571
+      value: 1000
+    - address: 572
+      value: 1
+    - address: 511
+      value: 250
+    - address: 512
+      value: 250
+    - address: 513
+      value: 0
+    - address: 554
+      value: 250
+    - address: 517
+      value: 1
+    - address: 518
+      value: 1
+    - address: 519
+      value: 3
+    - address: 522
+      value: 1
+    - address: 523
+      value: 1
+    - address: 524
+      value: 1
+    - address: 526
+      value: 1
+    - address: 553
+      value: 1
+    - address: 565
+      value: 1
