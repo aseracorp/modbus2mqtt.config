@@ -1,0 +1,103 @@
+name: Validate specifications
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: validate-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate specification YAML files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out config repo (this PR)
+        uses: actions/checkout@v4
+        with:
+          path: config
+          fetch-depth: 0   # need base..head for diff
+
+      - name: Determine changed spec files
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            files=$(cd config && ls specifications/*.yaml 2>/dev/null | tr '\n' ' ')
+            echo "spec_files=$files" >> "$GITHUB_OUTPUT"
+          else
+            cd config
+            base="${{ github.event.pull_request.base.sha }}"
+            head="${{ github.event.pull_request.head.sha }}"
+            changed=$(git diff --name-only --diff-filter=ACMRT "$base" "$head" -- ':(glob)specifications/*.yaml' | tr '\n' ' ')
+            echo "spec_files=$changed" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip if no spec changes
+        if: ${{ steps.changed.outputs.spec_files == '' }}
+        run: echo "No specification YAML files changed in this PR — nothing to validate."
+
+      - name: Checkout modbus2mqtt fork (full, for build)
+        if: ${{ steps.changed.outputs.spec_files != '' }}
+        run: git clone --depth 1 https://github.com/aseracorp/modbus2mqtt.git m2m-server
+
+      - name: Setup pnpm (pinned to repo packageManager)
+        if: ${{ steps.changed.outputs.spec_files != '' }}
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: m2m-server/package.json
+
+      - name: Set up Node.js
+        if: ${{ steps.changed.outputs.spec_files != '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: m2m-server/.nvmrc
+          cache: pnpm
+          cache-dependency-path: m2m-server/backend/pnpm-lock.yaml
+
+      - name: Install dependencies (repo root, shamefully-hoisted) and build
+        if: ${{ steps.changed.outputs.spec_files != '' }}
+        env:
+          CI: "true"
+        run: |
+          cd m2m-server
+          # Root install populates ./node_modules (shamefully-hoist=true),
+          # so dist/ can resolve debug/mqtt-packet/winston-transport at runtime.
+          pnpm install --frozen-lockfile
+          cd backend
+          pnpm install --frozen-lockfile
+          pnpm run build
+
+      - name: Validate specification files
+        id: validate
+        if: ${{ steps.changed.outputs.spec_files != '' }}
+        env:
+          M2M_BACKEND: ${{ github.workspace }}/m2m-server
+        run: |
+          cd config
+          set +e
+          node scripts/validate.mjs ${{ steps.changed.outputs.spec_files }} | tee /tmp/validate.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          exit $rc
+
+      - name: Summarize (failure)
+        if: ${{ always() && steps.validate.result == 'failure' }}
+        run: |
+          echo "### ❌ Specification validation failed" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          (grep -E "FAIL|ERROR|INVALID" /tmp/validate.log || echo "no detail captured") | head -40 >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Summarize (pass)
+        if: ${{ steps.validate.result == 'success' }}
+        run: |
+          echo "### ✅ All specification files are valid" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/validate.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

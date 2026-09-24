@@ -393,9 +393,9 @@ entities:
     modbusAddress: 200
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: -40
@@ -413,9 +413,9 @@ entities:
     modbusAddress: 201
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: -40
@@ -433,9 +433,9 @@ entities:
     modbusAddress: 202
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: 0
@@ -453,9 +453,9 @@ entities:
     modbusAddress: 203
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: 0
@@ -578,6 +578,8 @@ i18n:
         text: Sensor identification
       - textId: e2
         text: Temperature
+      - textId: e25
+        text: Temperature
       - textId: e3
         text: Relative humidity
       - textId: e4
@@ -591,9 +593,33 @@ i18n:
       - textId: e8
         text: VOC
       - textId: e9
-        text: CO2 VOC mix
-      - textId: e25
-        text: Temperature
+        text: CO2 VOC Mix
+      - textId: e10
+        text: Unit system
+      - textId: e11
+        text: Offset temperature
+      - textId: e12
+        text: Offset relative humidity
+      - textId: e13
+        text: Offset CO2
+      - textId: e14
+        text: Offset VOC
+      - textId: e15
+        text: Temperature lower limit
+      - textId: e16
+        text: Temperature upper limit
+      - textId: e17
+        text: Relative humidity lower limit
+      - textId: e18
+        text: Relative humidity upper limit
+      - textId: e19
+        text: CO2 lower limit
+      - textId: e20
+        text: CO2 upper limit
+      - textId: e21
+        text: Traffic-light threshold range 1-2
+      - textId: e22
+        text: Traffic-light threshold range 2-3
       - textId: e23
         text: Hardware version
       - textId: e24
@@ -605,6 +631,8 @@ i18n:
       - textId: e1
         text: Sensoridentifikation
       - textId: e2
+        text: Temperatur
+      - textId: e25
         text: Temperatur
       - textId: e3
         text: Relative Feuchte
@@ -619,17 +647,152 @@ i18n:
       - textId: e8
         text: VOC
       - textId: e9
-        text: CO2 VOC mix
-      - textId: e25
-        text: Temperatur
+        text: CO2 VOC Mix
+      - textId: e10
+        text: Einheiten-System
+      - textId: e11
+        text: Offset Temperatur
+      - textId: e12
+        text: Offset relative Feuchte
+      - textId: e13
+        text: Offset CO2
+      - textId: e14
+        text: Offset VOC
+      - textId: e15
+        text: Temperatur Untergrenze
+      - textId: e16
+        text: Temperatur Obergrenze
+      - textId: e17
+        text: Relative Feuchte Untergrenze
+      - textId: e18
+        text: Relative Feuchte Obergrenze
+      - textId: e19
+        text: CO2 Untergrenze
+      - textId: e20
+        text: CO2 Obergrenze
+      - textId: e21
+        text: Ampelfunktion Schwellwert Bereich 1-2
+      - textId: e22
+        text: Ampelfunktion Schwellwert Bereich 2-3
       - textId: e23
-        text: Hardwareversion
+        text: Hardware-Version
       - textId: e24
-        text: Firmwareversion
+        text: Firmware-Version
+  - lang: fr
+    texts:
+      - textId: name
+        text: Thermokon WRF06
+      - textId: e1
+        text: Identification du capteur
+      - textId: e2
+        text: "Température"
+      - textId: e25
+        text: "Température"
+      - textId: e3
+        text: "Humidité relative"
+      - textId: e4
+        text: "Humidité absolue"
+      - textId: e5
+        text: Enthalpie
+      - textId: e6
+        text: "Point de rosée"
+      - textId: e7
+        text: CO2
+      - textId: e8
+        text: COV
+      - textId: e9
+        text: "Mélange CO2/COV"
+      - textId: e10
+        text: "Système d'unités"
+      - textId: e11
+        text: "Offset température"
+      - textId: e12
+        text: "Offset humidité relative"
+      - textId: e13
+        text: Offset CO2
+      - textId: e14
+        text: Offset COV
+      - textId: e15
+        text: "Limite inférieure température"
+      - textId: e16
+        text: "Limite supérieure température"
+      - textId: e17
+        text: "Limite inférieure humidité relative"
+      - textId: e18
+        text: "Limite supérieure humidité relative"
+      - textId: e19
+        text: "Limite inférieure CO2"
+      - textId: e20
+        text: "Limite supérieure CO2"
+      - textId: e21
+        text: Seuil feu tricolore plage 1-2
+      - textId: e22
+        text: Seuil feu tricolore plage 2-3
+      - textId: e23
+        text: "Version matérielle"
+      - textId: e24
+        text: Version du firmware
+  - lang: it
+    texts:
+      - textId: name
+        text: Thermokon WRF06
+      - textId: e1
+        text: Identificazione sensore
+      - textId: e2
+        text: Temperatura
+      - textId: e25
+        text: Temperatura
+      - textId: e3
+        text: "Umidità relativa"
+      - textId: e4
+        text: "Umidità assoluta"
+      - textId: e5
+        text: Entalpia
+      - textId: e6
+        text: Punto di rugiada
+      - textId: e7
+        text: CO2
+      - textId: e8
+        text: COV
+      - textId: e9
+        text: Miscela CO2/COV
+      - textId: e10
+        text: "Sistema di unità"
+      - textId: e11
+        text: Offset temperatura
+      - textId: e12
+        text: "Offset umidità relativa"
+      - textId: e13
+        text: Offset CO2
+      - textId: e14
+        text: Offset COV
+      - textId: e15
+        text: Limite inferiore temperatura
+      - textId: e16
+        text: Limite superiore temperatura
+      - textId: e17
+        text: "Limite inferiore umidità relativa"
+      - textId: e18
+        text: "Limite superiore umidità relativa"
+      - textId: e19
+        text: Limite inferiore CO2
+      - textId: e20
+        text: Limite superiore CO2
+      - textId: e21
+        text: Soglia semaforo intervallo 1-2
+      - textId: e22
+        text: Soglia semaforo intervallo 2-3
+      - textId: e23
+        text: Versione hardware
+      - textId: e24
+        text: Versione firmware
+
 testdata:
   holdingRegisters:
     - address: 501
       value: 99
+    - address: 400
+      value: 1
     - address: 0
       value: 215
     - address: 1
@@ -638,3 +801,23 @@ testdata:
       value: 623
     - address: 6
       value: 88
+    - address: 100
+      value: 0
+    - address: 101
+      value: 0
+    - address: 102
+      value: 0
+    - address: 103
+      value: 0
+    - address: 200
+      value: 500
+    - address: 201
+      value: 300
+    - address: 202
+      value: 500
+    - address: 203
+      value: 500
+    - address: 210
+      value: 500
+    - address: 211
+      value: 500

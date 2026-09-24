@@ -1,0 +1,1167 @@
+filename: thermokon-wrf06-rr
+model: WRF06 RR
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-wrf06-rr/thermokon-wrf06-rr.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf06-rr/WRF06_LCD_RS485-Modbus_Manual_RevT_english.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.5"
+nextEntityId: 40
+entities:
+  - id: 1
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 257
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: button_1
+    name: Button 1
+  - id: 2
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 258
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 15
+    valid: true
+    mqttname: button_pressed
+    name: Button pressed status
+  - id: 3
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 259
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: temperature
+    name: Temperature
+  - id: 4
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 260
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: setpoint1_offset
+    name: Set temperature 1 offset
+  - id: 5
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 261
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: setpoint1_effective
+    name: Set temperature 1 effective
+  - id: 6
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 262
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: setpoint2_offset
+    name: Set temperature 2 offset
+  - id: 7
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 263
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: setpoint2_effective
+    name: Set temperature 2 effective
+  - id: 8
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 264
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      state_class: 1
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: fan_stage
+    name: Fan stage
+  - id: 9
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 265
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: room_occupancy
+    name: Room occupancy
+  - id: 10
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 266
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: digital_input_1
+    name: Digital input 1
+  - id: 11
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 267
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: digital_input_2
+    name: Digital input 2
+  - id: 12
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 268
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1023
+    valid: true
+    mqttname: control_heating
+    name: Control variable heating
+  - id: 13
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 269
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1023
+    valid: true
+    mqttname: control_cooling
+    name: Control variable cooling
+  - id: 14
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 270
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: controller_mode
+    name: Controller mode
+  - id: 15
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 271
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+      identification:
+        min: -1
+        max: 1000
+    valid: true
+    mqttname: relative_humidity
+    name: Relative humidity
+  - id: 16
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 513
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_seconds
+    name: Time seconds
+  - id: 17
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 514
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 60
+    valid: true
+    mqttname: time_minutes
+    name: Time minutes
+  - id: 18
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 515
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_hours
+    name: Time hours
+  - id: 19
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 516
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 31
+    valid: true
+    mqttname: date_day
+    name: Date day
+  - id: 20
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 517
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 12
+    valid: true
+    mqttname: date_month
+    name: Date month
+  - id: 21
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 518
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 2000
+        max: 2099
+    valid: true
+    mqttname: date_year
+    name: Date year
+  - id: 22
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 520
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: external_value_1
+    name: External value 1
+  - id: 23
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 521
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: external_value_2
+    name: External value 2
+  - id: 24
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 522
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: external_value_3
+    name: External value 3
+  - id: 25
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 523
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: external_value_4
+    name: External value 4
+  - id: 26
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 524
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: setpoint1_offset_set
+    name: Set point 1 offset
+  - id: 27
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 525
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: setpoint2_offset_set
+    name: Set point 2 offset
+  - id: 28
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 526
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: basic_setpoint_1
+    name: Basic set point 1
+  - id: 29
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 527
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: basic_setpoint_2
+    name: Basic set point 2
+  - id: 30
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 528
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: fan_stage_set
+    name: Fan stage set
+  - id: 31
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 529
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: room_occupancy_set
+    name: Room occupancy set
+  - id: 32
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 530
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: alarm_1
+    name: Alarm message 1
+  - id: 33
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 531
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: alarm_2
+    name: Alarm message 2
+  - id: 34
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 532
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: alarm_3
+    name: Alarm message 3
+  - id: 35
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 533
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: alarm_4
+    name: Alarm message 4
+  - id: 36
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 534
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: controller_mode_set
+    name: Controller mode set
+  - id: 37
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 535
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -1
+        max: 1023
+    valid: true
+    mqttname: manual_analog_out_2
+    name: Manual analogue output 2
+  - id: 38
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 536
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -1
+        max: 1023
+    valid: true
+    mqttname: manual_analog_out_1
+    name: Manual analogue output 1
+  - id: 39
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 537
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -3276
+        max: 3276
+    valid: true
+    mqttname: temperature_external
+    name: Temperature external
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: Thermokon WRF06 RR
+      - textId: e1
+        text: Button 1
+      - textId: e2
+        text: Button pressed status
+      - textId: e3
+        text: Temperature
+      - textId: e4
+        text: Set temperature 1 offset
+      - textId: e5
+        text: Set temperature 1 effective
+      - textId: e6
+        text: Set temperature 2 offset
+      - textId: e7
+        text: Set temperature 2 effective
+      - textId: e8
+        text: Fan stage
+      - textId: e9
+        text: Room occupancy
+      - textId: e10
+        text: Digital input 1
+      - textId: e11
+        text: Digital input 2
+      - textId: e12
+        text: Control variable heating
+      - textId: e13
+        text: Control variable cooling
+      - textId: e14
+        text: Controller mode
+      - textId: e15
+        text: Relative humidity
+      - textId: e16
+        text: Time seconds
+      - textId: e17
+        text: Time minutes
+      - textId: e18
+        text: Time hours
+      - textId: e19
+        text: Date day
+      - textId: e20
+        text: Date month
+      - textId: e21
+        text: Date year
+      - textId: e22
+        text: External value 1
+      - textId: e23
+        text: External value 2
+      - textId: e24
+        text: External value 3
+      - textId: e25
+        text: External value 4
+      - textId: e26
+        text: Set point 1 offset
+      - textId: e27
+        text: Set point 2 offset
+      - textId: e28
+        text: Basic set point 1
+      - textId: e29
+        text: Basic set point 2
+      - textId: e30
+        text: Fan stage set
+      - textId: e31
+        text: Room occupancy set
+      - textId: e32
+        text: Alarm message 1
+      - textId: e33
+        text: Alarm message 2
+      - textId: e34
+        text: Alarm message 3
+      - textId: e35
+        text: Alarm message 4
+      - textId: e36
+        text: Controller mode set
+      - textId: e37
+        text: Manual analogue output 2
+      - textId: e38
+        text: Manual analogue output 1
+      - textId: e39
+        text: Temperature external
+  - lang: de
+    texts:
+      - textId: name
+        text: Thermokon WRF06 RR
+      - textId: e1
+        text: Taste 1
+      - textId: e2
+        text: Taster-Status
+      - textId: e3
+        text: Temperatur
+      - textId: e4
+        text: Sollwert 1 Offset
+      - textId: e5
+        text: Sollwert 1 effektiv
+      - textId: e6
+        text: Sollwert 2 Offset
+      - textId: e7
+        text: Sollwert 2 effektiv
+      - textId: e8
+        text: "Lüfterstufe"
+      - textId: e9
+        text: Raumbelegung
+      - textId: e10
+        text: Digitaler Eingang 1
+      - textId: e11
+        text: Digitaler Eingang 2
+      - textId: e12
+        text: "Stellgröße Heizen"
+      - textId: e13
+        text: "Stellgröße Kühlen"
+      - textId: e14
+        text: Reglermodus
+      - textId: e15
+        text: Relative Feuchte
+      - textId: e16
+        text: Sekunden
+      - textId: e17
+        text: Minuten
+      - textId: e18
+        text: Stunden
+      - textId: e19
+        text: Tag
+      - textId: e20
+        text: Monat
+      - textId: e21
+        text: Jahr
+      - textId: e22
+        text: Externer Messwert 1
+      - textId: e23
+        text: Externer Messwert 2
+      - textId: e24
+        text: Externer Messwert 3
+      - textId: e25
+        text: Externer Messwert 4
+      - textId: e26
+        text: Sollwert 1 Offset
+      - textId: e27
+        text: Sollwert 2 Offset
+      - textId: e28
+        text: Basissollwert 1
+      - textId: e29
+        text: Basissollwert 2
+      - textId: e30
+        text: "Lüfterstufe setzen"
+      - textId: e31
+        text: Raumbelegung setzen
+      - textId: e32
+        text: Alarmmeldung 1
+      - textId: e33
+        text: Alarmmeldung 2
+      - textId: e34
+        text: Alarmmeldung 3
+      - textId: e35
+        text: Alarmmeldung 4
+      - textId: e36
+        text: Reglermodus setzen
+      - textId: e37
+        text: Handmodus Analogausgang 2
+      - textId: e38
+        text: Handmodus Analogausgang 1
+      - textId: e39
+        text: Temperatur extern
+  - lang: fr
+    texts:
+      - textId: name
+        text: Thermokon WRF06 RR
+      - textId: e1
+        text: Bouton 1
+      - textId: e2
+        text: "État boutons"
+      - textId: e3
+        text: "Température"
+      - textId: e4
+        text: Offset consigne 1
+      - textId: e5
+        text: Consigne 1 effective
+      - textId: e6
+        text: Offset consigne 2
+      - textId: e7
+        text: Consigne 2 effective
+      - textId: e8
+        text: Vitesse ventilateur
+      - textId: e9
+        text: "Occupation de la pièce"
+      - textId: e10
+        text: "Entrée digitale 1"
+      - textId: e11
+        text: "Entrée digitale 2"
+      - textId: e12
+        text: "Grandeur de réglage chauffage"
+      - textId: e13
+        text: "Grandeur de réglage refroidissement"
+      - textId: e14
+        text: "Mode régulateur"
+      - textId: e15
+        text: "Humidité relative"
+      - textId: e16
+        text: Secondes
+      - textId: e17
+        text: Minutes
+      - textId: e18
+        text: Heures
+      - textId: e19
+        text: Jour
+      - textId: e20
+        text: Mois
+      - textId: e21
+        text: "Année"
+      - textId: e22
+        text: Valeur externe 1
+      - textId: e23
+        text: Valeur externe 2
+      - textId: e24
+        text: Valeur externe 3
+      - textId: e25
+        text: Valeur externe 4
+      - textId: e26
+        text: Offset consigne 1
+      - textId: e27
+        text: Offset consigne 2
+      - textId: e28
+        text: Consigne de base 1
+      - textId: e29
+        text: Consigne de base 2
+      - textId: e30
+        text: "Réglage vitesse ventilateur"
+      - textId: e31
+        text: "Réglage occupation"
+      - textId: e32
+        text: "Message d'alarme 1"
+      - textId: e33
+        text: "Message d'alarme 2"
+      - textId: e34
+        text: "Message d'alarme 3"
+      - textId: e35
+        text: "Message d'alarme 4"
+      - textId: e36
+        text: "Réglage mode régulateur"
+      - textId: e37
+        text: Sortie analogique manuelle 2
+      - textId: e38
+        text: Sortie analogique manuelle 1
+      - textId: e39
+        text: "Température externe"
+  - lang: it
+    texts:
+      - textId: name
+        text: Thermokon WRF06 RR
+      - textId: e1
+        text: Pulsante 1
+      - textId: e2
+        text: Stato pulsanti
+      - textId: e3
+        text: Temperatura
+      - textId: e4
+        text: Offset setpoint 1
+      - textId: e5
+        text: Setpoint 1 effettivo
+      - textId: e6
+        text: Offset setpoint 2
+      - textId: e7
+        text: Setpoint 2 effettivo
+      - textId: e8
+        text: "Velocità ventilatore"
+      - textId: e9
+        text: Occupazione stanza
+      - textId: e10
+        text: Ingresso digitale 1
+      - textId: e11
+        text: Ingresso digitale 2
+      - textId: e12
+        text: Grandezza regolazione riscaldamento
+      - textId: e13
+        text: Grandezza regolazione raffreddamento
+      - textId: e14
+        text: Modo regolatore
+      - textId: e15
+        text: "Umidità relativa"
+      - textId: e16
+        text: Secondi
+      - textId: e17
+        text: Minuti
+      - textId: e18
+        text: Ore
+      - textId: e19
+        text: Giorno
+      - textId: e20
+        text: Mese
+      - textId: e21
+        text: Anno
+      - textId: e22
+        text: Valore esterno 1
+      - textId: e23
+        text: Valore esterno 2
+      - textId: e24
+        text: Valore esterno 3
+      - textId: e25
+        text: Valore esterno 4
+      - textId: e26
+        text: Offset setpoint 1
+      - textId: e27
+        text: Offset setpoint 2
+      - textId: e28
+        text: Setpoint base 1
+      - textId: e29
+        text: Setpoint base 2
+      - textId: e30
+        text: "Imposta velocità ventilatore"
+      - textId: e31
+        text: Imposta occupazione
+      - textId: e32
+        text: Messaggio allarme 1
+      - textId: e33
+        text: Messaggio allarme 2
+      - textId: e34
+        text: Messaggio allarme 3
+      - textId: e35
+        text: Messaggio allarme 4
+      - textId: e36
+        text: Imposta modo regolatore
+      - textId: e37
+        text: Uscita analogica manuale 2
+      - textId: e38
+        text: Uscita analogica manuale 1
+      - textId: e39
+        text: Temperatura esterna
+testdata:
+  holdingRegisters:
+    - address: 513
+      value: 30
+    - address: 514
+      value: 30
+    - address: 515
+      value: 12
+    - address: 516
+      value: 16
+    - address: 517
+      value: 7
+    - address: 518
+      value: 2050
+    - address: 520
+      value: 0
+    - address: 521
+      value: 0
+    - address: 522
+      value: 0
+    - address: 523
+      value: 0
+    - address: 524
+      value: 0
+    - address: 525
+      value: 0
+    - address: 526
+      value: 128
+    - address: 527
+      value: 128
+    - address: 528
+      value: 32767
+    - address: 529
+      value: 1
+    - address: 530
+      value: 1
+    - address: 531
+      value: 1
+    - address: 532
+      value: 1
+    - address: 533
+      value: 1
+    - address: 534
+      value: 2
+    - address: 535
+      value: 511
+    - address: 536
+      value: 511
+    - address: 537
+      value: 0
+  analogInputs:
+    - address: 257
+      value: 1
+    - address: 258
+      value: 8
+    - address: 259
+      value: 0
+    - address: 260
+      value: 0
+    - address: 261
+      value: 0
+    - address: 262
+      value: 0
+    - address: 263
+      value: 0
+    - address: 264
+      value: 32767
+    - address: 265
+      value: 1
+    - address: 266
+      value: 1
+    - address: 267
+      value: 1
+    - address: 268
+      value: 512
+    - address: 269
+      value: 512
+    - address: 270
+      value: 2
+    - address: 271
+      value: 500

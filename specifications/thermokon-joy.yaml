@@ -1,0 +1,1387 @@
+filename: thermokon-joy
+model: JOY
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-joy/thermokon-joy.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-joy/Joy-RS485_Modbus_Manual_en.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.5"
+nextEntityId: 48
+entities:
+  - id: 1
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 515
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: internal_temperature
+    name: Internal temperature sensor
+  - id: 2
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 516
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: external_temperature
+    name: External temperature sensor
+  - id: 3
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 566
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: internal_humidity
+    name: Internal humidity sensor
+  - id: 4
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 571
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: carbon_dioxide
+      state_class: 1
+      uom: ppm
+      identification:
+        min: 0
+        max: 2000
+    valid: true
+    mqttname: co2
+    name: CO2 sensor
+  - id: 5
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 572
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: co2_alarm
+    name: CO2 alarm
+  - id: 6
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 511
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: setpoint_heating
+    name: Set point heating
+  - id: 7
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 512
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: setpoint_cooling
+    name: Set point cooling
+  - id: 8
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 513
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: K
+      identification:
+        min: -150
+        max: 150
+    valid: true
+    mqttname: setpoint_offset
+    name: Set point offset
+  - id: 9
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 554
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: basic_setpoint
+    name: Basic set point
+  - id: 10
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 517
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: heat
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: output_heating
+    name: Output heating
+  - id: 11
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 518
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: cooling
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: output_cooling
+    name: Output cooling
+  - id: 12
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 519
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: fan_coil_stage
+    name: State fan coil stage
+  - id: 13
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 522
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: presence
+    name: State presence
+  - id: 14
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 523
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: dewpoint
+    name: State dew point
+  - id: 15
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 524
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: window_contact
+    name: State window contact/energy off
+  - id: 16
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 526
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: controller_mode
+    name: Controller mode feedback
+  - id: 17
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 553
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: eco_mode
+    name: ECO mode
+  - id: 18
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 565
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: changeover
+    name: Change-over state
+  - id: 19
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 9
+    valid: true
+    mqttname: language
+    name: Language
+  - id: 20
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 4
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -50
+        max: 50
+    valid: true
+    mqttname: offset_internal_sensor
+    name: Offset internal sensor
+  - id: 21
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 5
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -50
+        max: 50
+    valid: true
+    mqttname: offset_external_sensor
+    name: Offset external sensor
+  - id: 22
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 6
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 2
+    valid: true
+    mqttname: unit_temperature
+    name: Unit temperature
+  - id: 23
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 20
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: setpoint_after_reset
+    name: Set point after reset
+  - id: 24
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 21
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: setpoint_adjustment_range
+    name: Set point adjustment range
+  - id: 25
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 22
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 50
+    valid: true
+    mqttname: setpoint_stepping
+    name: Set point stepping
+  - id: 26
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 23
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: deadband_comfort
+    name: Deadband comfort mode
+  - id: 27
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 24
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: deadband_eco
+    name: Deadband ECO mode
+  - id: 28
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 25
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: setpoint_standby
+    name: Set point adjustment standby
+  - id: 29
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 26
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: frost_protection
+    name: Frost protection
+  - id: 30
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 27
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: heating_protection
+    name: Heating protection
+  - id: 31
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 28
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: controller_hysteresis
+    name: Controller hysteresis
+  - id: 32
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 29
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: controller_mode_restart
+    name: Controller mode after device restart
+  - id: 33
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 102
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: proportional_band
+    name: Proportional band Xp
+  - id: 34
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 103
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: min
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: reset_time
+    name: Reset time Tn
+  - id: 35
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 104
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: min_actuating
+    name: Minimum actuating variable
+  - id: 36
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 105
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: max_actuating
+    name: Maximum actuating variable
+  - id: 37
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 107
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: min
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: pwm_cycle
+    name: PWM cycle time
+  - id: 38
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 124
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lock_parameter_menu
+    name: Lock parameter menu
+  - id: 39
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 158
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -100
+        max: 100
+    valid: true
+    mqttname: offset_humidity
+    name: Offset humidity
+  - id: 40
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 255
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: basic_setpoint_set
+    name: Basic set point
+  - id: 41
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 256
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -150
+        max: 150
+    valid: true
+    mqttname: setpoint_offset_set
+    name: Set point offset
+  - id: 42
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 257
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: default_presence
+    name: Default presence
+  - id: 43
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 261
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: device_onoff
+    name: Device On/Off
+  - id: 44
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 262
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: release_keys
+    name: Release keys
+  - id: 45
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 269
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: default_controller
+    name: Default controller
+  - id: 46
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 270
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: fan_coil_stage_set
+    name: Fan coil stage
+  - id: 47
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 274
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: default_eco
+    name: Default ECO mode
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: Thermokon JOY
+      - textId: e1
+        text: Internal temperature sensor
+      - textId: e2
+        text: External temperature sensor
+      - textId: e3
+        text: Internal humidity sensor
+      - textId: e4
+        text: CO2 sensor
+      - textId: e5
+        text: CO2 alarm
+      - textId: e6
+        text: Set point heating
+      - textId: e7
+        text: Set point cooling
+      - textId: e8
+        text: Set point offset
+      - textId: e9
+        text: Basic set point
+      - textId: e10
+        text: Output heating
+      - textId: e11
+        text: Output cooling
+      - textId: e12
+        text: State fan coil stage
+      - textId: e13
+        text: State presence
+      - textId: e14
+        text: State dew point
+      - textId: e15
+        text: State window contact/energy off
+      - textId: e16
+        text: Controller mode feedback
+      - textId: e17
+        text: ECO mode
+      - textId: e18
+        text: Change-over state
+      - textId: e19
+        text: Language
+      - textId: e20
+        text: Offset internal sensor
+      - textId: e21
+        text: Offset external sensor
+      - textId: e22
+        text: Unit temperature
+      - textId: e23
+        text: Set point after reset
+      - textId: e24
+        text: Set point adjustment range
+      - textId: e25
+        text: Set point stepping
+      - textId: e26
+        text: Deadband comfort mode
+      - textId: e27
+        text: Deadband ECO mode
+      - textId: e28
+        text: Set point adjustment standby
+      - textId: e29
+        text: Frost protection
+      - textId: e30
+        text: Heating protection
+      - textId: e31
+        text: Controller hysteresis
+      - textId: e32
+        text: Controller mode after device restart
+      - textId: e33
+        text: Proportional band Xp
+      - textId: e34
+        text: Reset time Tn
+      - textId: e35
+        text: Minimum actuating variable
+      - textId: e36
+        text: Maximum actuating variable
+      - textId: e37
+        text: PWM cycle time
+      - textId: e38
+        text: Lock parameter menu
+      - textId: e39
+        text: Offset humidity
+      - textId: e40
+        text: Basic set point
+      - textId: e41
+        text: Set point offset
+      - textId: e42
+        text: Default presence
+      - textId: e43
+        text: Device On/Off
+      - textId: e44
+        text: Release keys
+      - textId: e45
+        text: Default controller
+      - textId: e46
+        text: Fan coil stage
+      - textId: e47
+        text: Default ECO mode
+  - lang: de
+    texts:
+      - textId: name
+        text: Thermokon JOY
+      - textId: e1
+        text: Interner Temperatursensor
+      - textId: e2
+        text: Externer Temperatursensor
+      - textId: e3
+        text: Interner Feuchtesensor
+      - textId: e4
+        text: CO2-Sensor
+      - textId: e5
+        text: CO2-Alarm
+      - textId: e6
+        text: Sollwert Heizen
+      - textId: e7
+        text: "Sollwert Kühlen"
+      - textId: e8
+        text: Sollwert Offset
+      - textId: e9
+        text: Basis-Sollwert
+      - textId: e10
+        text: Ausgang Heizen
+      - textId: e11
+        text: "Ausgang Kühlen"
+      - textId: e12
+        text: "Zustand Lüfterstufe"
+      - textId: e13
+        text: "Zustand Präsenz"
+      - textId: e14
+        text: Zustand Taupunkt
+      - textId: e15
+        text: Zustand Fensterkontakt/Energiesperre
+      - textId: e16
+        text: Modus Regler
+      - textId: e17
+        text: ECO-Modus
+      - textId: e18
+        text: "Rückmeldung Change-Over Zustand"
+      - textId: e19
+        text: Sprache
+      - textId: e20
+        text: Offset interner Sensor
+      - textId: e21
+        text: Offset externer Sensor
+      - textId: e22
+        text: Einheit Temperatur
+      - textId: e23
+        text: Sollwert nach Reset
+      - textId: e24
+        text: Sollwertverstellbereich
+      - textId: e25
+        text: Sollwert Schrittweite
+      - textId: e26
+        text: Totband Komfort-Modus
+      - textId: e27
+        text: Totband ECO-Modus
+      - textId: e28
+        text: Sollwertverstellung Standby
+      - textId: e29
+        text: Frostschutz
+      - textId: e30
+        text: Heizschutz
+      - textId: e31
+        text: Reglerhysterese
+      - textId: e32
+        text: "Reglermodus nach Geräteneustart"
+      - textId: e33
+        text: Proportionalbereich Xp
+      - textId: e34
+        text: Nachstellzeit Tn
+      - textId: e35
+        text: "Minimale Stellgröße"
+      - textId: e36
+        text: "Maximale Stellgröße"
+      - textId: e37
+        text: PWM-Zykluszeit
+      - textId: e38
+        text: "Parametermenü sperren"
+      - textId: e39
+        text: Offset Feuchte
+      - textId: e40
+        text: Basis-Sollwert
+      - textId: e41
+        text: Sollwert Offset
+      - textId: e42
+        text: "Vorgabe Präsenz"
+      - textId: e43
+        text: "Gerät Ein/Aus"
+      - textId: e44
+        text: Tasten freigeben
+      - textId: e45
+        text: Vorgabe Regler
+      - textId: e46
+        text: "Lüfterstufe"
+      - textId: e47
+        text: Vorgabe ECO-Modus
+  - lang: fr
+    texts:
+      - textId: name
+        text: Thermokon JOY
+      - textId: e1
+        text: "Capteur de température interne"
+      - textId: e2
+        text: "Capteur de température externe"
+      - textId: e3
+        text: "Capteur d'humidité interne"
+      - textId: e4
+        text: Capteur CO2
+      - textId: e5
+        text: Alarme CO2
+      - textId: e6
+        text: Consigne chauffage
+      - textId: e7
+        text: Consigne refroidissement
+      - textId: e8
+        text: Offset consigne
+      - textId: e9
+        text: Consigne de base
+      - textId: e10
+        text: Sortie chauffage
+      - textId: e11
+        text: Sortie refroidissement
+      - textId: e12
+        text: "État vitesse ventilateur"
+      - textId: e13
+        text: "État présence"
+      - textId: e14
+        text: "État point de rosée"
+      - textId: e15
+        text: "État contact fenêtre/coupure énergie"
+      - textId: e16
+        text: "Retour mode régulateur"
+      - textId: e17
+        text: Mode ECO
+      - textId: e18
+        text: "État change-over"
+      - textId: e19
+        text: Langue
+      - textId: e20
+        text: Offset capteur interne
+      - textId: e21
+        text: Offset capteur externe
+      - textId: e22
+        text: "Unité température"
+      - textId: e23
+        text: "Consigne après reset"
+      - textId: e24
+        text: "Plage de réglage consigne"
+      - textId: e25
+        text: "Pas de réglage consigne"
+      - textId: e26
+        text: Bande neutre mode confort
+      - textId: e27
+        text: Bande neutre mode ECO
+      - textId: e28
+        text: "Réglage consigne standby"
+      - textId: e29
+        text: Protection antigel
+      - textId: e30
+        text: Protection chauffage
+      - textId: e31
+        text: "Hystérésis régulateur"
+      - textId: e32
+        text: "Mode régulateur après redémarrage"
+      - textId: e33
+        text: Bande proportionnelle Xp
+      - textId: e34
+        text: "Temps d'intégration Tn"
+      - textId: e35
+        text: "Grandeur de réglage minimale"
+      - textId: e36
+        text: "Grandeur de réglage maximale"
+      - textId: e37
+        text: Temps de cycle PWM
+      - textId: e38
+        text: "Verrouiller menu paramètres"
+      - textId: e39
+        text: "Offset humidité"
+      - textId: e40
+        text: Consigne de base
+      - textId: e41
+        text: Offset consigne
+      - textId: e42
+        text: "Présence par défaut"
+      - textId: e43
+        text: "Appareil Marche/Arrêt"
+      - textId: e44
+        text: "Libérer les touches"
+      - textId: e45
+        text: "Régulateur par défaut"
+      - textId: e46
+        text: Vitesse ventilateur
+      - textId: e47
+        text: "Mode ECO par défaut"
+  - lang: it
+    texts:
+      - textId: name
+        text: Thermokon JOY
+      - textId: e1
+        text: Sensore temperatura interno
+      - textId: e2
+        text: Sensore temperatura esterno
+      - textId: e3
+        text: "Sensore umidità interno"
+      - textId: e4
+        text: Sensore CO2
+      - textId: e5
+        text: Allarme CO2
+      - textId: e6
+        text: Setpoint riscaldamento
+      - textId: e7
+        text: Setpoint raffreddamento
+      - textId: e8
+        text: Offset setpoint
+      - textId: e9
+        text: Setpoint base
+      - textId: e10
+        text: Uscita riscaldamento
+      - textId: e11
+        text: Uscita raffreddamento
+      - textId: e12
+        text: "Stato velocità ventilatore"
+      - textId: e13
+        text: Stato presenza
+      - textId: e14
+        text: Stato punto di rugiada
+      - textId: e15
+        text: Stato contatto finestra/blocco energia
+      - textId: e16
+        text: Feedback modo regolatore
+      - textId: e17
+        text: "Modalità ECO"
+      - textId: e18
+        text: Stato change-over
+      - textId: e19
+        text: Lingua
+      - textId: e20
+        text: Offset sensore interno
+      - textId: e21
+        text: Offset sensore esterno
+      - textId: e22
+        text: "Unità temperatura"
+      - textId: e23
+        text: Setpoint dopo reset
+      - textId: e24
+        text: Gamma regolazione setpoint
+      - textId: e25
+        text: Incremento setpoint
+      - textId: e26
+        text: Zona neutra comfort
+      - textId: e27
+        text: Zona neutra ECO
+      - textId: e28
+        text: Regolazione setpoint standby
+      - textId: e29
+        text: Protezione antigelo
+      - textId: e30
+        text: Protezione riscaldamento
+      - textId: e31
+        text: Isteresi regolatore
+      - textId: e32
+        text: Modo regolatore dopo riavvio
+      - textId: e33
+        text: Banda proporzionale Xp
+      - textId: e34
+        text: Tempo di reset Tn
+      - textId: e35
+        text: Grandezza di regolazione minima
+      - textId: e36
+        text: Grandezza di regolazione massima
+      - textId: e37
+        text: Tempo ciclo PWM
+      - textId: e38
+        text: Blocca menu parametri
+      - textId: e39
+        text: "Offset umidità"
+      - textId: e40
+        text: Setpoint base
+      - textId: e41
+        text: Offset setpoint
+      - textId: e42
+        text: Presenza predefinita
+      - textId: e43
+        text: Dispositivo On/Off
+      - textId: e44
+        text: Sblocca tasti
+      - textId: e45
+        text: Regolatore predefinito
+      - textId: e46
+        text: "Velocità ventilatore"
+      - textId: e47
+        text: "Modalità ECO predefinita"
+testdata:
+  holdingRegisters:
+    - address: 3
+      value: 5
+    - address: 4
+      value: 0
+    - address: 5
+      value: 0
+    - address: 6
+      value: 2
+    - address: 20
+      value: 250
+    - address: 21
+      value: 50
+    - address: 22
+      value: 25
+    - address: 23
+      value: 50
+    - address: 24
+      value: 50
+    - address: 25
+      value: 50
+    - address: 26
+      value: 50
+    - address: 27
+      value: 50
+    - address: 28
+      value: 50
+    - address: 29
+      value: 2
+    - address: 102
+      value: 50
+    - address: 103
+      value: 128
+    - address: 104
+      value: 50
+    - address: 105
+      value: 50
+    - address: 107
+      value: 128
+    - address: 124
+      value: 1
+    - address: 158
+      value: 0
+    - address: 255
+      value: 250
+    - address: 256
+      value: 0
+    - address: 257
+      value: 1
+    - address: 261
+      value: 1
+    - address: 262
+      value: 1
+    - address: 269
+      value: 2
+    - address: 270
+      value: 3
+    - address: 274
+      value: 1
+  analogInputs:
+    - address: 515
+      value: 250
+    - address: 516
+      value: 250
+    - address: 566
+      value: 500
+    - address: 571
+      value: 1000
+    - address: 572
+      value: 1
+    - address: 511
+      value: 250
+    - address: 512
+      value: 250
+    - address: 513
+      value: 0
+    - address: 554
+      value: 250
+    - address: 517
+      value: 1
+    - address: 518
+      value: 1
+    - address: 519
+      value: 3
+    - address: 522
+      value: 1
+    - address: 523
+      value: 1
+    - address: 524
+      value: 1
+    - address: 526
+      value: 1
+    - address: 553
+      value: 1
+    - address: 565
+      value: 1
