@@ -73,6 +73,16 @@ jobs:
         run: |
           cd m2m-server/backend
           pnpm install --frozen-lockfile
+          # pnpm 10 skips linking packages whose build scripts are ignored;
+          # link the two the build needs from the .pnpm store
+          for pkg in mqtt-packet@9.0.2 winston-transport@4.9.0; do
+            name="${pkg%@*}"
+            src="node_modules/.pnpm/$pkg/node_modules/$name"
+            if [ -e "$src" ] && [ ! -e "node_modules/$name" ]; then
+              ln -s "$(pwd)/$src" "node_modules/$name"
+              echo "linked $name from .pnpm store"
+            fi
+          done
           pnpm run build
 
       - name: Validate specification files
