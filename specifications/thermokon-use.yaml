@@ -1,0 +1,2556 @@
+filename: thermokon-use
+model: USE-RS485
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-use/thermokon-use.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-use/Specification_USE-RS485_Modbus.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.1"
+nextEntityId: 96
+entities:
+  - id: 1
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 501
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: sensor_identification
+    name: Sensor identification
+  - id: 2
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 502
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: hw_version_mb
+    name: Hardware version motherboard
+  - id: 3
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 503
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: fw_version_mb
+    name: Firmware version motherboard
+  - id: 4
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 504
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: hw_version_clipon
+    name: Hardware version clip-on board
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 505
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: fw_version_clipon
+    name: Firmware version clip-on board
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 0
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_1
+    name: Temperature 1
+  - id: 7
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: relative_humidity
+    name: Relative humidity
+  - id: 8
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 2
+    converterParameters:
+      multiplier: 0.01
+      offset: 0
+      decimals: 2
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 8300
+    valid: true
+    mqttname: absolute_humidity
+    name: Absolute humidity
+  - id: 9
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 3
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy
+    name: Enthalpy
+  - id: 10
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 4
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_point
+    name: Dew point
+  - id: 11
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 5
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: carbon_dioxide
+      state_class: 1
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2
+    name: CO2
+  - id: 12
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 6
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: voc
+    name: VOC
+  - id: 13
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 7
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: co2_voc_mix
+    name: CO2 VOC mix
+  - id: 14
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 8
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: Pa
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: diff_pressure_1
+    name: Differential pressure 1
+  - id: 15
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 9
+    converterParameters:
+      multiplier: 100
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "m³/h"
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: volume_flow_1
+    name: Volume flow 1
+  - id: 16
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 10
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: Pa
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: diff_pressure_2
+    name: Differential pressure 2
+  - id: 17
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 11
+    converterParameters:
+      multiplier: 100
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "m³/h"
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: volume_flow_2
+    name: Volume flow 2
+  - id: 18
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 12
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: hPa
+      identification:
+        min: 0
+        max: 1200
+    valid: true
+    mqttname: atmospheric_pressure
+    name: Atmospheric pressure
+  - id: 19
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 13
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_2
+    name: Temperature 2
+  - id: 20
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 14
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 495
+    valid: true
+    mqttname: condensate_raw
+    name: Condensate raw value
+  - id: 21
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 15
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: condensate_relay
+    name: Condensate relay state
+  - id: 22
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 60
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: lx
+      identification:
+        min: 0
+        max: 200000
+    valid: true
+    mqttname: illumination_1
+    name: Illumination 1
+  - id: 23
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 62
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: lx
+      identification:
+        min: 0
+        max: 200000
+    valid: true
+    mqttname: illumination_2
+    name: Illumination 2
+  - id: 24
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 90
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: input_1_ntc
+    name: Input 1 temperature NTC10k
+  - id: 25
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 91
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: input_2_ntc
+    name: Input 2 temperature NTC10k
+  - id: 26
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 92
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: input_1_switch
+    name: Input 1 switch contact
+  - id: 27
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 93
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: input_2_switch
+    name: Input 2 switch contact
+  - id: 28
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 400
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 2
+    valid: true
+    mqttname: unit_system
+    name: Unit system
+  - id: 29
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 100
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: offset_temperature_1
+    name: Offset temperature 1
+  - id: 30
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 101
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -100
+        max: 100
+    valid: true
+    mqttname: offset_rh
+    name: Offset relative humidity
+  - id: 31
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 102
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: offset_co2
+    name: Offset CO2
+  - id: 32
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 103
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -100
+        max: 100
+    valid: true
+    mqttname: offset_voc
+    name: Offset VOC
+  - id: 33
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 104
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: Pa
+      identification:
+        min: -1000
+        max: 1000
+    valid: true
+    mqttname: offset_diff_pressure_1
+    name: Offset differential pressure 1
+  - id: 34
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 105
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: Pa
+      identification:
+        min: -1000
+        max: 1000
+    valid: true
+    mqttname: offset_diff_pressure_2
+    name: Offset differential pressure 2
+  - id: 35
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 106
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: lx
+      identification:
+        min: -10000
+        max: 10000
+    valid: true
+    mqttname: offset_illumination_1
+    name: Offset illumination 1
+  - id: 36
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 107
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: lx
+      identification:
+        min: -10000
+        max: 10000
+    valid: true
+    mqttname: offset_illumination_2
+    name: Offset illumination 2
+  - id: 37
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 108
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: hPa
+      identification:
+        min: -1000
+        max: 1000
+    valid: true
+    mqttname: offset_atm_pressure
+    name: Offset atmospheric pressure
+  - id: 38
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 109
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: offset_temperature_2
+    name: Offset temperature 2
+  - id: 39
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 150
+    converterParameters:
+      multiplier: 0.001
+      offset: 0
+      decimals: 3
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: corr_illumination_1
+    name: Correction factor illumination 1
+  - id: 40
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 151
+    converterParameters:
+      multiplier: 0.001
+      offset: 0
+      decimals: 3
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: corr_illumination_2
+    name: Correction factor illumination 2
+  - id: 41
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 200
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temp_1_lower_limit
+    name: Temperature 1 lower limit
+  - id: 42
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 201
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temp_1_upper_limit
+    name: Temperature 1 upper limit
+  - id: 43
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 202
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: rh_lower_limit
+    name: Relative humidity lower limit
+  - id: 44
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 203
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: rh_upper_limit
+    name: Relative humidity upper limit
+  - id: 45
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 204
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 830
+    valid: true
+    mqttname: abs_hum_lower_limit
+    name: Absolute humidity lower limit
+  - id: 46
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 205
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 830
+    valid: true
+    mqttname: abs_hum_upper_limit
+    name: Absolute humidity upper limit
+  - id: 47
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 206
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy_lower_limit
+    name: Enthalpy lower limit
+  - id: 48
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 207
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy_upper_limit
+    name: Enthalpy upper limit
+  - id: 49
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 208
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_lower_limit
+    name: Dew point lower limit
+  - id: 50
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 209
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_upper_limit
+    name: Dew point upper limit
+  - id: 51
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 210
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2_lower_limit
+    name: CO2 lower limit
+  - id: 52
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 211
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2_upper_limit
+    name: CO2 upper limit
+  - id: 53
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 212
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: voc_lower_limit
+    name: VOC lower limit
+  - id: 54
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 213
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: voc_upper_limit
+    name: VOC upper limit
+  - id: 55
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 214
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: co2voc_lower_limit
+    name: CO2 VOC mix lower limit
+  - id: 56
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 215
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: co2voc_upper_limit
+    name: CO2 VOC mix upper limit
+  - id: 57
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 232
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: hPa
+      identification:
+        min: 0
+        max: 1200
+    valid: true
+    mqttname: atm_lower_limit
+    name: Atmospheric pressure lower limit
+  - id: 58
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 233
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: hPa
+      identification:
+        min: 0
+        max: 1200
+    valid: true
+    mqttname: atm_upper_limit
+    name: Atmospheric pressure upper limit
+  - id: 59
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 234
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temp_2_lower_limit
+    name: Temperature 2 lower limit
+  - id: 60
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 235
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temp_2_upper_limit
+    name: Temperature 2 upper limit
+  - id: 61
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 300
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_temperature_1
+    name: Channel temperature 1
+  - id: 62
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 301
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_rh
+    name: Channel relative humidity
+  - id: 63
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 302
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_abs_hum
+    name: Channel absolute humidity
+  - id: 64
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 303
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_enthalpy
+    name: Channel enthalpy
+  - id: 65
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 304
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_dew_point
+    name: Channel dew point
+  - id: 66
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 305
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_co2
+    name: Channel CO2
+  - id: 67
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 306
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_voc
+    name: Channel VOC
+  - id: 68
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 307
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_co2voc
+    name: Channel CO2 VOC mix
+  - id: 69
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 308
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_diff_pressure_1
+    name: Channel differential pressure 1
+  - id: 70
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 309
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_volume_flow_1
+    name: Channel volume flow 1
+  - id: 71
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 310
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_diff_pressure_2
+    name: Channel differential pressure 2
+  - id: 72
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 311
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_volume_flow_2
+    name: Channel volume flow 2
+  - id: 73
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 312
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_illumination_1
+    name: Channel illumination 1
+  - id: 74
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 313
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_illumination_2
+    name: Channel illumination 2
+  - id: 75
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 314
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_atm_pressure
+    name: Channel atmospheric pressure
+  - id: 76
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 315
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_temperature_2
+    name: Channel temperature 2
+  - id: 77
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 316
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_condensate_raw
+    name: Channel condensate raw
+  - id: 78
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 317
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 4
+    valid: true
+    mqttname: channel_condensate_relay
+    name: Channel condensate relay
+  - id: 79
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 402
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: m
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: height_above_sea
+    name: Height above sea level
+  - id: 80
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 403
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: k_value_flow_1
+    name: K-value volume flow 1
+  - id: 81
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 404
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: flow_formula_1
+    name: Volume flow formula 1
+  - id: 82
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 405
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: k_value_flow_2
+    name: K-value volume flow 2
+  - id: 83
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 406
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: flow_formula_2
+    name: Volume flow formula 2
+  - id: 84
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 490
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: beta_input_1
+    name: BETA value input 1
+  - id: 85
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 491
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: beta_input_2
+    name: BETA value input 2
+  - id: 86
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 508
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: V
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: min_output_voltage
+    name: Minimal output voltage
+  - id: 87
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 509
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: V
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: max_output_voltage
+    name: Maximal output voltage
+  - id: 88
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 510
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 3
+      uom: h
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: elapsed_hour_counter
+    name: Elapsed hour counter
+  - id: 89
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 511
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: h
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: service_countdown
+    name: Service countdown
+  - id: 90
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 600
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: lcd_display_channel
+    name: LCD display channel
+  - id: 91
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 601
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: lcd_brightness
+    name: LCD brightness
+  - id: 92
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 602
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: lcd_rotation
+    name: LCD rotation
+  - id: 93
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 603
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lcd_traffic_light
+    name: LCD traffic light function
+  - id: 94
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 604
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lcd_service_symbol
+    name: LCD service symbol
+  - id: 95
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 605
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lcd_calibration_symbol
+    name: LCD calibration symbol
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: Thermokon USE-RS485
+      - textId: e1
+        text: Sensor identification
+      - textId: e2
+        text: Hardware version motherboard
+      - textId: e3
+        text: Firmware version motherboard
+      - textId: e4
+        text: Hardware version clip-on board
+      - textId: e5
+        text: Firmware version clip-on board
+      - textId: e6
+        text: Temperature 1
+      - textId: e7
+        text: Relative humidity
+      - textId: e8
+        text: Absolute humidity
+      - textId: e9
+        text: Enthalpy
+      - textId: e10
+        text: Dew point
+      - textId: e11
+        text: CO2
+      - textId: e12
+        text: VOC
+      - textId: e13
+        text: CO2 VOC mix
+      - textId: e14
+        text: Differential pressure 1
+      - textId: e15
+        text: Volume flow 1
+      - textId: e16
+        text: Differential pressure 2
+      - textId: e17
+        text: Volume flow 2
+      - textId: e18
+        text: Atmospheric pressure
+      - textId: e19
+        text: Temperature 2
+      - textId: e20
+        text: Condensate raw value
+      - textId: e21
+        text: Condensate relay state
+      - textId: e22
+        text: Illumination 1
+      - textId: e23
+        text: Illumination 2
+      - textId: e24
+        text: Input 1 temperature NTC10k
+      - textId: e25
+        text: Input 2 temperature NTC10k
+      - textId: e26
+        text: Input 1 switch contact
+      - textId: e27
+        text: Input 2 switch contact
+      - textId: e28
+        text: Unit system
+      - textId: e29
+        text: Offset temperature 1
+      - textId: e30
+        text: Offset relative humidity
+      - textId: e31
+        text: Offset CO2
+      - textId: e32
+        text: Offset VOC
+      - textId: e33
+        text: Offset differential pressure 1
+      - textId: e34
+        text: Offset differential pressure 2
+      - textId: e35
+        text: Offset illumination 1
+      - textId: e36
+        text: Offset illumination 2
+      - textId: e37
+        text: Offset atmospheric pressure
+      - textId: e38
+        text: Offset temperature 2
+      - textId: e39
+        text: Correction factor illumination 1
+      - textId: e40
+        text: Correction factor illumination 2
+      - textId: e41
+        text: Temperature 1 lower limit
+      - textId: e42
+        text: Temperature 1 upper limit
+      - textId: e43
+        text: Relative humidity lower limit
+      - textId: e44
+        text: Relative humidity upper limit
+      - textId: e45
+        text: Absolute humidity lower limit
+      - textId: e46
+        text: Absolute humidity upper limit
+      - textId: e47
+        text: Enthalpy lower limit
+      - textId: e48
+        text: Enthalpy upper limit
+      - textId: e49
+        text: Dew point lower limit
+      - textId: e50
+        text: Dew point upper limit
+      - textId: e51
+        text: CO2 lower limit
+      - textId: e52
+        text: CO2 upper limit
+      - textId: e53
+        text: VOC lower limit
+      - textId: e54
+        text: VOC upper limit
+      - textId: e55
+        text: CO2 VOC mix lower limit
+      - textId: e56
+        text: CO2 VOC mix upper limit
+      - textId: e57
+        text: Atmospheric pressure lower limit
+      - textId: e58
+        text: Atmospheric pressure upper limit
+      - textId: e59
+        text: Temperature 2 lower limit
+      - textId: e60
+        text: Temperature 2 upper limit
+      - textId: e61
+        text: Channel temperature 1
+      - textId: e62
+        text: Channel relative humidity
+      - textId: e63
+        text: Channel absolute humidity
+      - textId: e64
+        text: Channel enthalpy
+      - textId: e65
+        text: Channel dew point
+      - textId: e66
+        text: Channel CO2
+      - textId: e67
+        text: Channel VOC
+      - textId: e68
+        text: Channel CO2 VOC mix
+      - textId: e69
+        text: Channel differential pressure 1
+      - textId: e70
+        text: Channel volume flow 1
+      - textId: e71
+        text: Channel differential pressure 2
+      - textId: e72
+        text: Channel volume flow 2
+      - textId: e73
+        text: Channel illumination 1
+      - textId: e74
+        text: Channel illumination 2
+      - textId: e75
+        text: Channel atmospheric pressure
+      - textId: e76
+        text: Channel temperature 2
+      - textId: e77
+        text: Channel condensate raw
+      - textId: e78
+        text: Channel condensate relay
+      - textId: e79
+        text: Height above sea level
+      - textId: e80
+        text: K-value volume flow 1
+      - textId: e81
+        text: Volume flow formula 1
+      - textId: e82
+        text: K-value volume flow 2
+      - textId: e83
+        text: Volume flow formula 2
+      - textId: e84
+        text: BETA value input 1
+      - textId: e85
+        text: BETA value input 2
+      - textId: e86
+        text: Minimal output voltage
+      - textId: e87
+        text: Maximal output voltage
+      - textId: e88
+        text: Elapsed hour counter
+      - textId: e89
+        text: Service countdown
+      - textId: e90
+        text: LCD display channel
+      - textId: e91
+        text: LCD brightness
+      - textId: e92
+        text: LCD rotation
+      - textId: e93
+        text: LCD traffic light function
+      - textId: e94
+        text: LCD service symbol
+      - textId: e95
+        text: LCD calibration symbol
+  - lang: de
+    texts:
+      - textId: name
+        text: Thermokon USE-RS485
+      - textId: e1
+        text: Sensoridentifikation
+      - textId: e2
+        text: Hardware-Version Hauptplatine
+      - textId: e3
+        text: Firmware-Version Hauptplatine
+      - textId: e4
+        text: Hardware-Version Aufsteckplatine
+      - textId: e5
+        text: Firmware-Version Aufsteckplatine
+      - textId: e6
+        text: Temperatur 1
+      - textId: e7
+        text: Relative Feuchte
+      - textId: e8
+        text: Absolute Feuchte
+      - textId: e9
+        text: Enthalpie
+      - textId: e10
+        text: Taupunkt
+      - textId: e11
+        text: CO2
+      - textId: e12
+        text: VOC
+      - textId: e13
+        text: CO2 VOC Mix
+      - textId: e14
+        text: Differenzdruck 1
+      - textId: e15
+        text: Volumenstrom 1
+      - textId: e16
+        text: Differenzdruck 2
+      - textId: e17
+        text: Volumenstrom 2
+      - textId: e18
+        text: Luftdruck
+      - textId: e19
+        text: Temperatur 2
+      - textId: e20
+        text: Kondensat Rohwert
+      - textId: e21
+        text: Kondensat Relaisstatus
+      - textId: e22
+        text: Beleuchtung 1
+      - textId: e23
+        text: Beleuchtung 2
+      - textId: e24
+        text: Eingang 1 Temperatur NTC10k
+      - textId: e25
+        text: Eingang 2 Temperatur NTC10k
+      - textId: e26
+        text: Eingang 1 Schaltkontakt
+      - textId: e27
+        text: Eingang 2 Schaltkontakt
+      - textId: e28
+        text: Einheiten-System
+      - textId: e29
+        text: Offset Temperatur 1
+      - textId: e30
+        text: Offset relative Feuchte
+      - textId: e31
+        text: Offset CO2
+      - textId: e32
+        text: Offset VOC
+      - textId: e33
+        text: Offset Differenzdruck 1
+      - textId: e34
+        text: Offset Differenzdruck 2
+      - textId: e35
+        text: Offset Beleuchtung 1
+      - textId: e36
+        text: Offset Beleuchtung 2
+      - textId: e37
+        text: Offset Luftdruck
+      - textId: e38
+        text: Offset Temperatur 2
+      - textId: e39
+        text: Korrekturfaktor Beleuchtung 1
+      - textId: e40
+        text: Korrekturfaktor Beleuchtung 2
+      - textId: e41
+        text: Temperatur 1 Untergrenze
+      - textId: e42
+        text: Temperatur 1 Obergrenze
+      - textId: e43
+        text: Relative Feuchte Untergrenze
+      - textId: e44
+        text: Relative Feuchte Obergrenze
+      - textId: e45
+        text: Absolute Feuchte Untergrenze
+      - textId: e46
+        text: Absolute Feuchte Obergrenze
+      - textId: e47
+        text: Enthalpie Untergrenze
+      - textId: e48
+        text: Enthalpie Obergrenze
+      - textId: e49
+        text: Taupunkt Untergrenze
+      - textId: e50
+        text: Taupunkt Obergrenze
+      - textId: e51
+        text: CO2 Untergrenze
+      - textId: e52
+        text: CO2 Obergrenze
+      - textId: e53
+        text: VOC Untergrenze
+      - textId: e54
+        text: VOC Obergrenze
+      - textId: e55
+        text: CO2 VOC Mix Untergrenze
+      - textId: e56
+        text: CO2 VOC Mix Obergrenze
+      - textId: e57
+        text: Luftdruck Untergrenze
+      - textId: e58
+        text: Luftdruck Obergrenze
+      - textId: e59
+        text: Temperatur 2 Untergrenze
+      - textId: e60
+        text: Temperatur 2 Obergrenze
+      - textId: e61
+        text: Kanal Temperatur 1
+      - textId: e62
+        text: Kanal relative Feuchte
+      - textId: e63
+        text: Kanal absolute Feuchte
+      - textId: e64
+        text: Kanal Enthalpie
+      - textId: e65
+        text: Kanal Taupunkt
+      - textId: e66
+        text: Kanal CO2
+      - textId: e67
+        text: Kanal VOC
+      - textId: e68
+        text: Kanal CO2 VOC Mix
+      - textId: e69
+        text: Kanal Differenzdruck 1
+      - textId: e70
+        text: Kanal Volumenstrom 1
+      - textId: e71
+        text: Kanal Differenzdruck 2
+      - textId: e72
+        text: Kanal Volumenstrom 2
+      - textId: e73
+        text: Kanal Beleuchtung 1
+      - textId: e74
+        text: Kanal Beleuchtung 2
+      - textId: e75
+        text: Kanal Luftdruck
+      - textId: e76
+        text: Kanal Temperatur 2
+      - textId: e77
+        text: Kanal Kondensat Rohwert
+      - textId: e78
+        text: Kanal Kondensat Relais
+      - textId: e79
+        text: "Höhe über Meer"
+      - textId: e80
+        text: K-Wert Volumenstrom 1
+      - textId: e81
+        text: Berechnungsformel Volumenstrom 1
+      - textId: e82
+        text: K-Wert Volumenstrom 2
+      - textId: e83
+        text: Berechnungsformel Volumenstrom 2
+      - textId: e84
+        text: BETA-Wert Eingang 1
+      - textId: e85
+        text: BETA-Wert Eingang 2
+      - textId: e86
+        text: Minimale Ausgangsspannung
+      - textId: e87
+        text: Maximale Ausgangsspannung
+      - textId: e88
+        text: "Betriebsstundenzähler"
+      - textId: e89
+        text: Service-Countdown
+      - textId: e90
+        text: LCD-Anzeigekanal
+      - textId: e91
+        text: LCD-Helligkeit
+      - textId: e92
+        text: LCD-Drehung
+      - textId: e93
+        text: LCD-Ampelfunktion
+      - textId: e94
+        text: LCD-Wartungssymbol
+      - textId: e95
+        text: LCD-Kalibriersymbol
+  - lang: fr
+    texts:
+      - textId: name
+        text: Thermokon USE-RS485
+      - textId: e1
+        text: Identification du capteur
+      - textId: e2
+        text: "Version matérielle carte mère"
+      - textId: e3
+        text: "Version firmware carte mère"
+      - textId: e4
+        text: "Version matérielle carte enfichable"
+      - textId: e5
+        text: Version firmware carte enfichable
+      - textId: e6
+        text: "Température 1"
+      - textId: e7
+        text: "Humidité relative"
+      - textId: e8
+        text: "Humidité absolue"
+      - textId: e9
+        text: Enthalpie
+      - textId: e10
+        text: "Point de rosée"
+      - textId: e11
+        text: CO2
+      - textId: e12
+        text: COV
+      - textId: e13
+        text: "Mélange CO2/COV"
+      - textId: e14
+        text: "Pression différentielle 1"
+      - textId: e15
+        text: "Débit volumique 1"
+      - textId: e16
+        text: "Pression différentielle 2"
+      - textId: e17
+        text: "Débit volumique 2"
+      - textId: e18
+        text: "Pression atmosphérique"
+      - textId: e19
+        text: "Température 2"
+      - textId: e20
+        text: Condensation valeur brute
+      - textId: e21
+        text: "Condensation état relais"
+      - textId: e22
+        text: "Éclairage 1"
+      - textId: e23
+        text: "Éclairage 2"
+      - textId: e24
+        text: "Entrée 1 température NTC10k"
+      - textId: e25
+        text: "Entrée 2 température NTC10k"
+      - textId: e26
+        text: "Entrée 1 contact"
+      - textId: e27
+        text: "Entrée 2 contact"
+      - textId: e28
+        text: "Système d'unités"
+      - textId: e29
+        text: "Offset température 1"
+      - textId: e30
+        text: "Offset humidité relative"
+      - textId: e31
+        text: Offset CO2
+      - textId: e32
+        text: Offset COV
+      - textId: e33
+        text: "Offset pression différentielle 1"
+      - textId: e34
+        text: "Offset pression différentielle 2"
+      - textId: e35
+        text: "Offset éclairage 1"
+      - textId: e36
+        text: "Offset éclairage 2"
+      - textId: e37
+        text: "Offset pression atmosphérique"
+      - textId: e38
+        text: "Offset température 2"
+      - textId: e39
+        text: "Facteur de correction éclairage 1"
+      - textId: e40
+        text: "Facteur de correction éclairage 2"
+      - textId: e41
+        text: "Limite inférieure température 1"
+      - textId: e42
+        text: "Limite supérieure température 1"
+      - textId: e43
+        text: "Limite inférieure humidité relative"
+      - textId: e44
+        text: "Limite supérieure humidité relative"
+      - textId: e45
+        text: "Limite inférieure humidité absolue"
+      - textId: e46
+        text: "Limite supérieure humidité absolue"
+      - textId: e47
+        text: "Limite inférieure enthalpie"
+      - textId: e48
+        text: "Limite supérieure enthalpie"
+      - textId: e49
+        text: "Limite inférieure point de rosée"
+      - textId: e50
+        text: "Limite supérieure point de rosée"
+      - textId: e51
+        text: "Limite inférieure CO2"
+      - textId: e52
+        text: "Limite supérieure CO2"
+      - textId: e53
+        text: "Limite inférieure COV"
+      - textId: e54
+        text: "Limite supérieure COV"
+      - textId: e55
+        text: "Limite inférieure CO2/COV"
+      - textId: e56
+        text: "Limite supérieure CO2/COV"
+      - textId: e57
+        text: "Limite inférieure pression atmosphérique"
+      - textId: e58
+        text: "Limite supérieure pression atmosphérique"
+      - textId: e59
+        text: "Limite inférieure température 2"
+      - textId: e60
+        text: "Limite supérieure température 2"
+      - textId: e61
+        text: "Canal température 1"
+      - textId: e62
+        text: "Canal humidité relative"
+      - textId: e63
+        text: "Canal humidité absolue"
+      - textId: e64
+        text: Canal enthalpie
+      - textId: e65
+        text: "Canal point de rosée"
+      - textId: e66
+        text: Canal CO2
+      - textId: e67
+        text: Canal COV
+      - textId: e68
+        text: Canal CO2/COV
+      - textId: e69
+        text: "Canal pression différentielle 1"
+      - textId: e70
+        text: "Canal débit volumique 1"
+      - textId: e71
+        text: "Canal pression différentielle 2"
+      - textId: e72
+        text: "Canal débit volumique 2"
+      - textId: e73
+        text: "Canal éclairage 1"
+      - textId: e74
+        text: "Canal éclairage 2"
+      - textId: e75
+        text: "Canal pression atmosphérique"
+      - textId: e76
+        text: "Canal température 2"
+      - textId: e77
+        text: Canal condensation brute
+      - textId: e78
+        text: Canal condensation relais
+      - textId: e79
+        text: Altitude
+      - textId: e80
+        text: "Valeur K débit 1"
+      - textId: e81
+        text: "Formule débit 1"
+      - textId: e82
+        text: "Valeur K débit 2"
+      - textId: e83
+        text: "Formule débit 2"
+      - textId: e84
+        text: "Valeur BETA entrée 1"
+      - textId: e85
+        text: "Valeur BETA entrée 2"
+      - textId: e86
+        text: Tension de sortie minimale
+      - textId: e87
+        text: Tension de sortie maximale
+      - textId: e88
+        text: "Compteur d'heures"
+      - textId: e89
+        text: "Compte à rebours maintenance"
+      - textId: e90
+        text: Canal affichage LCD
+      - textId: e91
+        text: "Luminosité LCD"
+      - textId: e92
+        text: Rotation LCD
+      - textId: e93
+        text: Fonction feu tricolore LCD
+      - textId: e94
+        text: Symbole service LCD
+      - textId: e95
+        text: Symbole calibrage LCD
+  - lang: it
+    texts:
+      - textId: name
+        text: Thermokon USE-RS485
+      - textId: e1
+        text: Identificazione sensore
+      - textId: e2
+        text: Versione hardware scheda madre
+      - textId: e3
+        text: Versione firmware scheda madre
+      - textId: e4
+        text: Versione hardware scheda clip-on
+      - textId: e5
+        text: Versione firmware scheda clip-on
+      - textId: e6
+        text: Temperatura 1
+      - textId: e7
+        text: "Umidità relativa"
+      - textId: e8
+        text: "Umidità assoluta"
+      - textId: e9
+        text: Entalpia
+      - textId: e10
+        text: Punto di rugiada
+      - textId: e11
+        text: CO2
+      - textId: e12
+        text: COV
+      - textId: e13
+        text: Miscela CO2/COV
+      - textId: e14
+        text: Pressione differenziale 1
+      - textId: e15
+        text: Portata volumetrica 1
+      - textId: e16
+        text: Pressione differenziale 2
+      - textId: e17
+        text: Portata volumetrica 2
+      - textId: e18
+        text: Pressione atmosferica
+      - textId: e19
+        text: Temperatura 2
+      - textId: e20
+        text: Condensa valore grezzo
+      - textId: e21
+        text: "Condensa stato relè"
+      - textId: e22
+        text: Illuminazione 1
+      - textId: e23
+        text: Illuminazione 2
+      - textId: e24
+        text: Ingresso 1 temperatura NTC10k
+      - textId: e25
+        text: Ingresso 2 temperatura NTC10k
+      - textId: e26
+        text: Ingresso 1 contatto
+      - textId: e27
+        text: Ingresso 2 contatto
+      - textId: e28
+        text: "Sistema di unità"
+      - textId: e29
+        text: Offset temperatura 1
+      - textId: e30
+        text: "Offset umidità relativa"
+      - textId: e31
+        text: Offset CO2
+      - textId: e32
+        text: Offset COV
+      - textId: e33
+        text: Offset pressione differenziale 1
+      - textId: e34
+        text: Offset pressione differenziale 2
+      - textId: e35
+        text: Offset illuminazione 1
+      - textId: e36
+        text: Offset illuminazione 2
+      - textId: e37
+        text: Offset pressione atmosferica
+      - textId: e38
+        text: Offset temperatura 2
+      - textId: e39
+        text: Fattore correzione illuminazione 1
+      - textId: e40
+        text: Fattore correzione illuminazione 2
+      - textId: e41
+        text: Limite inferiore temperatura 1
+      - textId: e42
+        text: Limite superiore temperatura 1
+      - textId: e43
+        text: "Limite inferiore umidità relativa"
+      - textId: e44
+        text: "Limite superiore umidità relativa"
+      - textId: e45
+        text: "Limite inferiore umidità assoluta"
+      - textId: e46
+        text: "Limite superiore umidità assoluta"
+      - textId: e47
+        text: Limite inferiore entalpia
+      - textId: e48
+        text: Limite superiore entalpia
+      - textId: e49
+        text: Limite inferiore punto di rugiada
+      - textId: e50
+        text: Limite superiore punto di rugiada
+      - textId: e51
+        text: Limite inferiore CO2
+      - textId: e52
+        text: Limite superiore CO2
+      - textId: e53
+        text: Limite inferiore COV
+      - textId: e54
+        text: Limite superiore COV
+      - textId: e55
+        text: Limite inferiore CO2/COV
+      - textId: e56
+        text: Limite superiore CO2/COV
+      - textId: e57
+        text: Limite inferiore pressione atmosferica
+      - textId: e58
+        text: Limite superiore pressione atmosferica
+      - textId: e59
+        text: Limite inferiore temperatura 2
+      - textId: e60
+        text: Limite superiore temperatura 2
+      - textId: e61
+        text: Canale temperatura 1
+      - textId: e62
+        text: "Canale umidità relativa"
+      - textId: e63
+        text: "Canale umidità assoluta"
+      - textId: e64
+        text: Canale entalpia
+      - textId: e65
+        text: Canale punto di rugiada
+      - textId: e66
+        text: Canale CO2
+      - textId: e67
+        text: Canale COV
+      - textId: e68
+        text: Canale CO2/COV
+      - textId: e69
+        text: Canale pressione differenziale 1
+      - textId: e70
+        text: Canale portata volumetrica 1
+      - textId: e71
+        text: Canale pressione differenziale 2
+      - textId: e72
+        text: Canale portata volumetrica 2
+      - textId: e73
+        text: Canale illuminazione 1
+      - textId: e74
+        text: Canale illuminazione 2
+      - textId: e75
+        text: Canale pressione atmosferica
+      - textId: e76
+        text: Canale temperatura 2
+      - textId: e77
+        text: Canale condensa grezzo
+      - textId: e78
+        text: "Canale condensa relè"
+      - textId: e79
+        text: Altitudine
+      - textId: e80
+        text: Valore K portata 1
+      - textId: e81
+        text: Formula portata 1
+      - textId: e82
+        text: Valore K portata 2
+      - textId: e83
+        text: Formula portata 2
+      - textId: e84
+        text: Valore BETA ingresso 1
+      - textId: e85
+        text: Valore BETA ingresso 2
+      - textId: e86
+        text: Tensione di uscita minima
+      - textId: e87
+        text: Tensione di uscita massima
+      - textId: e88
+        text: Contatore ore di funzionamento
+      - textId: e89
+        text: Conto alla rovescia manutenzione
+      - textId: e90
+        text: Canale display LCD
+      - textId: e91
+        text: "Luminosità LCD"
+      - textId: e92
+        text: Rotazione LCD
+      - textId: e93
+        text: Funzione semaforo LCD
+      - textId: e94
+        text: Simbolo manutenzione LCD
+      - textId: e95
+        text: Simbolo calibrazione LCD
