@@ -393,9 +393,9 @@ entities:
     modbusAddress: 200
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: -40
@@ -413,9 +413,9 @@ entities:
     modbusAddress: 201
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: -40
@@ -433,9 +433,9 @@ entities:
     modbusAddress: 202
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: 0
@@ -453,9 +453,9 @@ entities:
     modbusAddress: 203
     category: config
     converterParameters:
-      multiplier: 1
+      multiplier: 0.1
       offset: 0
-      decimals: 0
+      decimals: 1
       numberFormat: 0
       identification:
         min: 0
@@ -791,6 +791,8 @@ testdata:
   holdingRegisters:
     - address: 501
       value: 99
+    - address: 400
+      value: 1
     - address: 0
       value: 215
     - address: 1
@@ -799,3 +801,23 @@ testdata:
       value: 623
     - address: 6
       value: 88
+    - address: 100
+      value: 0
+    - address: 101
+      value: 0
+    - address: 102
+      value: 0
+    - address: 103
+      value: 0
+    - address: 200
+      value: 500
+    - address: 201
+      value: 300
+    - address: 202
+      value: 500
+    - address: 203
+      value: 500
+    - address: 210
+      value: 500
+    - address: 211
+      value: 500

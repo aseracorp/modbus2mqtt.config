@@ -34,7 +34,7 @@ jobs:
             cd config
             base="${{ github.event.pull_request.base.sha }}"
             head="${{ github.event.pull_request.head.sha }}"
-            changed=$(git diff --name-only --diff-filter=ACMRT "$base" "$head" -- 'specifications/*.yaml' | tr '\n' ' ')
+            changed=$(git diff --name-only --diff-filter=ACMRT "$base" "$head" -- ':(glob)specifications/*.yaml' | tr '\n' ' ')
             echo "spec_files=$changed" >> "$GITHUB_OUTPUT"
           fi
 
@@ -42,15 +42,9 @@ jobs:
         if: ${{ steps.changed.outputs.spec_files == '' }}
         run: echo "No specification YAML files changed in this PR — nothing to validate."
 
-      - name: Sparse checkout modbus2mqtt backend (fork)
+      - name: Checkout modbus2mqtt fork (full, for build)
         if: ${{ steps.changed.outputs.spec_files != '' }}
-        run: |
-          git clone --filter=blob:none --no-checkout \
-            https://github.com/aseracorp/modbus2mqtt.git m2m-server
-          cd m2m-server
-          git sparse-checkout init --no-cone
-          git sparse-checkout set backend .nvmrc .npmrc package.json
-          git checkout
+        run: git clone --depth 1 https://github.com/aseracorp/modbus2mqtt.git m2m-server
 
       - name: Setup pnpm (pinned to repo packageManager)
         if: ${{ steps.changed.outputs.spec_files != '' }}
@@ -66,23 +60,16 @@ jobs:
           cache: pnpm
           cache-dependency-path: m2m-server/backend/pnpm-lock.yaml
 
-      - name: Install backend dependencies and build
+      - name: Install dependencies (repo root, shamefully-hoisted) and build
         if: ${{ steps.changed.outputs.spec_files != '' }}
         env:
           CI: "true"
         run: |
-          cd m2m-server/backend
+          # Root install populates ./node_modules (shamefully-hoist=true),
+          # so dist/ can resolve debug/mqtt-packet/winston-transport at runtime.
           pnpm install --frozen-lockfile
-          # pnpm 10 skips linking packages whose build scripts are ignored;
-          # link the two the build needs from the .pnpm store
-          for pkg in mqtt-packet@9.0.2 winston-transport@4.9.0; do
-            name="${pkg%@*}"
-            src="node_modules/.pnpm/$pkg/node_modules/$name"
-            if [ -e "$src" ] && [ ! -e "node_modules/$name" ]; then
-              ln -s "$(pwd)/$src" "node_modules/$name"
-              echo "linked $name from .pnpm store"
-            fi
-          done
+          cd backend
+          pnpm install --frozen-lockfile
           pnpm run build
 
       - name: Validate specification files
