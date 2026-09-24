@@ -65,6 +65,7 @@ jobs:
         env:
           CI: "true"
         run: |
+          cd m2m-server
           # Root install populates ./node_modules (shamefully-hoist=true),
           # so dist/ can resolve debug/mqtt-packet/winston-transport at runtime.
           pnpm install --frozen-lockfile
