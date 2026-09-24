@@ -61,7 +61,7 @@ entities:
       state_class: 1
       uom: "°C"
     valid: true
-    mqttname: temperature
+    mqttname: temperature_si
     name: Temperature
 
   - id: 25
@@ -92,7 +92,7 @@ entities:
       uom: "°F"
     valid: true
     mqttname: temperature_imperial
-    name: Temperature (Imperial)
+    name: Temperature
 
   - id: 3
     registerType: 3
@@ -593,11 +593,39 @@ i18n:
       - textId: e9
         text: CO2 VOC mix
       - textId: e25
-        text: Temperature (Imperial)
+        text: Temperature
       - textId: e23
         text: Hardware version
       - textId: e24
         text: Firmware version
+  - lang: de
+    texts:
+      - textId: name
+        text: Thermokon WRF06
+      - textId: e1
+        text: Sensoridentifikation
+      - textId: e2
+        text: Temperatur
+      - textId: e3
+        text: Relative Feuchte
+      - textId: e4
+        text: Absolute Feuchte
+      - textId: e5
+        text: Enthalpie
+      - textId: e6
+        text: Taupunkt
+      - textId: e7
+        text: CO2
+      - textId: e8
+        text: VOC
+      - textId: e9
+        text: CO2 VOC mix
+      - textId: e25
+        text: Temperatur
+      - textId: e23
+        text: Hardwareversion
+      - textId: e24
+        text: Firmwareversion
 testdata:
   holdingRegisters:
     - address: 501
