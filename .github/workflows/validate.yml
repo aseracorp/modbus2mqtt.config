@@ -79,8 +79,9 @@ jobs:
         env:
           M2M_BACKEND: ${{ github.workspace }}/m2m-server
         run: |
+          cd config
           set +e
-          node config/scripts/validate.mjs ${{ steps.changed.outputs.spec_files }} | tee /tmp/validate.log
+          node scripts/validate.mjs ${{ steps.changed.outputs.spec_files }} | tee /tmp/validate.log
           rc=${PIPESTATUS[0]}
           set -e
           exit $rc
