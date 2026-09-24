@@ -66,12 +66,7 @@ jobs:
           cache: pnpm
           cache-dependency-path: m2m-server/backend/pnpm-lock.yaml
 
-      - name: Install backend dependencies and build
-        if: ${{ steps.changed.outputs.spec_files != '' }}
-        run: |
-          cd m2m-server/backend
-          pnpm install --frozen-lockfile
-          pnpm run build
+      
 
       - name: Validate specification files
         id: validate
