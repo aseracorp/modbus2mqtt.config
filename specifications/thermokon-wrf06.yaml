@@ -9,8 +9,11 @@ files:
     fileLocation: 0
     usage: doc
 version: "0.5"
-nextEntityId: 35
+nextEntityId: 26
 entities:
+  # ---- Sensor identification register (used as the condition register) ----
+  # Register 501 bitmask: bit0=Temp, bit1=rH, bit2=AbsHum, bit3=Enthalpy,
+  # bit4=DewPoint, bit5=CO2, bit6=VOC, bit7=CO2VOCMix (1 = sensor present)
   - id: 1
     registerType: 3
     readonly: true
@@ -29,6 +32,8 @@ entities:
     mqttname: sensor_identification
     name: Sensor identification
     entityCategory: diagnostic
+
+  # ---- Value registers (conditional on the sensor-identification bitmask) ----
   - id: 2
     registerType: 3
     readonly: true
@@ -43,7 +48,7 @@ entities:
         bit: 0
         comparator: eq
         value: 1
-    valueDescription: Temperature in °C (SI unit system)
+    valueDescription: 'Temperature in °C (SI unit system)'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -54,10 +59,11 @@ entities:
         max: 125
       device_class: temperature
       state_class: 1
-      uom: °C
+      uom: "°C"
     valid: true
     mqttname: temperature_si
     name: Temperature
+
   - id: 25
     registerType: 3
     readonly: true
@@ -72,7 +78,7 @@ entities:
         bit: 0
         comparator: eq
         value: 1
-    valueDescription: Temperature in °F (Imperial unit system)
+    valueDescription: 'Temperature in °F (Imperial unit system)'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -83,10 +89,11 @@ entities:
         max: 257
       device_class: temperature
       state_class: 1
-      uom: °F
+      uom: "°F"
     valid: true
     mqttname: temperature_imperial
     name: Temperature
+
   - id: 3
     registerType: 3
     readonly: true
@@ -98,7 +105,7 @@ entities:
       bit: 1
       comparator: eq
       value: 1
-    valueDescription: Relative humidity in %
+    valueDescription: 'Relative humidity in %'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -113,6 +120,7 @@ entities:
     valid: true
     mqttname: relative_humidity
     name: Relative humidity
+
   - id: 4
     registerType: 3
     readonly: true
@@ -124,7 +132,7 @@ entities:
       bit: 2
       comparator: eq
       value: 1
-    valueDescription: Absolute humidity in g/m³
+    valueDescription: 'Absolute humidity in g/m³'
     converterParameters:
       multiplier: 0.01
       offset: 0
@@ -135,10 +143,11 @@ entities:
         max: 83
       device_class: humidity
       state_class: 1
-      uom: g/m³
+      uom: "g/m³"
     valid: true
     mqttname: absolute_humidity
     name: Absolute humidity
+
   - id: 5
     registerType: 3
     readonly: true
@@ -150,7 +159,7 @@ entities:
       bit: 3
       comparator: eq
       value: 1
-    valueDescription: Enthalpy in kJ/kg
+    valueDescription: 'Enthalpy in kJ/kg'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -160,10 +169,11 @@ entities:
         min: 0
         max: 274
       state_class: 1
-      uom: kJ/kg
+      uom: "kJ/kg"
     valid: true
     mqttname: enthalpy
     name: Enthalpy
+
   - id: 6
     registerType: 3
     readonly: true
@@ -175,7 +185,7 @@ entities:
       bit: 4
       comparator: eq
       value: 1
-    valueDescription: Dew point in °C
+    valueDescription: 'Dew point in °C'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -186,10 +196,11 @@ entities:
         max: 50
       device_class: temperature
       state_class: 1
-      uom: °C
+      uom: "°C"
     valid: true
     mqttname: dew_point
     name: Dew point
+
   - id: 7
     registerType: 3
     readonly: true
@@ -201,7 +212,7 @@ entities:
       bit: 5
       comparator: eq
       value: 1
-    valueDescription: CO₂ concentration in ppm
+    valueDescription: 'CO₂ concentration in ppm'
     converterParameters:
       multiplier: 1
       offset: 0
@@ -212,10 +223,11 @@ entities:
         max: 5000
       device_class: carbon_dioxide
       state_class: 1
-      uom: ppm
+      uom: "ppm"
     valid: true
     mqttname: co2
     name: CO2
+
   - id: 8
     registerType: 3
     readonly: true
@@ -227,7 +239,7 @@ entities:
       bit: 6
       comparator: eq
       value: 1
-    valueDescription: VOC level in %
+    valueDescription: 'VOC level in %'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -241,6 +253,7 @@ entities:
     valid: true
     mqttname: voc
     name: VOC
+
   - id: 9
     registerType: 3
     readonly: true
@@ -252,7 +265,7 @@ entities:
       bit: 7
       comparator: eq
       value: 1
-    valueDescription: CO₂/VOC mix level in %
+    valueDescription: 'CO₂/VOC mix level in %'
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -266,6 +279,8 @@ entities:
     valid: true
     mqttname: co2_voc_mix
     name: CO2 VOC Mix
+
+  # ---- Config registers (device configuration - NOT published to MQTT/HA) ----
   - id: 10
     registerType: 3
     readonly: false
@@ -289,6 +304,7 @@ entities:
     valid: true
     mqttname: unit_system
     name: Unit system
+
   - id: 11
     registerType: 3
     readonly: false
@@ -304,10 +320,11 @@ entities:
       identification:
         min: -40
         max: 125
-      uom: °C
+      uom: "°C"
     valid: true
     mqttname: offset_temperature
     name: Offset temperature
+
   - id: 12
     registerType: 3
     readonly: false
@@ -327,6 +344,7 @@ entities:
     valid: true
     mqttname: offset_relative_humidity
     name: Offset relative humidity
+
   - id: 13
     registerType: 3
     readonly: false
@@ -342,10 +360,11 @@ entities:
       identification:
         min: -500
         max: 500
-      uom: ppm
+      uom: "ppm"
     valid: true
     mqttname: offset_co2
     name: Offset CO2
+
   - id: 14
     registerType: 3
     readonly: false
@@ -365,6 +384,7 @@ entities:
     valid: true
     mqttname: offset_voc
     name: Offset VOC
+
   - id: 15
     registerType: 3
     readonly: false
@@ -380,10 +400,11 @@ entities:
       identification:
         min: -40
         max: 125
-      uom: °C
+      uom: "°C"
     valid: true
     mqttname: temp_lower_limit
     name: Temperature lower limit
+
   - id: 16
     registerType: 3
     readonly: false
@@ -399,10 +420,11 @@ entities:
       identification:
         min: -40
         max: 125
-      uom: °C
+      uom: "°C"
     valid: true
     mqttname: temp_upper_limit
     name: Temperature upper limit
+
   - id: 17
     registerType: 3
     readonly: false
@@ -422,6 +444,7 @@ entities:
     valid: true
     mqttname: rH_lower_limit
     name: Relative humidity lower limit
+
   - id: 18
     registerType: 3
     readonly: false
@@ -441,6 +464,7 @@ entities:
     valid: true
     mqttname: rH_upper_limit
     name: Relative humidity upper limit
+
   - id: 19
     registerType: 3
     readonly: false
@@ -456,10 +480,11 @@ entities:
       identification:
         min: 0
         max: 5000
-      uom: ppm
+      uom: "ppm"
     valid: true
     mqttname: co2_lower_limit
     name: CO2 lower limit
+
   - id: 20
     registerType: 3
     readonly: false
@@ -475,10 +500,11 @@ entities:
       identification:
         min: 0
         max: 5000
-      uom: ppm
+      uom: "ppm"
     valid: true
     mqttname: co2_upper_limit
     name: CO2 upper limit
+
   - id: 21
     registerType: 3
     readonly: false
@@ -494,6 +520,7 @@ entities:
     valid: true
     mqttname: tlf_threshold_1_2
     name: Traffic-light threshold range 1-2
+
   - id: 22
     registerType: 3
     readonly: false
@@ -509,6 +536,7 @@ entities:
     valid: true
     mqttname: tlf_threshold_2_3
     name: Traffic-light threshold range 2-3
+
   - id: 23
     registerType: 3
     readonly: true
@@ -524,6 +552,7 @@ entities:
     mqttname: hw_version
     name: Hardware version
     entityCategory: diagnostic
+
   - id: 24
     registerType: 3
     readonly: true
@@ -539,246 +568,7 @@ entities:
     mqttname: fw_version
     name: Firmware version
     entityCategory: diagnostic
-  - id: 25
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 204
-    category: config
-    condition:
-      register: 501
-      bit: 2
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 830
-      uom: g/m³
-    valid: true
-    mqttname: abs_hum_lower_limit
-    name: Absolute humidity lower limit
-  - id: 26
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 205
-    category: config
-    condition:
-      register: 501
-      bit: 2
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 830
-      uom: g/m³
-    valid: true
-    mqttname: abs_hum_upper_limit
-    name: Absolute humidity upper limit
-  - id: 27
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 206
-    category: config
-    condition:
-      register: 501
-      bit: 3
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 2740
-      uom: kJ/kg
-    valid: true
-    mqttname: enthalpy_lower_limit
-    name: Enthalpy lower limit
-  - id: 28
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 207
-    category: config
-    condition:
-      register: 501
-      bit: 3
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 2740
-      uom: kJ/kg
-    valid: true
-    mqttname: enthalpy_upper_limit
-    name: Enthalpy upper limit
-  - id: 29
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 208
-    category: config
-    condition:
-      register: 501
-      bit: 4
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: -1100
-        max: 500
-      uom: °C
-    valid: true
-    mqttname: dew_lower_limit
-    name: Dew point lower limit
-  - id: 30
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 209
-    category: config
-    condition:
-      register: 501
-      bit: 4
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: -1100
-        max: 500
-      uom: °C
-    valid: true
-    mqttname: dew_upper_limit
-    name: Dew point upper limit
-  - id: 31
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 212
-    category: config
-    condition:
-      register: 501
-      bit: 6
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 100
-      uom: "%"
-    valid: true
-    mqttname: voc_lower_limit
-    name: VOC lower limit
-  - id: 32
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 213
-    category: config
-    condition:
-      register: 501
-      bit: 6
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 100
-      uom: "%"
-    valid: true
-    mqttname: voc_upper_limit
-    name: VOC upper limit
-  - id: 33
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 214
-    category: config
-    condition:
-      register: 501
-      bit: 7
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 100
-      uom: "%"
-    valid: true
-    mqttname: co2voc_lower_limit
-    name: CO2 VOC mix lower limit
-  - id: 34
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    modbusAddress: 215
-    category: config
-    condition:
-      register: 501
-      bit: 7
-      comparator: eq
-      value: 1
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 100
-      uom: "%"
-    valid: true
-    mqttname: co2voc_upper_limit
-    name: CO2 VOC mix upper limit
+
 i18n:
   - lang: en
     texts:
@@ -834,26 +624,6 @@ i18n:
         text: Hardware version
       - textId: e24
         text: Firmware version
-      - textId: e25
-        text: Absolute humidity lower limit
-      - textId: e26
-        text: Absolute humidity upper limit
-      - textId: e27
-        text: Enthalpy lower limit
-      - textId: e28
-        text: Enthalpy upper limit
-      - textId: e29
-        text: Dew point lower limit
-      - textId: e30
-        text: Dew point upper limit
-      - textId: e31
-        text: VOC lower limit
-      - textId: e32
-        text: VOC upper limit
-      - textId: e33
-        text: CO2 VOC mix lower limit
-      - textId: e34
-        text: CO2 VOC mix upper limit
   - lang: de
     texts:
       - textId: name
@@ -908,26 +678,6 @@ i18n:
         text: Hardware-Version
       - textId: e24
         text: Firmware-Version
-      - textId: e25
-        text: Absolute Feuchte Untergrenze
-      - textId: e26
-        text: Absolute Feuchte Obergrenze
-      - textId: e27
-        text: Enthalpie Untergrenze
-      - textId: e28
-        text: Enthalpie Obergrenze
-      - textId: e29
-        text: Taupunkt Untergrenze
-      - textId: e30
-        text: Taupunkt Obergrenze
-      - textId: e31
-        text: VOC Untergrenze
-      - textId: e32
-        text: VOC Obergrenze
-      - textId: e33
-        text: CO2 VOC Mix Untergrenze
-      - textId: e34
-        text: CO2 VOC Mix Obergrenze
   - lang: fr
     texts:
       - textId: name
@@ -935,73 +685,53 @@ i18n:
       - textId: e1
         text: Identification du capteur
       - textId: e2
-        text: Température
+        text: "Température"
       - textId: e25
-        text: Température
+        text: "Température"
       - textId: e3
-        text: Humidité relative
+        text: "Humidité relative"
       - textId: e4
-        text: Humidité absolue
+        text: "Humidité absolue"
       - textId: e5
         text: Enthalpie
       - textId: e6
-        text: Point de rosée
+        text: "Point de rosée"
       - textId: e7
         text: CO2
       - textId: e8
         text: COV
       - textId: e9
-        text: Mélange CO2/COV
+        text: "Mélange CO2/COV"
       - textId: e10
-        text: Système d'unités
+        text: "Système d'unités"
       - textId: e11
-        text: Offset température
+        text: "Offset température"
       - textId: e12
-        text: Offset humidité relative
+        text: "Offset humidité relative"
       - textId: e13
         text: Offset CO2
       - textId: e14
         text: Offset COV
       - textId: e15
-        text: Limite inférieure température
+        text: "Limite inférieure température"
       - textId: e16
-        text: Limite supérieure température
+        text: "Limite supérieure température"
       - textId: e17
-        text: Limite inférieure humidité relative
+        text: "Limite inférieure humidité relative"
       - textId: e18
-        text: Limite supérieure humidité relative
+        text: "Limite supérieure humidité relative"
       - textId: e19
-        text: Limite inférieure CO2
+        text: "Limite inférieure CO2"
       - textId: e20
-        text: Limite supérieure CO2
+        text: "Limite supérieure CO2"
       - textId: e21
         text: Seuil feu tricolore plage 1-2
       - textId: e22
         text: Seuil feu tricolore plage 2-3
       - textId: e23
-        text: Version matérielle
+        text: "Version matérielle"
       - textId: e24
         text: Version du firmware
-      - textId: e25
-        text: Limite inférieure humidité absolue
-      - textId: e26
-        text: Limite supérieure humidité absolue
-      - textId: e27
-        text: Limite inférieure enthalpie
-      - textId: e28
-        text: Limite supérieure enthalpie
-      - textId: e29
-        text: Limite inférieure point de rosée
-      - textId: e30
-        text: Limite supérieure point de rosée
-      - textId: e31
-        text: Limite inférieure COV
-      - textId: e32
-        text: Limite supérieure COV
-      - textId: e33
-        text: Limite inférieure CO2/COV
-      - textId: e34
-        text: Limite supérieure CO2/COV
   - lang: it
     texts:
       - textId: name
@@ -1013,9 +743,9 @@ i18n:
       - textId: e25
         text: Temperatura
       - textId: e3
-        text: Umidità relativa
+        text: "Umidità relativa"
       - textId: e4
-        text: Umidità assoluta
+        text: "Umidità assoluta"
       - textId: e5
         text: Entalpia
       - textId: e6
@@ -1027,11 +757,11 @@ i18n:
       - textId: e9
         text: Miscela CO2/COV
       - textId: e10
-        text: Sistema di unità
+        text: "Sistema di unità"
       - textId: e11
         text: Offset temperatura
       - textId: e12
-        text: Offset umidità relativa
+        text: "Offset umidità relativa"
       - textId: e13
         text: Offset CO2
       - textId: e14
@@ -1041,9 +771,9 @@ i18n:
       - textId: e16
         text: Limite superiore temperatura
       - textId: e17
-        text: Limite inferiore umidità relativa
+        text: "Limite inferiore umidità relativa"
       - textId: e18
-        text: Limite superiore umidità relativa
+        text: "Limite superiore umidità relativa"
       - textId: e19
         text: Limite inferiore CO2
       - textId: e20
@@ -1056,26 +786,7 @@ i18n:
         text: Versione hardware
       - textId: e24
         text: Versione firmware
-      - textId: e25
-        text: Limite inferiore umidità assoluta
-      - textId: e26
-        text: Limite superiore umidità assoluta
-      - textId: e27
-        text: Limite inferiore entalpia
-      - textId: e28
-        text: Limite superiore entalpia
-      - textId: e29
-        text: Limite inferiore punto di rugiada
-      - textId: e30
-        text: Limite superiore punto di rugiada
-      - textId: e31
-        text: Limite inferiore COV
-      - textId: e32
-        text: Limite superiore COV
-      - textId: e33
-        text: Limite inferiore CO2/COV
-      - textId: e34
-        text: Limite superiore CO2/COV
+
 testdata:
   holdingRegisters:
     - address: 501
@@ -1110,23 +821,3 @@ testdata:
       value: 500
     - address: 211
       value: 500
-    - address: 204
-      value: 415
-    - address: 205
-      value: 415
-    - address: 206
-      value: 1370
-    - address: 207
-      value: 1370
-    - address: 208
-      value: -300
-    - address: 209
-      value: -300
-    - address: 212
-      value: 50
-    - address: 213
-      value: 50
-    - address: 214
-      value: 50
-    - address: 215
-      value: 50

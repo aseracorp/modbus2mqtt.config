@@ -9,7 +9,7 @@ files:
     fileLocation: 0
     usage: doc
 version: "0.5"
-nextEntityId: 55
+nextEntityId: 54
 entities:
   - id: 1
     registerType: 3
@@ -26,7 +26,6 @@ entities:
         min: 0
         max: 255
     valid: true
-    entityCategory: diagnostic
     mqttname: sensor_setup
     name: Sensor setup
   - id: 2
@@ -44,7 +43,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: hardware_version
     name: Hardware version
   - id: 3
@@ -62,7 +60,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: firmware_version_main
     name: Firmware version main
   - id: 4
@@ -80,7 +77,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: firmware_version_revision
     name: Firmware version revision
   - id: 5
@@ -234,37 +230,7 @@ entities:
         min: -400
         max: 1250
     valid: true
-    condition:
-      register: 1025
-      bit: 1
-      comparator: eq
-      value: 1
     mqttname: temperature
-    name: Temperature
-  - id: 54
-    registerType: 3
-    readonly: true
-    converter:
-      name: number
-    modbusAddress: 500
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      device_class: temperature
-      state_class: 1
-      uom: "°C"
-      identification:
-        min: -400
-        max: 1250
-    valid: true
-    condition:
-      register: 1025
-      bit: 0
-      comparator: eq
-      value: 1
-    mqttname: temperature_rh
     name: Temperature
   - id: 13
     registerType: 3
@@ -284,11 +250,6 @@ entities:
         min: 0
         max: 1000
     valid: true
-    condition:
-      register: 1025
-      bit: 0
-      comparator: eq
-      value: 1
     mqttname: relative_humidity
     name: Relative humidity
   - id: 14
@@ -309,11 +270,6 @@ entities:
         min: 0
         max: 830
     valid: true
-    condition:
-      register: 1025
-      bit: 0
-      comparator: eq
-      value: 1
     mqttname: absolute_humidity
     name: Absolute humidity
   - id: 15
@@ -333,11 +289,6 @@ entities:
         min: 0
         max: 2740
     valid: true
-    condition:
-      register: 1025
-      bit: 0
-      comparator: eq
-      value: 1
     mqttname: enthalpy
     name: Enthalpy
   - id: 16
@@ -358,11 +309,6 @@ entities:
         min: -1100
         max: 500
     valid: true
-    condition:
-      register: 1025
-      bit: 0
-      comparator: eq
-      value: 1
     mqttname: dew_point
     name: Dew point
   - id: 17
@@ -383,11 +329,6 @@ entities:
         min: 0
         max: 5000
     valid: true
-    condition:
-      register: 1025
-      bit: 3
-      comparator: eq
-      value: 1
     mqttname: co2
     name: CO2
   - id: 18
@@ -407,11 +348,6 @@ entities:
         min: 0
         max: 1000
     valid: true
-    condition:
-      register: 1025
-      bit: 2
-      comparator: eq
-      value: 1
     mqttname: voc
     name: VOC
   - id: 19
@@ -431,11 +367,6 @@ entities:
         min: 0
         max: 1000
     valid: true
-    condition:
-      register: 1025
-      bit: 3
-      comparator: eq
-      value: 1
     mqttname: co2_voc_mix
     name: CO2 VOC mix
   - id: 20
@@ -1186,8 +1117,6 @@ i18n:
         text: Fan stage after reset
       - textId: e53
         text: Display mode
-      - textId: e54
-        text: Temperature
   - lang: de
     texts:
       - textId: name
@@ -1298,8 +1227,6 @@ i18n:
         text: "Lüfterstufe nach Reset"
       - textId: e53
         text: Anzeigemodus
-      - textId: e54
-        text: Temperatur
   - lang: fr
     texts:
       - textId: name
@@ -1410,8 +1337,6 @@ i18n:
         text: "Vitesse ventilateur après reset"
       - textId: e53
         text: "Mode d'affichage"
-      - textId: e54
-        text: Température
   - lang: it
     texts:
       - textId: name
@@ -1522,8 +1447,6 @@ i18n:
         text: "Velocità ventilatore dopo reset"
       - textId: e53
         text: "Modalità display"
-      - textId: e54
-        text: Temperatura
 testdata:
   holdingRegisters:
     - address: 1025

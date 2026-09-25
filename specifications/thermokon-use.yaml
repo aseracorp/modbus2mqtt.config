@@ -26,7 +26,6 @@ entities:
         min: 0
         max: 65535
     valid: true
-    entityCategory: diagnostic
     mqttname: sensor_identification
     name: Sensor identification
   - id: 2
@@ -44,7 +43,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: hw_version_mb
     name: Hardware version motherboard
   - id: 3
@@ -62,7 +60,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: fw_version_mb
     name: Firmware version motherboard
   - id: 4
@@ -80,7 +77,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: hw_version_clipon
     name: Hardware version clip-on board
   - id: 5
@@ -98,7 +94,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    entityCategory: diagnostic
     mqttname: fw_version_clipon
     name: Firmware version clip-on board
   - id: 6
@@ -119,11 +114,6 @@ entities:
         min: -400
         max: 1250
     valid: true
-    condition:
-      register: 501
-      bit: 0
-      comparator: eq
-      value: 1
     mqttname: temperature_1
     name: Temperature 1
   - id: 7
@@ -144,11 +134,6 @@ entities:
         min: 0
         max: 1000
     valid: true
-    condition:
-      register: 501
-      bit: 1
-      comparator: eq
-      value: 1
     mqttname: relative_humidity
     name: Relative humidity
   - id: 8
@@ -169,11 +154,6 @@ entities:
         min: 0
         max: 8300
     valid: true
-    condition:
-      register: 501
-      bit: 2
-      comparator: eq
-      value: 1
     mqttname: absolute_humidity
     name: Absolute humidity
   - id: 9
@@ -193,11 +173,6 @@ entities:
         min: 0
         max: 2740
     valid: true
-    condition:
-      register: 501
-      bit: 3
-      comparator: eq
-      value: 1
     mqttname: enthalpy
     name: Enthalpy
   - id: 10
@@ -218,11 +193,6 @@ entities:
         min: -1100
         max: 500
     valid: true
-    condition:
-      register: 501
-      bit: 4
-      comparator: eq
-      value: 1
     mqttname: dew_point
     name: Dew point
   - id: 11
@@ -243,11 +213,6 @@ entities:
         min: 0
         max: 5000
     valid: true
-    condition:
-      register: 501
-      bit: 5
-      comparator: eq
-      value: 1
     mqttname: co2
     name: CO2
   - id: 12
@@ -267,11 +232,6 @@ entities:
         min: 0
         max: 1000
     valid: true
-    condition:
-      register: 501
-      bit: 6
-      comparator: eq
-      value: 1
     mqttname: voc
     name: VOC
   - id: 13
@@ -291,11 +251,6 @@ entities:
         min: 0
         max: 1000
     valid: true
-    condition:
-      register: 501
-      bit: 7
-      comparator: eq
-      value: 1
     mqttname: co2_voc_mix
     name: CO2 VOC mix
   - id: 14
@@ -315,11 +270,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    condition:
-      register: 501
-      bit: 8
-      comparator: eq
-      value: 1
     mqttname: diff_pressure_1
     name: Differential pressure 1
   - id: 15
@@ -339,15 +289,6 @@ entities:
         min: 0
         max: 6553500
     valid: true
-    conditions:
-      - register: 501
-        bit: 8
-        comparator: eq
-        value: 1
-      - register: 501
-        bit: 9
-        comparator: eq
-        value: 1
     mqttname: volume_flow_1
     name: Volume flow 1
   - id: 16
@@ -367,15 +308,6 @@ entities:
         min: -32768
         max: 32767
     valid: true
-    conditions:
-      - register: 501
-        bit: 8
-        comparator: eq
-        value: 1
-      - register: 501
-        bit: 10
-        comparator: eq
-        value: 1
     mqttname: diff_pressure_2
     name: Differential pressure 2
   - id: 17
@@ -395,11 +327,6 @@ entities:
         min: 0
         max: 6553500
     valid: true
-    condition:
-      register: 501
-      bit: 11
-      comparator: eq
-      value: 1
     mqttname: volume_flow_2
     name: Volume flow 2
   - id: 18
@@ -419,11 +346,6 @@ entities:
         min: 0
         max: 1200
     valid: true
-    condition:
-      register: 501
-      bit: 14
-      comparator: eq
-      value: 1
     mqttname: atmospheric_pressure
     name: Atmospheric pressure
   - id: 19
@@ -444,11 +366,6 @@ entities:
         min: -400
         max: 1250
     valid: true
-    condition:
-      register: 501
-      bit: 15
-      comparator: eq
-      value: 1
     mqttname: temperature_2
     name: Temperature 2
   - id: 20
@@ -467,15 +384,6 @@ entities:
         min: 0
         max: 495
     valid: true
-    conditions:
-      - register: 501
-        bit: 8
-        comparator: eq
-        value: 0
-      - register: 501
-        bit: 9
-        comparator: eq
-        value: 1
     mqttname: condensate_raw
     name: Condensate raw value
   - id: 21
@@ -494,15 +402,6 @@ entities:
         min: 0
         max: 1
     valid: true
-    conditions:
-      - register: 501
-        bit: 8
-        comparator: eq
-        value: 0
-      - register: 501
-        bit: 10
-        comparator: eq
-        value: 1
     mqttname: condensate_relay
     name: Condensate relay state
   - id: 22
@@ -522,11 +421,6 @@ entities:
         min: 0
         max: 200000
     valid: true
-    condition:
-      register: 501
-      bit: 12
-      comparator: eq
-      value: 1
     mqttname: illumination_1
     name: Illumination 1
   - id: 23
@@ -546,11 +440,6 @@ entities:
         min: 0
         max: 200000
     valid: true
-    condition:
-      register: 501
-      bit: 13
-      comparator: eq
-      value: 1
     mqttname: illumination_2
     name: Illumination 2
   - id: 24
@@ -2668,7 +2557,7 @@ i18n:
 testdata:
   holdingRegisters:
     - address: 501
-      value: 65535
+      value: 32768
     - address: 502
       value: 0
     - address: 503
