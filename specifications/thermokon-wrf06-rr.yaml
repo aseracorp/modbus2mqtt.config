@@ -60,7 +60,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -98,7 +98,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -136,7 +136,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -287,7 +287,7 @@ entities:
       state_class: 1
       uom: "%"
       identification:
-        min: -1
+        min: 0
         max: 1000
     valid: true
     mqttname: relative_humidity
@@ -414,7 +414,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -435,7 +435,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -456,7 +456,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -477,7 +477,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -536,7 +536,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 255
@@ -557,7 +557,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 255
@@ -748,7 +748,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: -3276
         max: 3276
@@ -857,7 +857,7 @@ i18n:
       - textId: e7
         text: Sollwert 2 effektiv
       - textId: e8
-        text: "Lüfterstufe"
+        text: Lüfterstufe
       - textId: e9
         text: Raumbelegung
       - textId: e10
@@ -865,9 +865,9 @@ i18n:
       - textId: e11
         text: Digitaler Eingang 2
       - textId: e12
-        text: "Stellgröße Heizen"
+        text: Stellgröße Heizen
       - textId: e13
-        text: "Stellgröße Kühlen"
+        text: Stellgröße Kühlen
       - textId: e14
         text: Reglermodus
       - textId: e15
@@ -901,7 +901,7 @@ i18n:
       - textId: e29
         text: Basissollwert 2
       - textId: e30
-        text: "Lüfterstufe setzen"
+        text: Lüfterstufe setzen
       - textId: e31
         text: Raumbelegung setzen
       - textId: e32
@@ -927,9 +927,9 @@ i18n:
       - textId: e1
         text: Bouton 1
       - textId: e2
-        text: "État boutons"
+        text: État boutons
       - textId: e3
-        text: "Température"
+        text: Température
       - textId: e4
         text: Offset consigne 1
       - textId: e5
@@ -941,19 +941,19 @@ i18n:
       - textId: e8
         text: Vitesse ventilateur
       - textId: e9
-        text: "Occupation de la pièce"
+        text: Occupation de la pièce
       - textId: e10
-        text: "Entrée digitale 1"
+        text: Entrée digitale 1
       - textId: e11
-        text: "Entrée digitale 2"
+        text: Entrée digitale 2
       - textId: e12
-        text: "Grandeur de réglage chauffage"
+        text: Grandeur de réglage chauffage
       - textId: e13
-        text: "Grandeur de réglage refroidissement"
+        text: Grandeur de réglage refroidissement
       - textId: e14
-        text: "Mode régulateur"
+        text: Mode régulateur
       - textId: e15
-        text: "Humidité relative"
+        text: Humidité relative
       - textId: e16
         text: Secondes
       - textId: e17
@@ -965,7 +965,7 @@ i18n:
       - textId: e20
         text: Mois
       - textId: e21
-        text: "Année"
+        text: Année
       - textId: e22
         text: Valeur externe 1
       - textId: e23
@@ -983,25 +983,25 @@ i18n:
       - textId: e29
         text: Consigne de base 2
       - textId: e30
-        text: "Réglage vitesse ventilateur"
+        text: Réglage vitesse ventilateur
       - textId: e31
-        text: "Réglage occupation"
+        text: Réglage occupation
       - textId: e32
-        text: "Message d'alarme 1"
+        text: Message d'alarme 1
       - textId: e33
-        text: "Message d'alarme 2"
+        text: Message d'alarme 2
       - textId: e34
-        text: "Message d'alarme 3"
+        text: Message d'alarme 3
       - textId: e35
-        text: "Message d'alarme 4"
+        text: Message d'alarme 4
       - textId: e36
-        text: "Réglage mode régulateur"
+        text: Réglage mode régulateur
       - textId: e37
         text: Sortie analogique manuelle 2
       - textId: e38
         text: Sortie analogique manuelle 1
       - textId: e39
-        text: "Température externe"
+        text: Température externe
   - lang: it
     texts:
       - textId: name
@@ -1021,7 +1021,7 @@ i18n:
       - textId: e7
         text: Setpoint 2 effettivo
       - textId: e8
-        text: "Velocità ventilatore"
+        text: Velocità ventilatore
       - textId: e9
         text: Occupazione stanza
       - textId: e10
@@ -1035,7 +1035,7 @@ i18n:
       - textId: e14
         text: Modo regolatore
       - textId: e15
-        text: "Umidità relativa"
+        text: Umidità relativa
       - textId: e16
         text: Secondi
       - textId: e17
@@ -1065,7 +1065,7 @@ i18n:
       - textId: e29
         text: Setpoint base 2
       - textId: e30
-        text: "Imposta velocità ventilatore"
+        text: Imposta velocità ventilatore
       - textId: e31
         text: Imposta occupazione
       - textId: e32

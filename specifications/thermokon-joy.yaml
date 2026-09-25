@@ -9,7 +9,7 @@ files:
     fileLocation: 0
     usage: doc
 version: "0.5"
-nextEntityId: 48
+nextEntityId: 51
 entities:
   - id: 1
     registerType: 4
@@ -24,7 +24,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -44,7 +44,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -71,12 +71,16 @@ entities:
     valid: true
     mqttname: internal_humidity
     name: Internal humidity sensor
+    condition:
+      register: 161
+      comparator: eq
+      value: 1
   - id: 4
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 571
+    modbusAddress: 570
     converterParameters:
       multiplier: 1
       offset: 0
@@ -91,12 +95,16 @@ entities:
     valid: true
     mqttname: co2
     name: CO2 sensor
+    condition:
+      register: 162
+      comparator: eq
+      value: 1
   - id: 5
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 572
+    modbusAddress: 571
     converterParameters:
       multiplier: 1
       offset: 0
@@ -109,6 +117,10 @@ entities:
     valid: true
     mqttname: co2_alarm
     name: CO2 alarm
+    condition:
+      register: 162
+      comparator: eq
+      value: 1
   - id: 6
     registerType: 4
     readonly: true
@@ -122,7 +134,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -142,7 +154,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -182,7 +194,7 @@ entities:
       numberFormat: 0
       device_class: temperature
       state_class: 1
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -384,7 +396,7 @@ entities:
       offset: 0
       decimals: 1
       numberFormat: 0
-      uom: "°C"
+      uom: °C
       identification:
         min: -50
         max: 50
@@ -403,7 +415,7 @@ entities:
       offset: 0
       decimals: 1
       numberFormat: 0
-      uom: "°C"
+      uom: °C
       identification:
         min: -50
         max: 50
@@ -440,7 +452,7 @@ entities:
       offset: 0
       decimals: 1
       numberFormat: 0
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -554,7 +566,7 @@ entities:
       offset: 0
       decimals: 1
       numberFormat: 0
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 100
@@ -573,7 +585,7 @@ entities:
       offset: 0
       decimals: 1
       numberFormat: 0
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 100
@@ -761,7 +773,7 @@ entities:
       offset: 0
       decimals: 1
       numberFormat: 0
-      uom: "°C"
+      uom: °C
       identification:
         min: 0
         max: 500
@@ -895,6 +907,61 @@ entities:
     valid: true
     mqttname: default_eco
     name: Default ECO mode
+  - id: 48
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 572
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1023
+      state_class: 1
+      uom: "%"
+    valid: true
+    mqttname: manipulating_variable_2nd
+    name: Manipulating variable 2nd control loop
+  - id: 49
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 161
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: display_humidity
+    name: Display humidity
+  - id: 50
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    modbusAddress: 162
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: display_co2
+    name: Display CO2
 i18n:
   - lang: en
     texts:
@@ -994,6 +1061,12 @@ i18n:
         text: Fan coil stage
       - textId: e47
         text: Default ECO mode
+      - textId: e48
+        text: Manipulating variable 2nd control loop
+      - textId: e49
+        text: Display humidity
+      - textId: e50
+        text: Display CO2
   - lang: de
     texts:
       - textId: name
@@ -1011,7 +1084,7 @@ i18n:
       - textId: e6
         text: Sollwert Heizen
       - textId: e7
-        text: "Sollwert Kühlen"
+        text: Sollwert Kühlen
       - textId: e8
         text: Sollwert Offset
       - textId: e9
@@ -1019,11 +1092,11 @@ i18n:
       - textId: e10
         text: Ausgang Heizen
       - textId: e11
-        text: "Ausgang Kühlen"
+        text: Ausgang Kühlen
       - textId: e12
-        text: "Zustand Lüfterstufe"
+        text: Zustand Lüfterstufe
       - textId: e13
-        text: "Zustand Präsenz"
+        text: Zustand Präsenz
       - textId: e14
         text: Zustand Taupunkt
       - textId: e15
@@ -1033,7 +1106,7 @@ i18n:
       - textId: e17
         text: ECO-Modus
       - textId: e18
-        text: "Rückmeldung Change-Over Zustand"
+        text: Rückmeldung Change-Over Zustand
       - textId: e19
         text: Sprache
       - textId: e20
@@ -1061,19 +1134,19 @@ i18n:
       - textId: e31
         text: Reglerhysterese
       - textId: e32
-        text: "Reglermodus nach Geräteneustart"
+        text: Reglermodus nach Geräteneustart
       - textId: e33
         text: Proportionalbereich Xp
       - textId: e34
         text: Nachstellzeit Tn
       - textId: e35
-        text: "Minimale Stellgröße"
+        text: Minimale Stellgröße
       - textId: e36
-        text: "Maximale Stellgröße"
+        text: Maximale Stellgröße
       - textId: e37
         text: PWM-Zykluszeit
       - textId: e38
-        text: "Parametermenü sperren"
+        text: Parametermenü sperren
       - textId: e39
         text: Offset Feuchte
       - textId: e40
@@ -1081,27 +1154,33 @@ i18n:
       - textId: e41
         text: Sollwert Offset
       - textId: e42
-        text: "Vorgabe Präsenz"
+        text: Vorgabe Präsenz
       - textId: e43
-        text: "Gerät Ein/Aus"
+        text: Gerät Ein/Aus
       - textId: e44
         text: Tasten freigeben
       - textId: e45
         text: Vorgabe Regler
       - textId: e46
-        text: "Lüfterstufe"
+        text: Lüfterstufe
       - textId: e47
         text: Vorgabe ECO-Modus
+      - textId: e48
+        text: Stellgröße 2. Regelschleife
+      - textId: e49
+        text: Feuchte anzeigen
+      - textId: e50
+        text: CO2 anzeigen
   - lang: fr
     texts:
       - textId: name
         text: Thermokon JOY
       - textId: e1
-        text: "Capteur de température interne"
+        text: Capteur de température interne
       - textId: e2
-        text: "Capteur de température externe"
+        text: Capteur de température externe
       - textId: e3
-        text: "Capteur d'humidité interne"
+        text: Capteur d'humidité interne
       - textId: e4
         text: Capteur CO2
       - textId: e5
@@ -1119,19 +1198,19 @@ i18n:
       - textId: e11
         text: Sortie refroidissement
       - textId: e12
-        text: "État vitesse ventilateur"
+        text: État vitesse ventilateur
       - textId: e13
-        text: "État présence"
+        text: État présence
       - textId: e14
-        text: "État point de rosée"
+        text: État point de rosée
       - textId: e15
-        text: "État contact fenêtre/coupure énergie"
+        text: État contact fenêtre/coupure énergie
       - textId: e16
-        text: "Retour mode régulateur"
+        text: Retour mode régulateur
       - textId: e17
         text: Mode ECO
       - textId: e18
-        text: "État change-over"
+        text: État change-over
       - textId: e19
         text: Langue
       - textId: e20
@@ -1139,57 +1218,63 @@ i18n:
       - textId: e21
         text: Offset capteur externe
       - textId: e22
-        text: "Unité température"
+        text: Unité température
       - textId: e23
-        text: "Consigne après reset"
+        text: Consigne après reset
       - textId: e24
-        text: "Plage de réglage consigne"
+        text: Plage de réglage consigne
       - textId: e25
-        text: "Pas de réglage consigne"
+        text: Pas de réglage consigne
       - textId: e26
         text: Bande neutre mode confort
       - textId: e27
         text: Bande neutre mode ECO
       - textId: e28
-        text: "Réglage consigne standby"
+        text: Réglage consigne standby
       - textId: e29
         text: Protection antigel
       - textId: e30
         text: Protection chauffage
       - textId: e31
-        text: "Hystérésis régulateur"
+        text: Hystérésis régulateur
       - textId: e32
-        text: "Mode régulateur après redémarrage"
+        text: Mode régulateur après redémarrage
       - textId: e33
         text: Bande proportionnelle Xp
       - textId: e34
-        text: "Temps d'intégration Tn"
+        text: Temps d'intégration Tn
       - textId: e35
-        text: "Grandeur de réglage minimale"
+        text: Grandeur de réglage minimale
       - textId: e36
-        text: "Grandeur de réglage maximale"
+        text: Grandeur de réglage maximale
       - textId: e37
         text: Temps de cycle PWM
       - textId: e38
-        text: "Verrouiller menu paramètres"
+        text: Verrouiller menu paramètres
       - textId: e39
-        text: "Offset humidité"
+        text: Offset humidité
       - textId: e40
         text: Consigne de base
       - textId: e41
         text: Offset consigne
       - textId: e42
-        text: "Présence par défaut"
+        text: Présence par défaut
       - textId: e43
-        text: "Appareil Marche/Arrêt"
+        text: Appareil Marche/Arrêt
       - textId: e44
-        text: "Libérer les touches"
+        text: Libérer les touches
       - textId: e45
-        text: "Régulateur par défaut"
+        text: Régulateur par défaut
       - textId: e46
         text: Vitesse ventilateur
       - textId: e47
-        text: "Mode ECO par défaut"
+        text: Mode ECO par défaut
+      - textId: e48
+        text: Grandeur de réglage 2e boucle
+      - textId: e49
+        text: Afficher humidité
+      - textId: e50
+        text: Afficher CO2
   - lang: it
     texts:
       - textId: name
@@ -1199,7 +1284,7 @@ i18n:
       - textId: e2
         text: Sensore temperatura esterno
       - textId: e3
-        text: "Sensore umidità interno"
+        text: Sensore umidità interno
       - textId: e4
         text: Sensore CO2
       - textId: e5
@@ -1217,7 +1302,7 @@ i18n:
       - textId: e11
         text: Uscita raffreddamento
       - textId: e12
-        text: "Stato velocità ventilatore"
+        text: Stato velocità ventilatore
       - textId: e13
         text: Stato presenza
       - textId: e14
@@ -1227,7 +1312,7 @@ i18n:
       - textId: e16
         text: Feedback modo regolatore
       - textId: e17
-        text: "Modalità ECO"
+        text: Modalità ECO
       - textId: e18
         text: Stato change-over
       - textId: e19
@@ -1237,7 +1322,7 @@ i18n:
       - textId: e21
         text: Offset sensore esterno
       - textId: e22
-        text: "Unità temperatura"
+        text: Unità temperatura
       - textId: e23
         text: Setpoint dopo reset
       - textId: e24
@@ -1271,7 +1356,7 @@ i18n:
       - textId: e38
         text: Blocca menu parametri
       - textId: e39
-        text: "Offset umidità"
+        text: Offset umidità
       - textId: e40
         text: Setpoint base
       - textId: e41
@@ -1285,9 +1370,15 @@ i18n:
       - textId: e45
         text: Regolatore predefinito
       - textId: e46
-        text: "Velocità ventilatore"
+        text: Velocità ventilatore
       - textId: e47
-        text: "Modalità ECO predefinita"
+        text: Modalità ECO predefinita
+      - textId: e48
+        text: Grandezza di regolazione 2° anello
+      - textId: e49
+        text: Mostra umidità
+      - textId: e50
+        text: Mostra CO2
 testdata:
   holdingRegisters:
     - address: 3
@@ -1348,6 +1439,10 @@ testdata:
       value: 3
     - address: 274
       value: 1
+    - address: 161
+      value: 1
+    - address: 162
+      value: 1
   analogInputs:
     - address: 515
       value: 250
@@ -1355,10 +1450,6 @@ testdata:
       value: 250
     - address: 566
       value: 500
-    - address: 571
-      value: 1000
-    - address: 572
-      value: 1
     - address: 511
       value: 250
     - address: 512
@@ -1385,3 +1476,9 @@ testdata:
       value: 1
     - address: 565
       value: 1
+    - address: 570
+      value: 1000
+    - address: 571
+      value: 1
+    - address: 572
+      value: 500
