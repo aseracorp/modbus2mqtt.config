@@ -9,9 +9,48 @@ files:
     fileLocation: 0
     usage: doc
 version: "0.5"
-nextEntityId: 51
+nextEntityId: 165
 entities:
   - id: 1
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    category: config
+    entityCategory: diagnostic
+    modbusAddress: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1536
+        max: 1791
+    valid: true
+    mqttname: device_type
+    name: Device type (device coding)
+  - id: 2
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 514
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: internal_temperature
+    name: Internal temperature sensor
+  - id: 3
     registerType: 4
     readonly: true
     converter:
@@ -29,34 +68,19 @@ entities:
         min: 0
         max: 500
     valid: true
-    mqttname: internal_temperature
-    name: Internal temperature sensor
-  - id: 2
-    registerType: 4
-    readonly: true
-    converter:
-      name: number
-    modbusAddress: 516
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      device_class: temperature
-      state_class: 1
-      uom: °C
-      identification:
-        min: 0
-        max: 500
-    valid: true
     mqttname: external_temperature
     name: External temperature sensor
-  - id: 3
+  - id: 4
     registerType: 4
     readonly: true
     converter:
       name: number
     modbusAddress: 566
+    condition:
+      register: 0
+      bit: 5
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -71,16 +95,17 @@ entities:
     valid: true
     mqttname: internal_humidity
     name: Internal humidity sensor
-    condition:
-      register: 161
-      comparator: eq
-      value: 1
-  - id: 4
+  - id: 5
     registerType: 4
     readonly: true
     converter:
       name: number
     modbusAddress: 570
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 1
       offset: 0
@@ -95,16 +120,17 @@ entities:
     valid: true
     mqttname: co2
     name: CO2 sensor
-    condition:
-      register: 162
-      comparator: eq
-      value: 1
-  - id: 5
+  - id: 6
     registerType: 4
     readonly: true
     converter:
       name: number
     modbusAddress: 571
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 1
       offset: 0
@@ -117,11 +143,7 @@ entities:
     valid: true
     mqttname: co2_alarm
     name: CO2 alarm
-    condition:
-      register: 162
-      comparator: eq
-      value: 1
-  - id: 6
+  - id: 7
     registerType: 4
     readonly: true
     converter:
@@ -141,7 +163,7 @@ entities:
     valid: true
     mqttname: setpoint_heating
     name: Set point heating
-  - id: 7
+  - id: 8
     registerType: 4
     readonly: true
     converter:
@@ -161,7 +183,7 @@ entities:
     valid: true
     mqttname: setpoint_cooling
     name: Set point cooling
-  - id: 8
+  - id: 9
     registerType: 4
     readonly: true
     converter:
@@ -181,12 +203,12 @@ entities:
     valid: true
     mqttname: setpoint_offset
     name: Set point offset
-  - id: 9
+  - id: 10
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 554
+    modbusAddress: 553
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -201,12 +223,12 @@ entities:
     valid: true
     mqttname: basic_setpoint
     name: Basic set point
-  - id: 10
+  - id: 11
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 517
+    modbusAddress: 516
     converterParameters:
       multiplier: 1
       offset: 0
@@ -220,12 +242,12 @@ entities:
     valid: true
     mqttname: output_heating
     name: Output heating
-  - id: 11
+  - id: 12
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 518
+    modbusAddress: 517
     converterParameters:
       multiplier: 1
       offset: 0
@@ -239,12 +261,12 @@ entities:
     valid: true
     mqttname: output_cooling
     name: Output cooling
-  - id: 12
+  - id: 13
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 519
+    modbusAddress: 518
     converterParameters:
       multiplier: 1
       offset: 0
@@ -257,12 +279,12 @@ entities:
     valid: true
     mqttname: fan_coil_stage
     name: State fan coil stage
-  - id: 13
+  - id: 14
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 522
+    modbusAddress: 521
     converterParameters:
       multiplier: 1
       offset: 0
@@ -276,7 +298,25 @@ entities:
     valid: true
     mqttname: presence
     name: State presence
-  - id: 14
+  - id: 15
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 522
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: dewpoint
+    name: State dew point
+  - id: 16
     registerType: 4
     readonly: true
     converter:
@@ -292,32 +332,14 @@ entities:
         min: 0
         max: 1
     valid: true
-    mqttname: dewpoint
-    name: State dew point
-  - id: 15
-    registerType: 4
-    readonly: true
-    converter:
-      name: number
-    modbusAddress: 524
-    converterParameters:
-      multiplier: 1
-      offset: 0
-      decimals: 0
-      numberFormat: 0
-      state_class: 1
-      identification:
-        min: 0
-        max: 1
-    valid: true
     mqttname: window_contact
     name: State window contact/energy off
-  - id: 16
+  - id: 17
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 526
+    modbusAddress: 525
     converterParameters:
       multiplier: 1
       offset: 0
@@ -330,12 +352,12 @@ entities:
     valid: true
     mqttname: controller_mode
     name: Controller mode feedback
-  - id: 17
+  - id: 18
     registerType: 4
     readonly: true
     converter:
       name: number
-    modbusAddress: 553
+    modbusAddress: 552
     converterParameters:
       multiplier: 1
       offset: 0
@@ -348,7 +370,7 @@ entities:
     valid: true
     mqttname: eco_mode
     name: ECO mode
-  - id: 18
+  - id: 19
     registerType: 4
     readonly: true
     converter:
@@ -366,7 +388,53 @@ entities:
     valid: true
     mqttname: changeover
     name: Change-over state
-  - id: 19
+  - id: 20
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 538
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: -1
+        max: 65535
+    valid: true
+    mqttname: enocean_error_list
+    name: Error list EnOcean
+  - id: 21
+    registerType: 4
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 539
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: enocean_error_counter
+    name: Error counter EnOcean
+  - id: 22
     registerType: 3
     readonly: false
     converter:
@@ -384,7 +452,7 @@ entities:
     valid: true
     mqttname: language
     name: Language
-  - id: 20
+  - id: 23
     registerType: 3
     readonly: false
     converter:
@@ -403,7 +471,7 @@ entities:
     valid: true
     mqttname: offset_internal_sensor
     name: Offset internal sensor
-  - id: 21
+  - id: 24
     registerType: 3
     readonly: false
     converter:
@@ -422,7 +490,7 @@ entities:
     valid: true
     mqttname: offset_external_sensor
     name: Offset external sensor
-  - id: 22
+  - id: 25
     registerType: 3
     readonly: false
     converter:
@@ -440,7 +508,7 @@ entities:
     valid: true
     mqttname: unit_temperature
     name: Unit temperature
-  - id: 23
+  - id: 26
     registerType: 3
     readonly: false
     converter:
@@ -459,7 +527,7 @@ entities:
     valid: true
     mqttname: setpoint_after_reset
     name: Set point after reset
-  - id: 24
+  - id: 27
     registerType: 3
     readonly: false
     converter:
@@ -478,7 +546,7 @@ entities:
     valid: true
     mqttname: setpoint_adjustment_range
     name: Set point adjustment range
-  - id: 25
+  - id: 28
     registerType: 3
     readonly: false
     converter:
@@ -497,7 +565,7 @@ entities:
     valid: true
     mqttname: setpoint_stepping
     name: Set point stepping
-  - id: 26
+  - id: 29
     registerType: 3
     readonly: false
     converter:
@@ -516,7 +584,7 @@ entities:
     valid: true
     mqttname: deadband_comfort
     name: Deadband comfort mode
-  - id: 27
+  - id: 30
     registerType: 3
     readonly: false
     converter:
@@ -535,7 +603,7 @@ entities:
     valid: true
     mqttname: deadband_eco
     name: Deadband ECO mode
-  - id: 28
+  - id: 31
     registerType: 3
     readonly: false
     converter:
@@ -554,7 +622,7 @@ entities:
     valid: true
     mqttname: setpoint_standby
     name: Set point adjustment standby
-  - id: 29
+  - id: 32
     registerType: 3
     readonly: false
     converter:
@@ -573,7 +641,7 @@ entities:
     valid: true
     mqttname: frost_protection
     name: Frost protection
-  - id: 30
+  - id: 33
     registerType: 3
     readonly: false
     converter:
@@ -592,44 +660,64 @@ entities:
     valid: true
     mqttname: heating_protection
     name: Heating protection
-  - id: 31
+  - id: 34
     registerType: 3
     readonly: false
     converter:
       name: number
     category: config
-    modbusAddress: 28
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      uom: K
-      identification:
-        min: 0
-        max: 100
-    valid: true
-    mqttname: controller_hysteresis
-    name: Controller hysteresis
-  - id: 32
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    category: config
-    modbusAddress: 29
+    modbusAddress: 33
     converterParameters:
       multiplier: 1
       offset: 0
       decimals: 0
       numberFormat: 0
+      uom: min
       identification:
         min: 0
-        max: 3
+        max: 255
     valid: true
-    mqttname: controller_mode_restart
-    name: Controller mode after device restart
-  - id: 33
+    mqttname: reset_time_heating
+    name: Reset time Tn heating
+  - id: 35
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 34
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: min_actuating_heating
+    name: Minimum actuating variable heating
+  - id: 36
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 35
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: max_actuating_heating
+    name: Maximum actuating variable heating
+  - id: 37
     registerType: 3
     readonly: false
     converter:
@@ -648,7 +736,7 @@ entities:
     valid: true
     mqttname: proportional_band
     name: Proportional band Xp
-  - id: 34
+  - id: 38
     registerType: 3
     readonly: false
     converter:
@@ -667,7 +755,7 @@ entities:
     valid: true
     mqttname: reset_time
     name: Reset time Tn
-  - id: 35
+  - id: 39
     registerType: 3
     readonly: false
     converter:
@@ -686,7 +774,7 @@ entities:
     valid: true
     mqttname: min_actuating
     name: Minimum actuating variable
-  - id: 36
+  - id: 40
     registerType: 3
     readonly: false
     converter:
@@ -705,7 +793,7 @@ entities:
     valid: true
     mqttname: max_actuating
     name: Maximum actuating variable
-  - id: 37
+  - id: 41
     registerType: 3
     readonly: false
     converter:
@@ -724,7 +812,7 @@ entities:
     valid: true
     mqttname: pwm_cycle
     name: PWM cycle time
-  - id: 38
+  - id: 42
     registerType: 3
     readonly: false
     converter:
@@ -742,26 +830,7 @@ entities:
     valid: true
     mqttname: lock_parameter_menu
     name: Lock parameter menu
-  - id: 39
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    category: config
-    modbusAddress: 158
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      uom: "%"
-      identification:
-        min: -100
-        max: 100
-    valid: true
-    mqttname: offset_humidity
-    name: Offset humidity
-  - id: 40
+  - id: 43
     registerType: 3
     readonly: false
     converter:
@@ -780,7 +849,7 @@ entities:
     valid: true
     mqttname: basic_setpoint_set
     name: Basic set point
-  - id: 41
+  - id: 44
     registerType: 3
     readonly: false
     converter:
@@ -799,7 +868,7 @@ entities:
     valid: true
     mqttname: setpoint_offset_set
     name: Set point offset
-  - id: 42
+  - id: 45
     registerType: 3
     readonly: false
     converter:
@@ -817,7 +886,7 @@ entities:
     valid: true
     mqttname: default_presence
     name: Default presence
-  - id: 43
+  - id: 46
     registerType: 3
     readonly: false
     converter:
@@ -835,7 +904,7 @@ entities:
     valid: true
     mqttname: device_onoff
     name: Device On/Off
-  - id: 44
+  - id: 47
     registerType: 3
     readonly: false
     converter:
@@ -853,86 +922,42 @@ entities:
     valid: true
     mqttname: release_keys
     name: Release keys
-  - id: 45
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    category: config
-    modbusAddress: 269
-    converterParameters:
-      multiplier: 1
-      offset: 0
-      decimals: 0
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 3
-    valid: true
-    mqttname: default_controller
-    name: Default controller
-  - id: 46
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    category: config
-    modbusAddress: 270
-    converterParameters:
-      multiplier: 1
-      offset: 0
-      decimals: 0
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 6
-    valid: true
-    mqttname: fan_coil_stage_set
-    name: Fan coil stage
-  - id: 47
-    registerType: 3
-    readonly: false
-    converter:
-      name: number
-    category: config
-    modbusAddress: 274
-    converterParameters:
-      multiplier: 1
-      offset: 0
-      decimals: 0
-      numberFormat: 0
-      identification:
-        min: 0
-        max: 1
-    valid: true
-    mqttname: default_eco
-    name: Default ECO mode
   - id: 48
-    registerType: 4
-    readonly: true
+    registerType: 3
+    readonly: false
     converter:
       name: number
-    modbusAddress: 572
+    category: config
+    modbusAddress: 158
+    condition:
+      register: 0
+      bit: 5
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
       decimals: 1
       numberFormat: 0
-      identification:
-        min: 0
-        max: 1023
-      state_class: 1
       uom: "%"
+      identification:
+        min: -100
+        max: 100
     valid: true
-    mqttname: manipulating_variable_2nd
-    name: Manipulating variable 2nd control loop
+    mqttname: offset_humidity
+    name: Offset humidity
   - id: 49
     registerType: 3
     readonly: false
     converter:
       name: number
-    modbusAddress: 161
     category: config
+    modbusAddress: 161
+    condition:
+      register: 0
+      bit: 5
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 1
       offset: 0
@@ -949,8 +974,13 @@ entities:
     readonly: false
     converter:
       name: number
-    modbusAddress: 162
     category: config
+    modbusAddress: 162
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 1
       offset: 0
@@ -962,425 +992,4111 @@ entities:
     valid: true
     mqttname: display_co2
     name: Display CO2
+  - id: 51
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 168
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: co2_changeover_start
+    name: CO2 changeover start measurement
+  - id: 52
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 169
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: mode_2nd_control_loop
+    name: Mode 2nd control loop
+  - id: 53
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 170
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: min_manipulating_2nd
+    name: Minimum manipulating variable 2nd control loop
+  - id: 54
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 171
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2_alarm_threshold
+    name: CO2 alarm threshold
+  - id: 55
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 172
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: m
+      identification:
+        min: -500
+        max: 4000
+    valid: true
+    mqttname: altitude
+    name: Altitude above sea level
+  - id: 56
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 173
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: asc_activation
+    name: ASC activation (automatic self calibration)
+  - id: 57
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 174
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: co2_party_mode
+    name: CO2 party mode
+  - id: 58
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 175
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: threshold_district_cooling
+    name: Threshold district cooling
+  - id: 59
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 176
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: xp_district_cooling
+    name: Xp district cooling
+  - id: 60
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 177
+    condition:
+      register: 0
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: co2_offset
+    name: CO2 offset
+  - id: 61
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 136
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: occupied_eco_override
+    name: Occupied-/ECO-override
+  - id: 62
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 139
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 50
+    valid: true
+    mqttname: sab_offset_bad
+    name: SAB-Offset Bad-Funktion
+  - id: 63
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 274
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: default_eco
+    name: Default ECO mode
+  - id: 64
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 275
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: heating_energy_reduction
+    name: Heating reduction of energy consumption
+  - id: 65
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 276
+    condition:
+      register: 0
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: cooling_energy_reduction
+    name: Cooling reduction of energy consumption
+  - id: 66
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 7
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: format_time
+    name: Format time
+  - id: 67
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 8
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: format_date
+    name: Format date
+  - id: 68
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 9
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 5
+    valid: true
+    mqttname: fan_stage_count
+    name: Number of fan coil stages
+  - id: 69
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 30
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: threshold_fan_stage_1
+    name: Threshold fan coil stage 1 On
+  - id: 70
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 31
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: threshold_fan_stage_2
+    name: Threshold fan state 2 On
+  - id: 71
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 32
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: threshold_fan_stage_3
+    name: Threshold fan coil stage 3 On
+  - id: 72
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 35
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch1_start_h1
+    name: Time channel 1 start hour period 1
+  - id: 73
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 36
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch1_start_m1
+    name: Time channel 1 start minute period 1
+  - id: 74
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 37
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch1_setpoint1
+    name: Time channel 1 set point period 1
+  - id: 75
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 38
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch1_stage1
+    name: Time channel 1 fan coil stage period 1
+  - id: 76
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 40
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch1_start_h2
+    name: Time channel 1 start hour period 2
+  - id: 77
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 41
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch1_start_m2
+    name: Time channel 1 start minute period 2
+  - id: 78
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 42
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch1_setpoint2
+    name: Time channel 1 set point period 2
+  - id: 79
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 43
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch1_stage2
+    name: Time channel 1 fan coil stage period 2
+  - id: 80
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 45
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch1_start_h3
+    name: Time channel 1 start hour period 3
+  - id: 81
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 46
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch1_start_m3
+    name: Time channel 1 start minute period 3
+  - id: 82
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 47
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch1_setpoint3
+    name: Time channel 1 set point period 3
+  - id: 83
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 48
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch1_stage3
+    name: Time channel 1 fan coil stage period 3
+  - id: 84
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 50
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch1_start_h4
+    name: Time channel 1 start hour period 4
+  - id: 85
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 51
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch1_start_m4
+    name: Time channel 1 start minute period 4
+  - id: 86
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 52
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch1_setpoint4
+    name: Time channel 1 set point period 4
+  - id: 87
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 53
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch1_stage4
+    name: Time channel 1 fan coil stage period 4
+  - id: 88
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 56
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch2_start_h1
+    name: Time channel 2 start hour period 1
+  - id: 89
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 57
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch2_start_m1
+    name: Time channel 2 start minute period 1
+  - id: 90
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 58
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch2_setpoint1
+    name: Time channel 2 set point period 1
+  - id: 91
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 59
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch2_stage1
+    name: Time channel 2 fan coil stage period 1
+  - id: 92
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 61
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch2_start_h2
+    name: Time channel 2 start hour period 2
+  - id: 93
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 62
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch2_start_m2
+    name: Time channel 2 start minute period 2
+  - id: 94
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 63
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch2_setpoint2
+    name: Time channel 2 set point period 2
+  - id: 95
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 64
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch2_stage2
+    name: Time channel 2 fan coil stage period 2
+  - id: 96
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 66
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch2_start_h3
+    name: Time channel 2 start hour period 3
+  - id: 97
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 67
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch2_start_m3
+    name: Time channel 2 start minute period 3
+  - id: 98
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 68
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch2_setpoint3
+    name: Time channel 2 set point period 3
+  - id: 99
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 69
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch2_stage3
+    name: Time channel 2 fan coil stage period 3
+  - id: 100
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 71
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch2_start_h4
+    name: Time channel 2 start hour period 4
+  - id: 101
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 72
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch2_start_m4
+    name: Time channel 2 start minute period 4
+  - id: 102
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 73
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch2_setpoint4
+    name: Time channel 2 set point period 4
+  - id: 103
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 74
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch2_stage4
+    name: Time channel 2 fan coil stage period 4
+  - id: 104
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 77
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch3_start_h1
+    name: Time channel 3 start hour period 1
+  - id: 105
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 78
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch3_start_m1
+    name: Time channel 3 start minute period 1
+  - id: 106
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 79
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch3_setpoint1
+    name: Time channel 3 set point period 1
+  - id: 107
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 80
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch3_stage1
+    name: Time channel 3 fan coil stage period 1
+  - id: 108
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 82
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch3_start_h2
+    name: Time channel 3 start hour period 2
+  - id: 109
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 83
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch3_start_m2
+    name: Time channel 3 start minute period 2
+  - id: 110
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 84
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch3_setpoint2
+    name: Time channel 3 set point period 2
+  - id: 111
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 85
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch3_stage2
+    name: Time channel 3 fan coil stage period 2
+  - id: 112
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 87
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch3_start_h3
+    name: Time channel 3 start hour period 3
+  - id: 113
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 88
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch3_start_m3
+    name: Time channel 3 start minute period 3
+  - id: 114
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 89
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch3_setpoint3
+    name: Time channel 3 set point period 3
+  - id: 115
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 90
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch3_stage3
+    name: Time channel 3 fan coil stage period 3
+  - id: 116
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 92
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 23
+    valid: true
+    mqttname: time_ch3_start_h4
+    name: Time channel 3 start hour period 4
+  - id: 117
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 93
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 59
+    valid: true
+    mqttname: time_ch3_start_m4
+    name: Time channel 3 start minute period 4
+  - id: 118
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 94
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: time_ch3_setpoint4
+    name: Time channel 3 set point period 4
+  - id: 119
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 95
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: time_ch3_stage4
+    name: Time channel 3 fan coil stage period 4
+  - id: 120
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 98
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 5, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: fan_coil_assignment
+    name: Fan coil assignment
+  - id: 121
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 99
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: max_heating_load
+    name: Max heating load
+  - id: 122
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 100
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 2, 6, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: max_cooling_load
+    name: Max cooling load
+  - id: 123
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 108
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 2, 6, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: heating_controller_type
+    name: Heating controller type
+  - id: 124
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 109
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 2, 4, 6, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: cooling_controller_type
+    name: Cooling controller type
+  - id: 125
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 110
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: fan_control_steps
+    name: Steps fan coil control
+  - id: 126
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 111
+    condition:
+      register: 0
+      mask: 0xf
+      values: [4]
+      comparator: eq
+      value: 4
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: fan_coil_min
+    name: Fan coil minimum
+  - id: 127
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 112
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 5, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: fan_coil_max
+    name: Fan coil maximum
+  - id: 128
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 113
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: min
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: fan_startup_time
+    name: Startup-time fan coil
+  - id: 129
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 115
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: special_fn_key_onoff
+    name: Special function key ON/OFF
+  - id: 130
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 116
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: special_fn_top_left
+    name: Special function top left
+  - id: 131
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 118
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: special_fn_top_right
+    name: Special function top right
+  - id: 132
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 119
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: special_fn_center_left
+    name: Special function center left
+  - id: 133
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 120
+    condition:
+      register: 0
+      mask: 0xf
+      values: [4, 5]
+      comparator: eq
+      value: 4
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: special_fn_center_right
+    name: Special function center right
+  - id: 134
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 126
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: min
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: reset_time_cooling
+    name: Reset time Tn cooling
+  - id: 135
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 127
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 4, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: min_actuating_cooling
+    name: Minimum actuating variable cooling
+  - id: 136
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 128
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 5, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: max_actuating_cooling
+    name: Maximum actuating variable cooling
+  - id: 137
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 129
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: fan_switch_behavior
+    name: Switch/control behavior fan stages
+  - id: 138
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 130
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 4, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: device_state_after_reset
+    name: Device state after reset
+  - id: 139
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 131
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 4, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: device_values_after_reset
+    name: Device values after reset
+  - id: 140
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 132
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 3
+    valid: true
+    mqttname: direction_output_heating
+    name: Effective direction of output heating
+  - id: 141
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 133
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 3
+    valid: true
+    mqttname: direction_output_cooling
+    name: Effective direction of output cooling
+  - id: 142
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 134
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: key_fan_stage_auto
+    name: Key fan stage with/without AUTO
+  - id: 143
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 145
+    conditions:
+      - register: 0
+        bit: 4
+        comparator: eq
+        value: 1
+      - register: 0
+        mask: 0xf
+        values: [1, 8]
+        comparator: eq
+        value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: enocean_wakeup
+    name: EnOcean-Wake-up
+  - id: 144
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 146
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 5, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: s
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: min_runtime_output
+    name: Minimum runtime controller output
+  - id: 145
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 147
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 2, 4, 5, 6, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: s
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: delay_mode_change
+    name: Delay time controller mode change
+  - id: 146
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 148
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 3
+    valid: true
+    mqttname: direction_analog_heating
+    name: Effective direction of analog output heating
+  - id: 147
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 149
+    condition:
+      register: 0
+      mask: 0xf
+      values: [5]
+      comparator: eq
+      value: 5
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 3
+    valid: true
+    mqttname: direction_analog_cooling
+    name: Effective direction of analog output cooling
+  - id: 148
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 150
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: deactivate_hw_outputs
+    name: Deactivation Hardware outputs
+  - id: 149
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 151
+    conditions:
+      - register: 0
+        bit: 4
+        comparator: eq
+        value: 1
+      - register: 0
+        mask: 0xf
+        values: [2, 6]
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 9999
+    valid: true
+    mqttname: enocean_menu_password
+    name: EnOcean menu password
+  - id: 150
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 152
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: heating_100_6way
+    name: "Heating 100% - generic 6-way valve"
+  - id: 151
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 153
+    condition:
+      register: 0
+      mask: 0xf
+      values: [4, 5]
+      comparator: eq
+      value: 4
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: heating_0_6way
+    name: "Heating 0% - generic 6-way valve"
+  - id: 152
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 154
+    condition:
+      register: 0
+      mask: 0xf
+      values: [4]
+      comparator: eq
+      value: 4
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: cooling_100_6way
+    name: "Cooling 100% - generic 6-way valve"
+  - id: 153
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 155
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 4, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: cooling_0_6way
+    name: "Cooling 0% - generic 6-way valve"
+  - id: 154
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 156
+    condition:
+      register: 0
+      mask: 0xf
+      values: [0, 1, 2, 4, 5, 6, 8, 9]
+      comparator: eq
+      value: 0
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: fade_in_controller_mode
+    name: Fade in controller mode
+  - id: 155
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 157
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: s
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: fan_followup_time
+    name: Fan follow-up-time
+  - id: 156
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 159
+    condition:
+      register: 0
+      mask: 0xf
+      values: [1, 4, 8]
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: max_temp_underfloor
+    name: Maximum temperature underfloor control
+  - id: 157
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 160
+    condition:
+      register: 0
+      mask: 0xf
+      values: [4]
+      comparator: eq
+      value: 4
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: max_fan_speed_auto
+    name: Limitation of max. fan speed in automatic mode
+  - id: 158
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 2
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: valve_6way_type
+    name: 6-way valve type
+  - id: 159
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 268
+    condition:
+      register: 0
+      mask: 0xf
+      values: [4]
+      comparator: eq
+      value: 4
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 2020
+        max: 2100
+    valid: true
+    mqttname: date_year
+    name: Date year
+  - id: 160
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 269
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: default_controller
+    name: Default controller
+  - id: 161
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 270
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: fan_coil_stage_set
+    name: Fan coil stage
+  - id: 162
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 271
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: default_output_heating
+    name: Default output heating
+  - id: 163
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 272
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 4, 5, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: default_output_cooling
+    name: Default output cooling
+  - id: 164
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 273
+    condition:
+      register: 0
+      mask: 0xf
+      values: [2, 6]
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: default_6way_output
+    name: Default 6-way valve output
 i18n:
   - lang: en
     texts:
       - textId: name
-        text: Thermokon JOY
+        text: JOY
       - textId: e1
-        text: Internal temperature sensor
+        text: Device type (device coding)
       - textId: e2
-        text: External temperature sensor
+        text: Internal temperature sensor
       - textId: e3
-        text: Internal humidity sensor
+        text: External temperature sensor
       - textId: e4
-        text: CO2 sensor
+        text: Internal humidity sensor
       - textId: e5
-        text: CO2 alarm
+        text: CO2 sensor
       - textId: e6
-        text: Set point heating
+        text: CO2 alarm
       - textId: e7
-        text: Set point cooling
+        text: Set point heating
       - textId: e8
-        text: Set point offset
+        text: Set point cooling
       - textId: e9
-        text: Basic set point
-      - textId: e10
-        text: Output heating
-      - textId: e11
-        text: Output cooling
-      - textId: e12
-        text: State fan coil stage
-      - textId: e13
-        text: State presence
-      - textId: e14
-        text: State dew point
-      - textId: e15
-        text: State window contact/energy off
-      - textId: e16
-        text: Controller mode feedback
-      - textId: e17
-        text: ECO mode
-      - textId: e18
-        text: Change-over state
-      - textId: e19
-        text: Language
-      - textId: e20
-        text: Offset internal sensor
-      - textId: e21
-        text: Offset external sensor
-      - textId: e22
-        text: Unit temperature
-      - textId: e23
-        text: Set point after reset
-      - textId: e24
-        text: Set point adjustment range
-      - textId: e25
-        text: Set point stepping
-      - textId: e26
-        text: Deadband comfort mode
-      - textId: e27
-        text: Deadband ECO mode
-      - textId: e28
-        text: Set point adjustment standby
-      - textId: e29
-        text: Frost protection
-      - textId: e30
-        text: Heating protection
-      - textId: e31
-        text: Controller hysteresis
-      - textId: e32
-        text: Controller mode after device restart
-      - textId: e33
-        text: Proportional band Xp
-      - textId: e34
-        text: Reset time Tn
-      - textId: e35
-        text: Minimum actuating variable
-      - textId: e36
-        text: Maximum actuating variable
-      - textId: e37
-        text: PWM cycle time
-      - textId: e38
-        text: Lock parameter menu
-      - textId: e39
-        text: Offset humidity
-      - textId: e40
-        text: Basic set point
-      - textId: e41
         text: Set point offset
+      - textId: e10
+        text: Basic set point
+      - textId: e11
+        text: Output heating
+      - textId: e12
+        text: Output cooling
+      - textId: e13
+        text: State fan coil stage
+      - textId: e14
+        text: State presence
+      - textId: e15
+        text: State dew point
+      - textId: e16
+        text: State window contact/energy off
+      - textId: e17
+        text: Controller mode feedback
+      - textId: e18
+        text: ECO mode
+      - textId: e19
+        text: Change-over state
+      - textId: e20
+        text: Error list EnOcean
+      - textId: e21
+        text: Error counter EnOcean
+      - textId: e22
+        text: Language
+      - textId: e23
+        text: Offset internal sensor
+      - textId: e24
+        text: Offset external sensor
+      - textId: e25
+        text: Unit temperature
+      - textId: e26
+        text: Set point after reset
+      - textId: e27
+        text: Set point adjustment range
+      - textId: e28
+        text: Set point stepping
+      - textId: e29
+        text: Deadband comfort mode
+      - textId: e30
+        text: Deadband ECO mode
+      - textId: e31
+        text: Set point adjustment standby
+      - textId: e32
+        text: Frost protection
+      - textId: e33
+        text: Heating protection
+      - textId: e34
+        text: Reset time Tn heating
+      - textId: e35
+        text: Minimum actuating variable heating
+      - textId: e36
+        text: Maximum actuating variable heating
+      - textId: e37
+        text: Proportional band Xp
+      - textId: e38
+        text: Reset time Tn
+      - textId: e39
+        text: Minimum actuating variable
+      - textId: e40
+        text: Maximum actuating variable
+      - textId: e41
+        text: PWM cycle time
       - textId: e42
-        text: Default presence
+        text: Lock parameter menu
       - textId: e43
-        text: Device On/Off
+        text: Basic set point
       - textId: e44
-        text: Release keys
+        text: Set point offset
       - textId: e45
-        text: Default controller
+        text: Default presence
       - textId: e46
-        text: Fan coil stage
+        text: Device On/Off
       - textId: e47
-        text: Default ECO mode
+        text: Release keys
       - textId: e48
-        text: Manipulating variable 2nd control loop
+        text: Offset humidity
       - textId: e49
         text: Display humidity
       - textId: e50
         text: Display CO2
+      - textId: e51
+        text: CO2 changeover start measurement
+      - textId: e52
+        text: Mode 2nd control loop
+      - textId: e53
+        text: Minimum manipulating variable 2nd control loop
+      - textId: e54
+        text: CO2 alarm threshold
+      - textId: e55
+        text: Altitude above sea level
+      - textId: e56
+        text: ASC activation (automatic self calibration)
+      - textId: e57
+        text: CO2 party mode
+      - textId: e58
+        text: Threshold district cooling
+      - textId: e59
+        text: Xp district cooling
+      - textId: e60
+        text: CO2 offset
+      - textId: e61
+        text: Occupied-/ECO-override
+      - textId: e62
+        text: SAB-Offset Bad-Funktion
+      - textId: e63
+        text: Default ECO mode
+      - textId: e64
+        text: Heating reduction of energy consumption
+      - textId: e65
+        text: Cooling reduction of energy consumption
+      - textId: e66
+        text: Format time
+      - textId: e67
+        text: Format date
+      - textId: e68
+        text: Number of fan coil stages
+      - textId: e69
+        text: Threshold fan coil stage 1 On
+      - textId: e70
+        text: Threshold fan state 2 On
+      - textId: e71
+        text: Threshold fan coil stage 3 On
+      - textId: e72
+        text: Time channel 1 start hour period 1
+      - textId: e73
+        text: Time channel 1 start minute period 1
+      - textId: e74
+        text: Time channel 1 set point period 1
+      - textId: e75
+        text: Time channel 1 fan coil stage period 1
+      - textId: e76
+        text: Time channel 1 start hour period 2
+      - textId: e77
+        text: Time channel 1 start minute period 2
+      - textId: e78
+        text: Time channel 1 set point period 2
+      - textId: e79
+        text: Time channel 1 fan coil stage period 2
+      - textId: e80
+        text: Time channel 1 start hour period 3
+      - textId: e81
+        text: Time channel 1 start minute period 3
+      - textId: e82
+        text: Time channel 1 set point period 3
+      - textId: e83
+        text: Time channel 1 fan coil stage period 3
+      - textId: e84
+        text: Time channel 1 start hour period 4
+      - textId: e85
+        text: Time channel 1 start minute period 4
+      - textId: e86
+        text: Time channel 1 set point period 4
+      - textId: e87
+        text: Time channel 1 fan coil stage period 4
+      - textId: e88
+        text: Time channel 2 start hour period 1
+      - textId: e89
+        text: Time channel 2 start minute period 1
+      - textId: e90
+        text: Time channel 2 set point period 1
+      - textId: e91
+        text: Time channel 2 fan coil stage period 1
+      - textId: e92
+        text: Time channel 2 start hour period 2
+      - textId: e93
+        text: Time channel 2 start minute period 2
+      - textId: e94
+        text: Time channel 2 set point period 2
+      - textId: e95
+        text: Time channel 2 fan coil stage period 2
+      - textId: e96
+        text: Time channel 2 start hour period 3
+      - textId: e97
+        text: Time channel 2 start minute period 3
+      - textId: e98
+        text: Time channel 2 set point period 3
+      - textId: e99
+        text: Time channel 2 fan coil stage period 3
+      - textId: e100
+        text: Time channel 2 start hour period 4
+      - textId: e101
+        text: Time channel 2 start minute period 4
+      - textId: e102
+        text: Time channel 2 set point period 4
+      - textId: e103
+        text: Time channel 2 fan coil stage period 4
+      - textId: e104
+        text: Time channel 3 start hour period 1
+      - textId: e105
+        text: Time channel 3 start minute period 1
+      - textId: e106
+        text: Time channel 3 set point period 1
+      - textId: e107
+        text: Time channel 3 fan coil stage period 1
+      - textId: e108
+        text: Time channel 3 start hour period 2
+      - textId: e109
+        text: Time channel 3 start minute period 2
+      - textId: e110
+        text: Time channel 3 set point period 2
+      - textId: e111
+        text: Time channel 3 fan coil stage period 2
+      - textId: e112
+        text: Time channel 3 start hour period 3
+      - textId: e113
+        text: Time channel 3 start minute period 3
+      - textId: e114
+        text: Time channel 3 set point period 3
+      - textId: e115
+        text: Time channel 3 fan coil stage period 3
+      - textId: e116
+        text: Time channel 3 start hour period 4
+      - textId: e117
+        text: Time channel 3 start minute period 4
+      - textId: e118
+        text: Time channel 3 set point period 4
+      - textId: e119
+        text: Time channel 3 fan coil stage period 4
+      - textId: e120
+        text: Fan coil assignment
+      - textId: e121
+        text: Max heating load
+      - textId: e122
+        text: Max cooling load
+      - textId: e123
+        text: Heating controller type
+      - textId: e124
+        text: Cooling controller type
+      - textId: e125
+        text: Steps fan coil control
+      - textId: e126
+        text: Fan coil minimum
+      - textId: e127
+        text: Fan coil maximum
+      - textId: e128
+        text: Startup-time fan coil
+      - textId: e129
+        text: Special function key ON/OFF
+      - textId: e130
+        text: Special function top left
+      - textId: e131
+        text: Special function top right
+      - textId: e132
+        text: Special function center left
+      - textId: e133
+        text: Special function center right
+      - textId: e134
+        text: Reset time Tn cooling
+      - textId: e135
+        text: Minimum actuating variable cooling
+      - textId: e136
+        text: Maximum actuating variable cooling
+      - textId: e137
+        text: Switch/control behavior fan stages
+      - textId: e138
+        text: Device state after reset
+      - textId: e139
+        text: Device values after reset
+      - textId: e140
+        text: Effective direction of output heating
+      - textId: e141
+        text: Effective direction of output cooling
+      - textId: e142
+        text: Key fan stage with/without AUTO
+      - textId: e143
+        text: EnOcean-Wake-up
+      - textId: e144
+        text: Minimum runtime controller output
+      - textId: e145
+        text: Delay time controller mode change
+      - textId: e146
+        text: Effective direction of analog output heating
+      - textId: e147
+        text: Effective direction of analog output cooling
+      - textId: e148
+        text: Deactivation Hardware outputs
+      - textId: e149
+        text: EnOcean menu password
+      - textId: e150
+        text: "Heating 100% - generic 6-way valve"
+      - textId: e151
+        text: "Heating 0% - generic 6-way valve"
+      - textId: e152
+        text: "Cooling 100% - generic 6-way valve"
+      - textId: e153
+        text: "Cooling 0% - generic 6-way valve"
+      - textId: e154
+        text: Fade in controller mode
+      - textId: e155
+        text: Fan follow-up-time
+      - textId: e156
+        text: Maximum temperature underfloor control
+      - textId: e157
+        text: Limitation of max. fan speed in automatic mode
+      - textId: e158
+        text: 6-way valve type
+      - textId: e159
+        text: Date year
+      - textId: e160
+        text: Default controller
+      - textId: e161
+        text: Fan coil stage
+      - textId: e162
+        text: Default output heating
+      - textId: e163
+        text: Default output cooling
+      - textId: e164
+        text: Default 6-way valve output
   - lang: de
     texts:
       - textId: name
-        text: Thermokon JOY
+        text: JOY
       - textId: e1
-        text: Interner Temperatursensor
+        text: "Gerätetyp (Device-Coding)"
       - textId: e2
-        text: Externer Temperatursensor
+        text: Interner Temperatursensor
       - textId: e3
-        text: Interner Feuchtesensor
+        text: Externer Temperatursensor
       - textId: e4
-        text: CO2-Sensor
+        text: Interner Feuchtesensor
       - textId: e5
-        text: CO2-Alarm
+        text: CO2-Sensor
       - textId: e6
-        text: Sollwert Heizen
+        text: CO2-Alarm
       - textId: e7
-        text: Sollwert Kühlen
+        text: Sollwert Heizen
       - textId: e8
-        text: Sollwert Offset
+        text: "Sollwert Kühlen"
       - textId: e9
-        text: Basis-Sollwert
-      - textId: e10
-        text: Ausgang Heizen
-      - textId: e11
-        text: Ausgang Kühlen
-      - textId: e12
-        text: Zustand Lüfterstufe
-      - textId: e13
-        text: Zustand Präsenz
-      - textId: e14
-        text: Zustand Taupunkt
-      - textId: e15
-        text: Zustand Fensterkontakt/Energiesperre
-      - textId: e16
-        text: Modus Regler
-      - textId: e17
-        text: ECO-Modus
-      - textId: e18
-        text: Rückmeldung Change-Over Zustand
-      - textId: e19
-        text: Sprache
-      - textId: e20
-        text: Offset interner Sensor
-      - textId: e21
-        text: Offset externer Sensor
-      - textId: e22
-        text: Einheit Temperatur
-      - textId: e23
-        text: Sollwert nach Reset
-      - textId: e24
-        text: Sollwertverstellbereich
-      - textId: e25
-        text: Sollwert Schrittweite
-      - textId: e26
-        text: Totband Komfort-Modus
-      - textId: e27
-        text: Totband ECO-Modus
-      - textId: e28
-        text: Sollwertverstellung Standby
-      - textId: e29
-        text: Frostschutz
-      - textId: e30
-        text: Heizschutz
-      - textId: e31
-        text: Reglerhysterese
-      - textId: e32
-        text: Reglermodus nach Geräteneustart
-      - textId: e33
-        text: Proportionalbereich Xp
-      - textId: e34
-        text: Nachstellzeit Tn
-      - textId: e35
-        text: Minimale Stellgröße
-      - textId: e36
-        text: Maximale Stellgröße
-      - textId: e37
-        text: PWM-Zykluszeit
-      - textId: e38
-        text: Parametermenü sperren
-      - textId: e39
-        text: Offset Feuchte
-      - textId: e40
-        text: Basis-Sollwert
-      - textId: e41
         text: Sollwert Offset
+      - textId: e10
+        text: Basis-Sollwert
+      - textId: e11
+        text: Ausgang Heizen
+      - textId: e12
+        text: "Ausgang Kühlen"
+      - textId: e13
+        text: "Zustand Lüfterstufe"
+      - textId: e14
+        text: "Zustand Präsenz"
+      - textId: e15
+        text: Zustand Taupunkt
+      - textId: e16
+        text: Zustand Fensterkontakt/Energiesperre
+      - textId: e17
+        text: Modus Regler
+      - textId: e18
+        text: ECO-Modus
+      - textId: e19
+        text: "Rückmeldung Change-Over Zustand"
+      - textId: e20
+        text: EnOcean Fehlerliste
+      - textId: e21
+        text: "EnOcean Fehlerzähler"
+      - textId: e22
+        text: Sprache
+      - textId: e23
+        text: Offset interner Sensor
+      - textId: e24
+        text: Offset externer Sensor
+      - textId: e25
+        text: Einheit Temperatur
+      - textId: e26
+        text: Sollwert nach Reset
+      - textId: e27
+        text: Sollwertverstellbereich
+      - textId: e28
+        text: Sollwert Schrittweite
+      - textId: e29
+        text: Totband Komfort-Modus
+      - textId: e30
+        text: Totband ECO-Modus
+      - textId: e31
+        text: Sollwertverstellung Standby
+      - textId: e32
+        text: Frostschutz
+      - textId: e33
+        text: Heizschutz
+      - textId: e34
+        text: Nachstellzeit Tn Heizen
+      - textId: e35
+        text: "Min. Stellgröße Heizen"
+      - textId: e36
+        text: "Max. Stellgröße Heizen"
+      - textId: e37
+        text: Proportionalbereich Xp
+      - textId: e38
+        text: Nachstellzeit Tn
+      - textId: e39
+        text: "Minimale Stellgröße"
+      - textId: e40
+        text: "Maximale Stellgröße"
+      - textId: e41
+        text: PWM-Zykluszeit
       - textId: e42
-        text: Vorgabe Präsenz
+        text: "Parametermenü sperren"
       - textId: e43
-        text: Gerät Ein/Aus
+        text: Basis-Sollwert
       - textId: e44
-        text: Tasten freigeben
+        text: Sollwert Offset
       - textId: e45
-        text: Vorgabe Regler
+        text: "Vorgabe Präsenz"
       - textId: e46
-        text: Lüfterstufe
+        text: "Gerät Ein/Aus"
       - textId: e47
-        text: Vorgabe ECO-Modus
+        text: Tasten freigeben
       - textId: e48
-        text: Stellgröße 2. Regelschleife
+        text: Offset Feuchte
       - textId: e49
         text: Feuchte anzeigen
       - textId: e50
         text: CO2 anzeigen
+      - textId: e51
+        text: CO2 Change-Over Startmessung
+      - textId: e52
+        text: Modus 2. Regelschleife
+      - textId: e53
+        text: "Min. Stellgröße 2. Regelschleife"
+      - textId: e54
+        text: CO2-Alarmschwelle
+      - textId: e55
+        text: "Höhe über Meer"
+      - textId: e56
+        text: ASC Aktivierung
+      - textId: e57
+        text: CO2 Party-Modus
+      - textId: e58
+        text: "Schwelle Distriktkühlung"
+      - textId: e59
+        text: "Xp Distriktkühlung"
+      - textId: e60
+        text: CO2-Offset
+      - textId: e61
+        text: Belegt-/ECO-Override
+      - textId: e62
+        text: SAB-Offset Bad-Funktion
+      - textId: e63
+        text: Vorgabe ECO-Modus
+      - textId: e64
+        text: Heizreduktion Energieverbrauch
+      - textId: e65
+        text: "Kühlreduktion Energieverbrauch"
+      - textId: e66
+        text: Zeitformat
+      - textId: e67
+        text: Datumsformat
+      - textId: e68
+        text: "Anzahl Lüfterstufen"
+      - textId: e69
+        text: "Schwelle Lüfterstufe 1 Ein"
+      - textId: e70
+        text: "Schwelle Lüfterstufe 2 Ein"
+      - textId: e71
+        text: "Schwelle Lüfterstufe 3 Ein"
+      - textId: e72
+        text: Time channel 1 start hour period 1
+      - textId: e73
+        text: Time channel 1 start minute period 1
+      - textId: e74
+        text: Time channel 1 set point period 1
+      - textId: e75
+        text: Time channel 1 fan coil stage period 1
+      - textId: e76
+        text: Time channel 1 start hour period 2
+      - textId: e77
+        text: Time channel 1 start minute period 2
+      - textId: e78
+        text: Time channel 1 set point period 2
+      - textId: e79
+        text: Time channel 1 fan coil stage period 2
+      - textId: e80
+        text: Time channel 1 start hour period 3
+      - textId: e81
+        text: Time channel 1 start minute period 3
+      - textId: e82
+        text: Time channel 1 set point period 3
+      - textId: e83
+        text: Time channel 1 fan coil stage period 3
+      - textId: e84
+        text: Time channel 1 start hour period 4
+      - textId: e85
+        text: Time channel 1 start minute period 4
+      - textId: e86
+        text: Time channel 1 set point period 4
+      - textId: e87
+        text: Time channel 1 fan coil stage period 4
+      - textId: e88
+        text: Time channel 2 start hour period 1
+      - textId: e89
+        text: Time channel 2 start minute period 1
+      - textId: e90
+        text: Time channel 2 set point period 1
+      - textId: e91
+        text: Time channel 2 fan coil stage period 1
+      - textId: e92
+        text: Time channel 2 start hour period 2
+      - textId: e93
+        text: Time channel 2 start minute period 2
+      - textId: e94
+        text: Time channel 2 set point period 2
+      - textId: e95
+        text: Time channel 2 fan coil stage period 2
+      - textId: e96
+        text: Time channel 2 start hour period 3
+      - textId: e97
+        text: Time channel 2 start minute period 3
+      - textId: e98
+        text: Time channel 2 set point period 3
+      - textId: e99
+        text: Time channel 2 fan coil stage period 3
+      - textId: e100
+        text: Time channel 2 start hour period 4
+      - textId: e101
+        text: Time channel 2 start minute period 4
+      - textId: e102
+        text: Time channel 2 set point period 4
+      - textId: e103
+        text: Time channel 2 fan coil stage period 4
+      - textId: e104
+        text: Time channel 3 start hour period 1
+      - textId: e105
+        text: Time channel 3 start minute period 1
+      - textId: e106
+        text: Time channel 3 set point period 1
+      - textId: e107
+        text: Time channel 3 fan coil stage period 1
+      - textId: e108
+        text: Time channel 3 start hour period 2
+      - textId: e109
+        text: Time channel 3 start minute period 2
+      - textId: e110
+        text: Time channel 3 set point period 2
+      - textId: e111
+        text: Time channel 3 fan coil stage period 2
+      - textId: e112
+        text: Time channel 3 start hour period 3
+      - textId: e113
+        text: Time channel 3 start minute period 3
+      - textId: e114
+        text: Time channel 3 set point period 3
+      - textId: e115
+        text: Time channel 3 fan coil stage period 3
+      - textId: e116
+        text: Time channel 3 start hour period 4
+      - textId: e117
+        text: Time channel 3 start minute period 4
+      - textId: e118
+        text: Time channel 3 set point period 4
+      - textId: e119
+        text: Time channel 3 fan coil stage period 4
+      - textId: e120
+        text: Fan-Coil-Zuordnung
+      - textId: e121
+        text: Max. Heizlast
+      - textId: e122
+        text: "Max. Kühllast"
+      - textId: e123
+        text: Heizregler-Typ
+      - textId: e124
+        text: "Kühlregler-Typ"
+      - textId: e125
+        text: Schritte Fan-Coil-Regelung
+      - textId: e126
+        text: Fan-Coil Minimum
+      - textId: e127
+        text: Fan-Coil Maximum
+      - textId: e128
+        text: Anlaufzeit Fan-Coil
+      - textId: e129
+        text: Sonderfunktion Taste ON/OFF
+      - textId: e130
+        text: Sonderfunktion oben links
+      - textId: e131
+        text: Sonderfunktion oben rechts
+      - textId: e132
+        text: Sonderfunktion Mitte links
+      - textId: e133
+        text: Sonderfunktion Mitte rechts
+      - textId: e134
+        text: "Nachstellzeit Tn Kühlen"
+      - textId: e135
+        text: "Min. Stellgröße Kühlen"
+      - textId: e136
+        text: "Max. Stellgröße Kühlen"
+      - textId: e137
+        text: "Schalt-/Regelverhalten Lüfterstufen"
+      - textId: e138
+        text: "Gerätezustand nach Reset"
+      - textId: e139
+        text: "Gerätewerte nach Reset"
+      - textId: e140
+        text: Wirrichtung Ausgang Heizen
+      - textId: e141
+        text: "Wirrichtung Ausgang Kühlen"
+      - textId: e142
+        text: "Taste Lüfterstufe mit/ohne AUTO"
+      - textId: e143
+        text: EnOcean-Wake-up
+      - textId: e144
+        text: Min. Laufzeit Reglerausgang
+      - textId: e145
+        text: "Verzögerung Moduswechsel"
+      - textId: e146
+        text: Wirrichtung Analogausgang Heizen
+      - textId: e147
+        text: "Wirrichtung Analogausgang Kühlen"
+      - textId: e148
+        text: "Hardwareausgänge deaktivieren"
+      - textId: e149
+        text: "EnOcean Menü-Passwort"
+      - textId: e150
+        text: "Heizen 100% - generisches 6-Wege-Ventil"
+      - textId: e151
+        text: "Heizen 0% - generisches 6-Wege-Ventil"
+      - textId: e152
+        text: "Kühlen 100% - generisches 6-Wege-Ventil"
+      - textId: e153
+        text: "Kühlen 0% - generisches 6-Wege-Ventil"
+      - textId: e154
+        text: Einblenden Reglermodus
+      - textId: e155
+        text: "Lüfternachlaufzeit"
+      - textId: e156
+        text: Max. Temperatur Unterflur
+      - textId: e157
+        text: Begrenzung max. Drehzahl AUTO
+      - textId: e158
+        text: 6-Wege-Ventil-Typ
+      - textId: e159
+        text: Datum Jahr
+      - textId: e160
+        text: Vorgabe Regler
+      - textId: e161
+        text: "Lüfterstufe"
+      - textId: e162
+        text: Vorgabe Ausgang Heizen
+      - textId: e163
+        text: "Vorgabe Ausgang Kühlen"
+      - textId: e164
+        text: Vorgabe 6-Wege-Ventil-Ausgang
   - lang: fr
     texts:
       - textId: name
-        text: Thermokon JOY
+        text: JOY
       - textId: e1
-        text: Capteur de température interne
+        text: "Type d'appareil (device coding)"
       - textId: e2
-        text: Capteur de température externe
+        text: "Capteur de température interne"
       - textId: e3
-        text: Capteur d'humidité interne
+        text: "Capteur de température externe"
       - textId: e4
-        text: Capteur CO2
+        text: "Capteur d'humidité interne"
       - textId: e5
-        text: Alarme CO2
+        text: Capteur CO2
       - textId: e6
-        text: Consigne chauffage
+        text: Alarme CO2
       - textId: e7
-        text: Consigne refroidissement
+        text: Consigne chauffage
       - textId: e8
-        text: Offset consigne
+        text: Consigne refroidissement
       - textId: e9
-        text: Consigne de base
-      - textId: e10
-        text: Sortie chauffage
-      - textId: e11
-        text: Sortie refroidissement
-      - textId: e12
-        text: État vitesse ventilateur
-      - textId: e13
-        text: État présence
-      - textId: e14
-        text: État point de rosée
-      - textId: e15
-        text: État contact fenêtre/coupure énergie
-      - textId: e16
-        text: Retour mode régulateur
-      - textId: e17
-        text: Mode ECO
-      - textId: e18
-        text: État change-over
-      - textId: e19
-        text: Langue
-      - textId: e20
-        text: Offset capteur interne
-      - textId: e21
-        text: Offset capteur externe
-      - textId: e22
-        text: Unité température
-      - textId: e23
-        text: Consigne après reset
-      - textId: e24
-        text: Plage de réglage consigne
-      - textId: e25
-        text: Pas de réglage consigne
-      - textId: e26
-        text: Bande neutre mode confort
-      - textId: e27
-        text: Bande neutre mode ECO
-      - textId: e28
-        text: Réglage consigne standby
-      - textId: e29
-        text: Protection antigel
-      - textId: e30
-        text: Protection chauffage
-      - textId: e31
-        text: Hystérésis régulateur
-      - textId: e32
-        text: Mode régulateur après redémarrage
-      - textId: e33
-        text: Bande proportionnelle Xp
-      - textId: e34
-        text: Temps d'intégration Tn
-      - textId: e35
-        text: Grandeur de réglage minimale
-      - textId: e36
-        text: Grandeur de réglage maximale
-      - textId: e37
-        text: Temps de cycle PWM
-      - textId: e38
-        text: Verrouiller menu paramètres
-      - textId: e39
-        text: Offset humidité
-      - textId: e40
-        text: Consigne de base
-      - textId: e41
         text: Offset consigne
+      - textId: e10
+        text: Consigne de base
+      - textId: e11
+        text: Sortie chauffage
+      - textId: e12
+        text: Sortie refroidissement
+      - textId: e13
+        text: "État vitesse ventilateur"
+      - textId: e14
+        text: "État présence"
+      - textId: e15
+        text: "État point de rosée"
+      - textId: e16
+        text: "État contact fenêtre/coupure énergie"
+      - textId: e17
+        text: "Retour mode régulateur"
+      - textId: e18
+        text: Mode ECO
+      - textId: e19
+        text: "État change-over"
+      - textId: e20
+        text: "Liste d'erreurs EnOcean"
+      - textId: e21
+        text: "Compteur d'erreurs EnOcean"
+      - textId: e22
+        text: Langue
+      - textId: e23
+        text: Offset capteur interne
+      - textId: e24
+        text: Offset capteur externe
+      - textId: e25
+        text: "Unité température"
+      - textId: e26
+        text: "Consigne après reset"
+      - textId: e27
+        text: "Plage de réglage consigne"
+      - textId: e28
+        text: "Pas de réglage consigne"
+      - textId: e29
+        text: Bande neutre mode confort
+      - textId: e30
+        text: Bande neutre mode ECO
+      - textId: e31
+        text: "Réglage consigne standby"
+      - textId: e32
+        text: Protection antigel
+      - textId: e33
+        text: Protection chauffage
+      - textId: e34
+        text: "Temps d'intégration Tn chauffage"
+      - textId: e35
+        text: "Grandeur réglage min chauffage"
+      - textId: e36
+        text: "Grandeur réglage max chauffage"
+      - textId: e37
+        text: Bande proportionnelle Xp
+      - textId: e38
+        text: "Temps d'intégration Tn"
+      - textId: e39
+        text: "Grandeur de réglage minimale"
+      - textId: e40
+        text: "Grandeur de réglage maximale"
+      - textId: e41
+        text: Temps de cycle PWM
       - textId: e42
-        text: Présence par défaut
+        text: "Verrouiller menu paramètres"
       - textId: e43
-        text: Appareil Marche/Arrêt
+        text: Consigne de base
       - textId: e44
-        text: Libérer les touches
+        text: Offset consigne
       - textId: e45
-        text: Régulateur par défaut
+        text: "Présence par défaut"
       - textId: e46
-        text: Vitesse ventilateur
+        text: "Appareil Marche/Arrêt"
       - textId: e47
-        text: Mode ECO par défaut
+        text: "Libérer les touches"
       - textId: e48
-        text: Grandeur de réglage 2e boucle
+        text: "Offset humidité"
       - textId: e49
-        text: Afficher humidité
+        text: "Afficher humidité"
       - textId: e50
         text: Afficher CO2
+      - textId: e51
+        text: "Début mesure change-over CO2"
+      - textId: e52
+        text: Mode 2e boucle
+      - textId: e53
+        text: Min. grandeur 2e boucle
+      - textId: e54
+        text: Seuil alarme CO2
+      - textId: e55
+        text: Altitude au-dessus du niveau de la mer
+      - textId: e56
+        text: Activation ASC
+      - textId: e57
+        text: "Mode fête CO2"
+      - textId: e58
+        text: Seuil refroidissement
+      - textId: e59
+        text: Xp refroidissement
+      - textId: e60
+        text: Offset CO2
+      - textId: e61
+        text: "Override Occupé/ECO"
+      - textId: e62
+        text: Offset SAB fonction salle de bain
+      - textId: e63
+        text: "Mode ECO par défaut"
+      - textId: e64
+        text: "Réduction chauffage conso énergie"
+      - textId: e65
+        text: "Réduction refroidissement conso énergie"
+      - textId: e66
+        text: Format heure
+      - textId: e67
+        text: Format date
+      - textId: e68
+        text: Nombre de vitesses ventilateur
+      - textId: e69
+        text: Seuil vitesse 1 On
+      - textId: e70
+        text: Seuil vitesse 2 On
+      - textId: e71
+        text: Seuil vitesse 3 On
+      - textId: e72
+        text: Time channel 1 start hour period 1
+      - textId: e73
+        text: Time channel 1 start minute period 1
+      - textId: e74
+        text: Time channel 1 set point period 1
+      - textId: e75
+        text: Time channel 1 fan coil stage period 1
+      - textId: e76
+        text: Time channel 1 start hour period 2
+      - textId: e77
+        text: Time channel 1 start minute period 2
+      - textId: e78
+        text: Time channel 1 set point period 2
+      - textId: e79
+        text: Time channel 1 fan coil stage period 2
+      - textId: e80
+        text: Time channel 1 start hour period 3
+      - textId: e81
+        text: Time channel 1 start minute period 3
+      - textId: e82
+        text: Time channel 1 set point period 3
+      - textId: e83
+        text: Time channel 1 fan coil stage period 3
+      - textId: e84
+        text: Time channel 1 start hour period 4
+      - textId: e85
+        text: Time channel 1 start minute period 4
+      - textId: e86
+        text: Time channel 1 set point period 4
+      - textId: e87
+        text: Time channel 1 fan coil stage period 4
+      - textId: e88
+        text: Time channel 2 start hour period 1
+      - textId: e89
+        text: Time channel 2 start minute period 1
+      - textId: e90
+        text: Time channel 2 set point period 1
+      - textId: e91
+        text: Time channel 2 fan coil stage period 1
+      - textId: e92
+        text: Time channel 2 start hour period 2
+      - textId: e93
+        text: Time channel 2 start minute period 2
+      - textId: e94
+        text: Time channel 2 set point period 2
+      - textId: e95
+        text: Time channel 2 fan coil stage period 2
+      - textId: e96
+        text: Time channel 2 start hour period 3
+      - textId: e97
+        text: Time channel 2 start minute period 3
+      - textId: e98
+        text: Time channel 2 set point period 3
+      - textId: e99
+        text: Time channel 2 fan coil stage period 3
+      - textId: e100
+        text: Time channel 2 start hour period 4
+      - textId: e101
+        text: Time channel 2 start minute period 4
+      - textId: e102
+        text: Time channel 2 set point period 4
+      - textId: e103
+        text: Time channel 2 fan coil stage period 4
+      - textId: e104
+        text: Time channel 3 start hour period 1
+      - textId: e105
+        text: Time channel 3 start minute period 1
+      - textId: e106
+        text: Time channel 3 set point period 1
+      - textId: e107
+        text: Time channel 3 fan coil stage period 1
+      - textId: e108
+        text: Time channel 3 start hour period 2
+      - textId: e109
+        text: Time channel 3 start minute period 2
+      - textId: e110
+        text: Time channel 3 set point period 2
+      - textId: e111
+        text: Time channel 3 fan coil stage period 2
+      - textId: e112
+        text: Time channel 3 start hour period 3
+      - textId: e113
+        text: Time channel 3 start minute period 3
+      - textId: e114
+        text: Time channel 3 set point period 3
+      - textId: e115
+        text: Time channel 3 fan coil stage period 3
+      - textId: e116
+        text: Time channel 3 start hour period 4
+      - textId: e117
+        text: Time channel 3 start minute period 4
+      - textId: e118
+        text: Time channel 3 set point period 4
+      - textId: e119
+        text: Time channel 3 fan coil stage period 4
+      - textId: e120
+        text: Affectation fan coil
+      - textId: e121
+        text: Charge chauffe max
+      - textId: e122
+        text: Charge froid max
+      - textId: e123
+        text: "Type régulateur chauffage"
+      - textId: e124
+        text: "Type régulateur refroidissement"
+      - textId: e125
+        text: "Pas réglage fan coil"
+      - textId: e126
+        text: Minimum fan coil
+      - textId: e127
+        text: Maximum fan coil
+      - textId: e128
+        text: "Temps de démarrage fan coil"
+      - textId: e129
+        text: "Fonction spéciale touche ON/OFF"
+      - textId: e130
+        text: "Fonction spéciale haut gauche"
+      - textId: e131
+        text: "Fonction spéciale haut droite"
+      - textId: e132
+        text: "Fonction spéciale centre gauche"
+      - textId: e133
+        text: "Fonction spéciale centre droite"
+      - textId: e134
+        text: "Temps d'intégration Tn froid"
+      - textId: e135
+        text: "Grandeur réglage min froid"
+      - textId: e136
+        text: "Grandeur réglage max froid"
+      - textId: e137
+        text: Comportement vitesses ventilateur
+      - textId: e138
+        text: "État appareil après reset"
+      - textId: e139
+        text: "Valeurs après reset"
+      - textId: e140
+        text: Sens sortie chauffage
+      - textId: e141
+        text: Sens sortie refroidissement
+      - textId: e142
+        text: Touche vitesse avec/sans AUTO
+      - textId: e143
+        text: "Réveil EnOcean"
+      - textId: e144
+        text: "Durée min sortie régulateur"
+      - textId: e145
+        text: "Délai changement mode"
+      - textId: e146
+        text: Sens sortie analogique chauffage
+      - textId: e147
+        text: Sens sortie analogique refroidissement
+      - textId: e148
+        text: "Désactivation sorties matérielles"
+      - textId: e149
+        text: Mot de passe menu EnOcean
+      - textId: e150
+        text: "Chaud 100% - vanne 6 voies"
+      - textId: e151
+        text: "Chaud 0% - vanne 6 voies"
+      - textId: e152
+        text: "Froid 100% - vanne 6 voies"
+      - textId: e153
+        text: "Froid 0% - vanne 6 voies"
+      - textId: e154
+        text: "Afficher mode régulateur"
+      - textId: e155
+        text: Temps de suivi ventilateur
+      - textId: e156
+        text: Temp max plancher
+      - textId: e157
+        text: Limitation vitesse max AUTO
+      - textId: e158
+        text: Type vanne 6 voies
+      - textId: e159
+        text: "Année"
+      - textId: e160
+        text: "Régulateur par défaut"
+      - textId: e161
+        text: Vitesse ventilateur
+      - textId: e162
+        text: "Sortie chauffage par défaut"
+      - textId: e163
+        text: "Sortie refroidissement par défaut"
+      - textId: e164
+        text: "Sortie vanne 6 voies par défaut"
   - lang: it
     texts:
       - textId: name
-        text: Thermokon JOY
+        text: JOY
       - textId: e1
-        text: Sensore temperatura interno
+        text: Tipo dispositivo (device coding)
       - textId: e2
-        text: Sensore temperatura esterno
+        text: Sensore temperatura interno
       - textId: e3
-        text: Sensore umidità interno
+        text: Sensore temperatura esterno
       - textId: e4
-        text: Sensore CO2
+        text: "Sensore umidità interno"
       - textId: e5
-        text: Allarme CO2
+        text: Sensore CO2
       - textId: e6
-        text: Setpoint riscaldamento
+        text: Allarme CO2
       - textId: e7
-        text: Setpoint raffreddamento
+        text: Setpoint riscaldamento
       - textId: e8
-        text: Offset setpoint
+        text: Setpoint raffreddamento
       - textId: e9
-        text: Setpoint base
-      - textId: e10
-        text: Uscita riscaldamento
-      - textId: e11
-        text: Uscita raffreddamento
-      - textId: e12
-        text: Stato velocità ventilatore
-      - textId: e13
-        text: Stato presenza
-      - textId: e14
-        text: Stato punto di rugiada
-      - textId: e15
-        text: Stato contatto finestra/blocco energia
-      - textId: e16
-        text: Feedback modo regolatore
-      - textId: e17
-        text: Modalità ECO
-      - textId: e18
-        text: Stato change-over
-      - textId: e19
-        text: Lingua
-      - textId: e20
-        text: Offset sensore interno
-      - textId: e21
-        text: Offset sensore esterno
-      - textId: e22
-        text: Unità temperatura
-      - textId: e23
-        text: Setpoint dopo reset
-      - textId: e24
-        text: Gamma regolazione setpoint
-      - textId: e25
-        text: Incremento setpoint
-      - textId: e26
-        text: Zona neutra comfort
-      - textId: e27
-        text: Zona neutra ECO
-      - textId: e28
-        text: Regolazione setpoint standby
-      - textId: e29
-        text: Protezione antigelo
-      - textId: e30
-        text: Protezione riscaldamento
-      - textId: e31
-        text: Isteresi regolatore
-      - textId: e32
-        text: Modo regolatore dopo riavvio
-      - textId: e33
-        text: Banda proporzionale Xp
-      - textId: e34
-        text: Tempo di reset Tn
-      - textId: e35
-        text: Grandezza di regolazione minima
-      - textId: e36
-        text: Grandezza di regolazione massima
-      - textId: e37
-        text: Tempo ciclo PWM
-      - textId: e38
-        text: Blocca menu parametri
-      - textId: e39
-        text: Offset umidità
-      - textId: e40
-        text: Setpoint base
-      - textId: e41
         text: Offset setpoint
+      - textId: e10
+        text: Setpoint base
+      - textId: e11
+        text: Uscita riscaldamento
+      - textId: e12
+        text: Uscita raffreddamento
+      - textId: e13
+        text: "Stato velocità ventilatore"
+      - textId: e14
+        text: Stato presenza
+      - textId: e15
+        text: Stato punto di rugiada
+      - textId: e16
+        text: Stato contatto finestra/blocco energia
+      - textId: e17
+        text: Feedback modo regolatore
+      - textId: e18
+        text: "Modalità ECO"
+      - textId: e19
+        text: Stato change-over
+      - textId: e20
+        text: Lista errori EnOcean
+      - textId: e21
+        text: Contatore errori EnOcean
+      - textId: e22
+        text: Lingua
+      - textId: e23
+        text: Offset sensore interno
+      - textId: e24
+        text: Offset sensore esterno
+      - textId: e25
+        text: "Unità temperatura"
+      - textId: e26
+        text: Setpoint dopo reset
+      - textId: e27
+        text: Gamma regolazione setpoint
+      - textId: e28
+        text: Incremento setpoint
+      - textId: e29
+        text: Zona neutra comfort
+      - textId: e30
+        text: Zona neutra ECO
+      - textId: e31
+        text: Regolazione setpoint standby
+      - textId: e32
+        text: Protezione antigelo
+      - textId: e33
+        text: Protezione riscaldamento
+      - textId: e34
+        text: Tempo reset Tn riscaldamento
+      - textId: e35
+        text: Grandezza regolazione min riscaldamento
+      - textId: e36
+        text: Grandezza regolazione max riscaldamento
+      - textId: e37
+        text: Banda proporzionale Xp
+      - textId: e38
+        text: Tempo di reset Tn
+      - textId: e39
+        text: Grandezza di regolazione minima
+      - textId: e40
+        text: Grandezza di regolazione massima
+      - textId: e41
+        text: Tempo ciclo PWM
       - textId: e42
-        text: Presenza predefinita
+        text: Blocca menu parametri
       - textId: e43
-        text: Dispositivo On/Off
+        text: Setpoint base
       - textId: e44
-        text: Sblocca tasti
+        text: Offset setpoint
       - textId: e45
-        text: Regolatore predefinito
+        text: Presenza predefinita
       - textId: e46
-        text: Velocità ventilatore
+        text: Dispositivo On/Off
       - textId: e47
-        text: Modalità ECO predefinita
+        text: Sblocca tasti
       - textId: e48
-        text: Grandezza di regolazione 2° anello
+        text: "Offset umidità"
       - textId: e49
-        text: Mostra umidità
+        text: "Mostra umidità"
       - textId: e50
         text: Mostra CO2
+      - textId: e51
+        text: Inizio misura change-over CO2
+      - textId: e52
+        text: Modo 2° anello
+      - textId: e53
+        text: Min. grandezza 2° anello
+      - textId: e54
+        text: Soglia allarme CO2
+      - textId: e55
+        text: Altitudine sul livello del mare
+      - textId: e56
+        text: Attivazione ASC
+      - textId: e57
+        text: "Modalità festa CO2"
+      - textId: e58
+        text: Soglia raffreddamento
+      - textId: e59
+        text: Xp raffreddamento
+      - textId: e60
+        text: Offset CO2
+      - textId: e61
+        text: Override Occupato/ECO
+      - textId: e62
+        text: Offset SAB funzione bagno
+      - textId: e63
+        text: "Modalità ECO predefinita"
+      - textId: e64
+        text: Riduzione riscaldamento consumo
+      - textId: e65
+        text: Riduzione raffreddamento consumo
+      - textId: e66
+        text: Formato ora
+      - textId: e67
+        text: Formato data
+      - textId: e68
+        text: "Numero velocità ventilatore"
+      - textId: e69
+        text: "Soglia velocità 1 On"
+      - textId: e70
+        text: "Soglia velocità 2 On"
+      - textId: e71
+        text: "Soglia velocità 3 On"
+      - textId: e72
+        text: Time channel 1 start hour period 1
+      - textId: e73
+        text: Time channel 1 start minute period 1
+      - textId: e74
+        text: Time channel 1 set point period 1
+      - textId: e75
+        text: Time channel 1 fan coil stage period 1
+      - textId: e76
+        text: Time channel 1 start hour period 2
+      - textId: e77
+        text: Time channel 1 start minute period 2
+      - textId: e78
+        text: Time channel 1 set point period 2
+      - textId: e79
+        text: Time channel 1 fan coil stage period 2
+      - textId: e80
+        text: Time channel 1 start hour period 3
+      - textId: e81
+        text: Time channel 1 start minute period 3
+      - textId: e82
+        text: Time channel 1 set point period 3
+      - textId: e83
+        text: Time channel 1 fan coil stage period 3
+      - textId: e84
+        text: Time channel 1 start hour period 4
+      - textId: e85
+        text: Time channel 1 start minute period 4
+      - textId: e86
+        text: Time channel 1 set point period 4
+      - textId: e87
+        text: Time channel 1 fan coil stage period 4
+      - textId: e88
+        text: Time channel 2 start hour period 1
+      - textId: e89
+        text: Time channel 2 start minute period 1
+      - textId: e90
+        text: Time channel 2 set point period 1
+      - textId: e91
+        text: Time channel 2 fan coil stage period 1
+      - textId: e92
+        text: Time channel 2 start hour period 2
+      - textId: e93
+        text: Time channel 2 start minute period 2
+      - textId: e94
+        text: Time channel 2 set point period 2
+      - textId: e95
+        text: Time channel 2 fan coil stage period 2
+      - textId: e96
+        text: Time channel 2 start hour period 3
+      - textId: e97
+        text: Time channel 2 start minute period 3
+      - textId: e98
+        text: Time channel 2 set point period 3
+      - textId: e99
+        text: Time channel 2 fan coil stage period 3
+      - textId: e100
+        text: Time channel 2 start hour period 4
+      - textId: e101
+        text: Time channel 2 start minute period 4
+      - textId: e102
+        text: Time channel 2 set point period 4
+      - textId: e103
+        text: Time channel 2 fan coil stage period 4
+      - textId: e104
+        text: Time channel 3 start hour period 1
+      - textId: e105
+        text: Time channel 3 start minute period 1
+      - textId: e106
+        text: Time channel 3 set point period 1
+      - textId: e107
+        text: Time channel 3 fan coil stage period 1
+      - textId: e108
+        text: Time channel 3 start hour period 2
+      - textId: e109
+        text: Time channel 3 start minute period 2
+      - textId: e110
+        text: Time channel 3 set point period 2
+      - textId: e111
+        text: Time channel 3 fan coil stage period 2
+      - textId: e112
+        text: Time channel 3 start hour period 3
+      - textId: e113
+        text: Time channel 3 start minute period 3
+      - textId: e114
+        text: Time channel 3 set point period 3
+      - textId: e115
+        text: Time channel 3 fan coil stage period 3
+      - textId: e116
+        text: Time channel 3 start hour period 4
+      - textId: e117
+        text: Time channel 3 start minute period 4
+      - textId: e118
+        text: Time channel 3 set point period 4
+      - textId: e119
+        text: Time channel 3 fan coil stage period 4
+      - textId: e120
+        text: Assegnazione fan coil
+      - textId: e121
+        text: Carico riscaldamento max
+      - textId: e122
+        text: Carico raffreddamento max
+      - textId: e123
+        text: Tipo regolatore riscaldamento
+      - textId: e124
+        text: Tipo regolatore raffreddamento
+      - textId: e125
+        text: Passi regolazione fan coil
+      - textId: e126
+        text: Fan coil minimo
+      - textId: e127
+        text: Fan coil massimo
+      - textId: e128
+        text: Tempo avvio fan coil
+      - textId: e129
+        text: Funzione speciale tasto ON/OFF
+      - textId: e130
+        text: Funzione speciale alto sinistra
+      - textId: e131
+        text: Funzione speciale alto destra
+      - textId: e132
+        text: Funzione speciale centro sinistra
+      - textId: e133
+        text: Funzione speciale centro destra
+      - textId: e134
+        text: Tempo reset Tn raffreddamento
+      - textId: e135
+        text: Grandezza regolazione min raffreddamento
+      - textId: e136
+        text: Grandezza regolazione max raffreddamento
+      - textId: e137
+        text: "Comportamento velocità ventilatore"
+      - textId: e138
+        text: Stato dispositivo dopo reset
+      - textId: e139
+        text: Valori dopo reset
+      - textId: e140
+        text: Direzione uscita riscaldamento
+      - textId: e141
+        text: Direzione uscita raffreddamento
+      - textId: e142
+        text: "Tasto velocità con/senza AUTO"
+      - textId: e143
+        text: Wake-up EnOcean
+      - textId: e144
+        text: Durata min uscita regolatore
+      - textId: e145
+        text: Ritardo cambio modo
+      - textId: e146
+        text: Direzione uscita analogica riscaldamento
+      - textId: e147
+        text: Direzione uscita analogica raffreddamento
+      - textId: e148
+        text: Disattiva uscite hardware
+      - textId: e149
+        text: Password menu EnOcean
+      - textId: e150
+        text: "Riscaldamento 100% - valvola 6 vie"
+      - textId: e151
+        text: "Riscaldamento 0% - valvola 6 vie"
+      - textId: e152
+        text: "Raffreddamento 100% - valvola 6 vie"
+      - textId: e153
+        text: "Raffreddamento 0% - valvola 6 vie"
+      - textId: e154
+        text: Mostra modo regolatore
+      - textId: e155
+        text: Tempo post-ventilazione
+      - textId: e156
+        text: Temp max pavimento
+      - textId: e157
+        text: "Limite velocità max AUTO"
+      - textId: e158
+        text: Tipo valvola 6 vie
+      - textId: e159
+        text: Anno
+      - textId: e160
+        text: Regolatore predefinito
+      - textId: e161
+        text: "Velocità ventilatore"
+      - textId: e162
+        text: Uscita riscaldamento predefinita
+      - textId: e163
+        text: Uscita raffreddamento predefinita
+      - textId: e164
+        text: Uscita valvola 6 vie predefinita
 testdata:
   holdingRegisters:
+    - address: 0
+      value: 1649
     - address: 3
       value: 5
     - address: 4
@@ -1405,10 +5121,12 @@ testdata:
       value: 50
     - address: 27
       value: 50
-    - address: 28
+    - address: 33
+      value: 128
+    - address: 34
       value: 50
-    - address: 29
-      value: 2
+    - address: 35
+      value: 50
     - address: 102
       value: 50
     - address: 103
@@ -1421,8 +5139,6 @@ testdata:
       value: 128
     - address: 124
       value: 1
-    - address: 158
-      value: 0
     - address: 255
       value: 250
     - address: 256
@@ -1433,52 +5149,278 @@ testdata:
       value: 1
     - address: 262
       value: 1
-    - address: 269
-      value: 2
-    - address: 270
-      value: 3
-    - address: 274
-      value: 1
+    - address: 158
+      value: 0
     - address: 161
       value: 1
     - address: 162
       value: 1
-  analogInputs:
-    - address: 515
+    - address: 168
+      value: 1
+    - address: 169
+      value: 1
+    - address: 170
+      value: 50
+    - address: 171
+      value: 2500
+    - address: 172
+      value: 1750
+    - address: 173
+      value: 1
+    - address: 174
+      value: 1
+    - address: 175
+      value: 50
+    - address: 176
+      value: 50
+    - address: 177
+      value: 0
+    - address: 136
+      value: 1
+    - address: 139
+      value: 25
+    - address: 274
+      value: 1
+    - address: 275
+      value: 50
+    - address: 276
+      value: 50
+    - address: 7
+      value: 2
+    - address: 8
+      value: 2
+    - address: 9
+      value: 3
+    - address: 30
+      value: 50
+    - address: 31
+      value: 50
+    - address: 32
+      value: 50
+    - address: 35
+      value: 12
+    - address: 36
+      value: 30
+    - address: 37
       value: 250
-    - address: 516
+    - address: 38
+      value: 3
+    - address: 40
+      value: 12
+    - address: 41
+      value: 30
+    - address: 42
+      value: 250
+    - address: 43
+      value: 3
+    - address: 45
+      value: 12
+    - address: 46
+      value: 30
+    - address: 47
+      value: 250
+    - address: 48
+      value: 3
+    - address: 50
+      value: 12
+    - address: 51
+      value: 30
+    - address: 52
+      value: 250
+    - address: 53
+      value: 3
+    - address: 56
+      value: 12
+    - address: 57
+      value: 30
+    - address: 58
+      value: 250
+    - address: 59
+      value: 3
+    - address: 61
+      value: 12
+    - address: 62
+      value: 30
+    - address: 63
+      value: 250
+    - address: 64
+      value: 3
+    - address: 66
+      value: 12
+    - address: 67
+      value: 30
+    - address: 68
+      value: 250
+    - address: 69
+      value: 3
+    - address: 71
+      value: 12
+    - address: 72
+      value: 30
+    - address: 73
+      value: 250
+    - address: 74
+      value: 3
+    - address: 77
+      value: 12
+    - address: 78
+      value: 30
+    - address: 79
+      value: 250
+    - address: 80
+      value: 3
+    - address: 82
+      value: 12
+    - address: 83
+      value: 30
+    - address: 84
+      value: 250
+    - address: 85
+      value: 3
+    - address: 87
+      value: 12
+    - address: 88
+      value: 30
+    - address: 89
+      value: 250
+    - address: 90
+      value: 3
+    - address: 92
+      value: 12
+    - address: 93
+      value: 30
+    - address: 94
+      value: 250
+    - address: 95
+      value: 3
+    - address: 98
+      value: 2
+    - address: 99
+      value: 50
+    - address: 100
+      value: 50
+    - address: 108
+      value: 1
+    - address: 109
+      value: 1
+    - address: 110
+      value: 50
+    - address: 111
+      value: 50
+    - address: 112
+      value: 50
+    - address: 113
+      value: 128
+    - address: 115
+      value: 1
+    - address: 116
+      value: 1
+    - address: 118
+      value: 1
+    - address: 119
+      value: 1
+    - address: 120
+      value: 1
+    - address: 126
+      value: 128
+    - address: 127
+      value: 50
+    - address: 128
+      value: 50
+    - address: 129
+      value: 1
+    - address: 130
+      value: 2
+    - address: 131
+      value: 2
+    - address: 132
+      value: 2
+    - address: 133
+      value: 2
+    - address: 134
+      value: 1
+    - address: 145
+      value: 1
+    - address: 146
+      value: 128
+    - address: 147
+      value: 128
+    - address: 148
+      value: 2
+    - address: 149
+      value: 2
+    - address: 150
+      value: 1
+    - address: 151
+      value: 5000
+    - address: 152
+      value: 50
+    - address: 153
+      value: 50
+    - address: 154
+      value: 50
+    - address: 155
+      value: 50
+    - address: 156
+      value: 1
+    - address: 157
+      value: 128
+    - address: 159
+      value: 250
+    - address: 160
+      value: 3
+    - address: 2
+      value: 5
+    - address: 268
+      value: 2060
+    - address: 269
+      value: 2
+    - address: 270
+      value: 3
+    - address: 271
+      value: 128
+    - address: 272
+      value: 128
+    - address: 273
+      value: 128
+  analogInputs:
+    - address: 514
+      value: 250
+    - address: 515
       value: 250
     - address: 566
       value: 500
+    - address: 570
+      value: 1000
+    - address: 571
+      value: 1
     - address: 511
       value: 250
     - address: 512
       value: 250
     - address: 513
       value: 0
-    - address: 554
+    - address: 553
       value: 250
+    - address: 516
+      value: 1
     - address: 517
       value: 1
     - address: 518
-      value: 1
-    - address: 519
       value: 3
+    - address: 521
+      value: 1
     - address: 522
       value: 1
     - address: 523
       value: 1
-    - address: 524
+    - address: 525
       value: 1
-    - address: 526
-      value: 1
-    - address: 553
+    - address: 552
       value: 1
     - address: 565
       value: 1
-    - address: 570
-      value: 1000
-    - address: 571
-      value: 1
-    - address: 572
-      value: 500
+    - address: 538
+      value: 32767
+    - address: 539
+      value: 32768
