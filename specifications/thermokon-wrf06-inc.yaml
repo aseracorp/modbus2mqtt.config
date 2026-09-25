@@ -1,0 +1,327 @@
+filename: thermokon-wrf06-inc
+model: WRF06 INC
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-wrf06-inc/thermokon-wrf06-inc.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf06-inc/WRF06_INC-RS485_Modbus_Manual_en.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.5"
+nextEntityId: 11
+entities:
+  - id: 1
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 256
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      device_class: temperature
+      state_class: 1
+      uom: K
+      identification:
+        min: -1000
+        max: 1000
+    valid: true
+    mqttname: setpoint_offset_display
+    name: Set point offset display
+  - id: 2
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 257
+    converterParameters:
+      multiplier: 0.01
+      offset: 0
+      decimals: 2
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: temperature
+    name: Temperature internal/external
+  - id: 3
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 258
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: problem
+      state_class: 1
+      identification:
+        min: 0
+        max: 200
+    valid: true
+    mqttname: ext_temp_alarm
+    name: Alarm external temperature sensor
+  - id: 4
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 259
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: button_state
+    name: Button state
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 260
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: button_memory
+    name: Button memory function
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 261
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: operation_led_state
+    name: Operation-LED state
+  - id: 7
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 512
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: occupancy_set
+    name: Occupancy set
+  - id: 8
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 513
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      device_class: temperature
+      state_class: 1
+      uom: K
+      identification:
+        min: -1000
+        max: 1000
+    valid: true
+    mqttname: setpoint_offset_set
+    name: Control set point offset
+  - id: 9
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 514
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lock_setpoint_adjustment
+    name: Lock set point adjustment
+  - id: 10
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 515
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      device_class: temperature
+      state_class: 1
+      uom: K
+      identification:
+        min: -1000
+        max: 1000
+    valid: true
+    mqttname: setpoint_offset_accept
+    name: Control set point offset (accept by button)
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: WRF06 INC
+      - textId: e1
+        text: Set point offset display
+      - textId: e2
+        text: Temperature internal/external
+      - textId: e3
+        text: Alarm external temperature sensor
+      - textId: e4
+        text: Button state
+      - textId: e5
+        text: Button memory function
+      - textId: e6
+        text: Operation-LED state
+      - textId: e7
+        text: Occupancy set
+      - textId: e8
+        text: Control set point offset
+      - textId: e9
+        text: Lock set point adjustment
+      - textId: e10
+        text: Control set point offset (accept by button)
+  - lang: de
+    texts:
+      - textId: name
+        text: WRF06 INC
+      - textId: e1
+        text: Sollwert-Offset Anzeige
+      - textId: e2
+        text: Temperatur intern/extern
+      - textId: e3
+        text: Alarm externer Temperatursensor
+      - textId: e4
+        text: Tasterzustand
+      - textId: e5
+        text: Taster-Speicherfunktion
+      - textId: e6
+        text: Status Betriebs-LED
+      - textId: e7
+        text: Belegung setzen
+      - textId: e8
+        text: Sollwert-Offset (Regler)
+      - textId: e9
+        text: Sollwertverstellung sperren
+      - textId: e10
+        text: "Sollwert-Offset (Taste übernehmen)"
+  - lang: fr
+    texts:
+      - textId: name
+        text: WRF06 INC
+      - textId: e1
+        text: Offset consigne affichage
+      - textId: e2
+        text: "Température interne/externe"
+      - textId: e3
+        text: "Alarme capteur température externe"
+      - textId: e4
+        text: "État bouton"
+      - textId: e5
+        text: "Mémoire bouton"
+      - textId: e6
+        text: "État LED de fonctionnement"
+      - textId: e7
+        text: Occupation (set)
+      - textId: e8
+        text: "Offset consigne (régulateur)"
+      - textId: e9
+        text: Verrouiller ajustement consigne
+      - textId: e10
+        text: Offset consigne (accepter bouton)
+  - lang: it
+    texts:
+      - textId: name
+        text: WRF06 INC
+      - textId: e1
+        text: Offset setpoint display
+      - textId: e2
+        text: Temperatura interna/esterna
+      - textId: e3
+        text: Allarme sensore temperatura esterno
+      - textId: e4
+        text: Stato pulsante
+      - textId: e5
+        text: Memoria pulsante
+      - textId: e6
+        text: Stato LED operativa
+      - textId: e7
+        text: Occupazione (set)
+      - textId: e8
+        text: Offset setpoint (regolatore)
+      - textId: e9
+        text: Blocca regolazione setpoint
+      - textId: e10
+        text: Offset setpoint (accetta pulsante)
+testdata:
+  holdingRegisters:
+    - address: 256
+      value: 0
+    - address: 257
+      value: 2500
+    - address: 258
+      value: 100
+    - address: 259
+      value: 1
+    - address: 260
+      value: 1
+    - address: 261
+      value: 1
+    - address: 512
+      value: 1
+    - address: 513
+      value: 0
+    - address: 514
+      value: 1
+    - address: 515
+      value: 0

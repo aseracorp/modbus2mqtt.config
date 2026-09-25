@@ -1,0 +1,1480 @@
+filename: thermokon-novos7
+model: NOVOS 7 / NOVOS Touch / thanos EVO
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-novos/thermokon-novos.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-novos/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.5"
+nextEntityId: 51
+entities:
+  - id: 1
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 100
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: room_occupancy
+    name: Room Occupancy
+  - id: 2
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 101
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: eco_mode
+    name: ECO Mode
+  - id: 3
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 102
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: eco_color
+    name: Colour ECO function
+  - id: 4
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 103
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: setpoint_effective
+    name: Setpoint (effective)
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 104
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: fan_stage_internal
+    name: Fan stage (internal)
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 200
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_1
+    name: Lighting status 1
+  - id: 7
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 201
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_2
+    name: Lighting status 2
+  - id: 8
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 202
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_3
+    name: Lighting status 3
+  - id: 9
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 203
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_4
+    name: Lighting status 4
+  - id: 10
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 204
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_5
+    name: Lighting status 5
+  - id: 11
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 205
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_6
+    name: Lighting status 6
+  - id: 12
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 206
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_7
+    name: Lighting status 7
+  - id: 13
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 207
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: light
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: lighting_status_8
+    name: Lighting status 8
+  - id: 14
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 211
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: lighting1_green
+    name: Lighting 1 Green-value
+  - id: 15
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 212
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: lighting1_blue
+    name: Lighting 1 Blue value
+  - id: 16
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 213
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: lighting1_white
+    name: Lighting 1 White value
+  - id: 17
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 239
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: lighting2_green
+    name: Lighting 2 Green-value
+  - id: 18
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 240
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: lighting2_blue
+    name: Lighting 2 Blue value
+  - id: 19
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 241
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: lighting2_white
+    name: Lighting 2 White value
+  - id: 20
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 300
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_1
+    name: Shading status 1
+  - id: 21
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 301
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_1
+    name: Slat adjustment Blind 1
+  - id: 22
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 301
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_2
+    name: Shading status 2
+  - id: 23
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 302
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_2
+    name: Slat adjustment Blind 2
+  - id: 24
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 302
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_3
+    name: Shading status 3
+  - id: 25
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 303
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_3
+    name: Slat adjustment Blind 3
+  - id: 26
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 303
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_4
+    name: Shading status 4
+  - id: 27
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 304
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_4
+    name: Slat adjustment Blind 4
+  - id: 28
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 304
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_5
+    name: Shading status 5
+  - id: 29
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 305
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_5
+    name: Slat adjustment Blind 5
+  - id: 30
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 305
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_6
+    name: Shading status 6
+  - id: 31
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 306
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_6
+    name: Slat adjustment Blind 6
+  - id: 32
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 306
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_7
+    name: Shading status 7
+  - id: 33
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 307
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_7
+    name: Slat adjustment Blind 7
+  - id: 34
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 307
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: shade
+      state_class: 1
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: shading_status_8
+    name: Shading status 8
+  - id: 35
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 308
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: slat_adjustment_8
+    name: Slat adjustment Blind 8
+  - id: 36
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 423
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: status_report
+    name: Status report
+  - id: 37
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 424
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: display_off
+    name: Display OFF
+  - id: 38
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 426
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: led_onoff
+    name: LED ON/OFF
+  - id: 39
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 427
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 8
+    valid: true
+    mqttname: led_color
+    name: LED colour
+  - id: 40
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 428
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: Hz
+      identification:
+        min: 0
+        max: 10000
+    valid: true
+    mqttname: piezo_frequency
+    name: Piezo-buzzer frequency
+  - id: 41
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 429
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ms
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: piezo_duration
+    name: Piezo-buzzer duration
+  - id: 42
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 500
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature
+    name: Temperature
+  - id: 43
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 501
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: relative_humidity
+    name: Relative humidity
+  - id: 44
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 502
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 830
+    valid: true
+    mqttname: absolute_humidity
+    name: Absolute humidity
+  - id: 45
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 503
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy
+    name: Enthalpy
+  - id: 46
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 504
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_point
+    name: Dew point
+  - id: 47
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 505
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: carbon_dioxide
+      state_class: 1
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2
+    name: CO2
+  - id: 48
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 506
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: voc
+    name: VOC
+  - id: 49
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 507
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: co2_voc_mix
+    name: CO2 / VOC MIX
+  - id: 50
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 511
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: external_sensor_4
+    name: External Sensor 4
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO"
+      - textId: e1
+        text: Room Occupancy
+      - textId: e2
+        text: ECO Mode
+      - textId: e3
+        text: Colour ECO function
+      - textId: e4
+        text: Setpoint (effective)
+      - textId: e5
+        text: Fan stage (internal)
+      - textId: e6
+        text: Lighting status 1
+      - textId: e7
+        text: Lighting status 2
+      - textId: e8
+        text: Lighting status 3
+      - textId: e9
+        text: Lighting status 4
+      - textId: e10
+        text: Lighting status 5
+      - textId: e11
+        text: Lighting status 6
+      - textId: e12
+        text: Lighting status 7
+      - textId: e13
+        text: Lighting status 8
+      - textId: e14
+        text: Lighting 1 Green-value
+      - textId: e15
+        text: Lighting 1 Blue value
+      - textId: e16
+        text: Lighting 1 White value
+      - textId: e17
+        text: Lighting 2 Green-value
+      - textId: e18
+        text: Lighting 2 Blue value
+      - textId: e19
+        text: Lighting 2 White value
+      - textId: e20
+        text: Shading status 1
+      - textId: e21
+        text: Slat adjustment Blind 1
+      - textId: e22
+        text: Shading status 2
+      - textId: e23
+        text: Slat adjustment Blind 2
+      - textId: e24
+        text: Shading status 3
+      - textId: e25
+        text: Slat adjustment Blind 3
+      - textId: e26
+        text: Shading status 4
+      - textId: e27
+        text: Slat adjustment Blind 4
+      - textId: e28
+        text: Shading status 5
+      - textId: e29
+        text: Slat adjustment Blind 5
+      - textId: e30
+        text: Shading status 6
+      - textId: e31
+        text: Slat adjustment Blind 6
+      - textId: e32
+        text: Shading status 7
+      - textId: e33
+        text: Slat adjustment Blind 7
+      - textId: e34
+        text: Shading status 8
+      - textId: e35
+        text: Slat adjustment Blind 8
+      - textId: e36
+        text: Status report
+      - textId: e37
+        text: Display OFF
+      - textId: e38
+        text: LED ON/OFF
+      - textId: e39
+        text: LED colour
+      - textId: e40
+        text: Piezo-buzzer frequency
+      - textId: e41
+        text: Piezo-buzzer duration
+      - textId: e42
+        text: Temperature
+      - textId: e43
+        text: Relative humidity
+      - textId: e44
+        text: Absolute humidity
+      - textId: e45
+        text: Enthalpy
+      - textId: e46
+        text: Dew point
+      - textId: e47
+        text: CO2
+      - textId: e48
+        text: VOC
+      - textId: e49
+        text: CO2 / VOC MIX
+      - textId: e50
+        text: External Sensor 4
+  - lang: de
+    texts:
+      - textId: name
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO"
+      - textId: e1
+        text: Raumbelegung
+      - textId: e2
+        text: ECO-Modus
+      - textId: e3
+        text: Farbe ECO-Funktion
+      - textId: e4
+        text: Sollwert (effektiv)
+      - textId: e5
+        text: "Lüfterstufe (intern)"
+      - textId: e6
+        text: Lighting status 1
+      - textId: e7
+        text: Lighting status 2
+      - textId: e8
+        text: Lighting status 3
+      - textId: e9
+        text: Lighting status 4
+      - textId: e10
+        text: Lighting status 5
+      - textId: e11
+        text: Lighting status 6
+      - textId: e12
+        text: Lighting status 7
+      - textId: e13
+        text: Lighting status 8
+      - textId: e14
+        text: Lighting 1 Green-value
+      - textId: e15
+        text: Lighting 1 Blue value
+      - textId: e16
+        text: Lighting 1 White value
+      - textId: e17
+        text: Lighting 2 Green-value
+      - textId: e18
+        text: Lighting 2 Blue value
+      - textId: e19
+        text: Lighting 2 White value
+      - textId: e20
+        text: Shading status 1
+      - textId: e21
+        text: Slat adjustment Blind 1
+      - textId: e22
+        text: Shading status 2
+      - textId: e23
+        text: Slat adjustment Blind 2
+      - textId: e24
+        text: Shading status 3
+      - textId: e25
+        text: Slat adjustment Blind 3
+      - textId: e26
+        text: Shading status 4
+      - textId: e27
+        text: Slat adjustment Blind 4
+      - textId: e28
+        text: Shading status 5
+      - textId: e29
+        text: Slat adjustment Blind 5
+      - textId: e30
+        text: Shading status 6
+      - textId: e31
+        text: Slat adjustment Blind 6
+      - textId: e32
+        text: Shading status 7
+      - textId: e33
+        text: Slat adjustment Blind 7
+      - textId: e34
+        text: Shading status 8
+      - textId: e35
+        text: Slat adjustment Blind 8
+      - textId: e36
+        text: Statusmeldung
+      - textId: e37
+        text: Display AUS
+      - textId: e38
+        text: LED Ein/Aus
+      - textId: e39
+        text: LED-Farbe
+      - textId: e40
+        text: Piezo-Summer Frequenz
+      - textId: e41
+        text: Piezo-Summer Dauer
+      - textId: e42
+        text: Temperatur
+      - textId: e43
+        text: Relative Feuchte
+      - textId: e44
+        text: Absolute Feuchte
+      - textId: e45
+        text: Enthalpie
+      - textId: e46
+        text: Taupunkt
+      - textId: e47
+        text: CO2
+      - textId: e48
+        text: VOC
+      - textId: e49
+        text: CO2 / VOC Mix
+      - textId: e50
+        text: Externer Sensor 4
+  - lang: fr
+    texts:
+      - textId: name
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO"
+      - textId: e1
+        text: Occupation
+      - textId: e2
+        text: Mode ECO
+      - textId: e3
+        text: Couleur fonction ECO
+      - textId: e4
+        text: Consigne (effective)
+      - textId: e5
+        text: Vitesse (interne)
+      - textId: e6
+        text: Lighting status 1
+      - textId: e7
+        text: Lighting status 2
+      - textId: e8
+        text: Lighting status 3
+      - textId: e9
+        text: Lighting status 4
+      - textId: e10
+        text: Lighting status 5
+      - textId: e11
+        text: Lighting status 6
+      - textId: e12
+        text: Lighting status 7
+      - textId: e13
+        text: Lighting status 8
+      - textId: e14
+        text: Lighting 1 Green-value
+      - textId: e15
+        text: Lighting 1 Blue value
+      - textId: e16
+        text: Lighting 1 White value
+      - textId: e17
+        text: Lighting 2 Green-value
+      - textId: e18
+        text: Lighting 2 Blue value
+      - textId: e19
+        text: Lighting 2 White value
+      - textId: e20
+        text: Shading status 1
+      - textId: e21
+        text: Slat adjustment Blind 1
+      - textId: e22
+        text: Shading status 2
+      - textId: e23
+        text: Slat adjustment Blind 2
+      - textId: e24
+        text: Shading status 3
+      - textId: e25
+        text: Slat adjustment Blind 3
+      - textId: e26
+        text: Shading status 4
+      - textId: e27
+        text: Slat adjustment Blind 4
+      - textId: e28
+        text: Shading status 5
+      - textId: e29
+        text: Slat adjustment Blind 5
+      - textId: e30
+        text: Shading status 6
+      - textId: e31
+        text: Slat adjustment Blind 6
+      - textId: e32
+        text: Shading status 7
+      - textId: e33
+        text: Slat adjustment Blind 7
+      - textId: e34
+        text: Shading status 8
+      - textId: e35
+        text: Slat adjustment Blind 8
+      - textId: e36
+        text: "Rapport d'état"
+      - textId: e37
+        text: "Écran OFF"
+      - textId: e38
+        text: LED ON/OFF
+      - textId: e39
+        text: Couleur LED
+      - textId: e40
+        text: "Fréquence buzzer piézo"
+      - textId: e41
+        text: "Durée buzzer piézo"
+      - textId: e42
+        text: "Température"
+      - textId: e43
+        text: "Humidité relative"
+      - textId: e44
+        text: "Humidité absolue"
+      - textId: e45
+        text: Enthalpie
+      - textId: e46
+        text: "Point de rosée"
+      - textId: e47
+        text: CO2
+      - textId: e48
+        text: COV
+      - textId: e49
+        text: "Mélange CO2/COV"
+      - textId: e50
+        text: Capteur externe 4
+  - lang: it
+    texts:
+      - textId: name
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO"
+      - textId: e1
+        text: Occupazione
+      - textId: e2
+        text: "Modalità ECO"
+      - textId: e3
+        text: Colore funzione ECO
+      - textId: e4
+        text: Setpoint (effettivo)
+      - textId: e5
+        text: "Velocità (interna)"
+      - textId: e6
+        text: Lighting status 1
+      - textId: e7
+        text: Lighting status 2
+      - textId: e8
+        text: Lighting status 3
+      - textId: e9
+        text: Lighting status 4
+      - textId: e10
+        text: Lighting status 5
+      - textId: e11
+        text: Lighting status 6
+      - textId: e12
+        text: Lighting status 7
+      - textId: e13
+        text: Lighting status 8
+      - textId: e14
+        text: Lighting 1 Green-value
+      - textId: e15
+        text: Lighting 1 Blue value
+      - textId: e16
+        text: Lighting 1 White value
+      - textId: e17
+        text: Lighting 2 Green-value
+      - textId: e18
+        text: Lighting 2 Blue value
+      - textId: e19
+        text: Lighting 2 White value
+      - textId: e20
+        text: Shading status 1
+      - textId: e21
+        text: Slat adjustment Blind 1
+      - textId: e22
+        text: Shading status 2
+      - textId: e23
+        text: Slat adjustment Blind 2
+      - textId: e24
+        text: Shading status 3
+      - textId: e25
+        text: Slat adjustment Blind 3
+      - textId: e26
+        text: Shading status 4
+      - textId: e27
+        text: Slat adjustment Blind 4
+      - textId: e28
+        text: Shading status 5
+      - textId: e29
+        text: Slat adjustment Blind 5
+      - textId: e30
+        text: Shading status 6
+      - textId: e31
+        text: Slat adjustment Blind 6
+      - textId: e32
+        text: Shading status 7
+      - textId: e33
+        text: Slat adjustment Blind 7
+      - textId: e34
+        text: Shading status 8
+      - textId: e35
+        text: Slat adjustment Blind 8
+      - textId: e36
+        text: Rapporto stato
+      - textId: e37
+        text: Display OFF
+      - textId: e38
+        text: LED ON/OFF
+      - textId: e39
+        text: Colore LED
+      - textId: e40
+        text: Frequenza buzzer piezoelettrico
+      - textId: e41
+        text: Durata buzzer piezoelettrico
+      - textId: e42
+        text: Temperatura
+      - textId: e43
+        text: "Umidità relativa"
+      - textId: e44
+        text: "Umidità assoluta"
+      - textId: e45
+        text: Entalpia
+      - textId: e46
+        text: Punto di rugiada
+      - textId: e47
+        text: CO2
+      - textId: e48
+        text: COV
+      - textId: e49
+        text: Miscela CO2/COV
+      - textId: e50
+        text: Sensore esterno 4
+testdata:
+  holdingRegisters:
+    - address: 100
+      value: 1
+    - address: 101
+      value: 1
+    - address: 102
+      value: 5
+    - address: 103
+      value: 250
+    - address: 104
+      value: 3
+    - address: 200
+      value: 1
+    - address: 201
+      value: 1
+    - address: 202
+      value: 1
+    - address: 203
+      value: 1
+    - address: 204
+      value: 1
+    - address: 205
+      value: 1
+    - address: 206
+      value: 1
+    - address: 207
+      value: 1
+    - address: 211
+      value: 128
+    - address: 212
+      value: 128
+    - address: 213
+      value: 128
+    - address: 239
+      value: 128
+    - address: 240
+      value: 128
+    - address: 241
+      value: 128
+    - address: 300
+      value: 1
+    - address: 301
+      value: 50
+    - address: 301
+      value: 1
+    - address: 302
+      value: 50
+    - address: 302
+      value: 1
+    - address: 303
+      value: 50
+    - address: 303
+      value: 1
+    - address: 304
+      value: 50
+    - address: 304
+      value: 1
+    - address: 305
+      value: 50
+    - address: 305
+      value: 1
+    - address: 306
+      value: 50
+    - address: 306
+      value: 1
+    - address: 307
+      value: 50
+    - address: 307
+      value: 1
+    - address: 308
+      value: 50
+    - address: 423
+      value: 32768
+    - address: 424
+      value: 1
+    - address: 426
+      value: 1
+    - address: 427
+      value: 4
+    - address: 428
+      value: 5000
+    - address: 429
+      value: 32768
+    - address: 500
+      value: 425
+    - address: 501
+      value: 500
+    - address: 502
+      value: 415
+    - address: 503
+      value: 1370
+    - address: 504
+      value: -300
+    - address: 505
+      value: 2500
+    - address: 506
+      value: 500
+    - address: 507
+      value: 500
+    - address: 511
+      value: 425

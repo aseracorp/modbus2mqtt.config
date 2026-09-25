@@ -1,0 +1,8 @@
+version: "0.1"
+files:
+  - url: specifications/files/thermokon-wrf06-inc/thermokon-wrf06-inc.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf06-inc/WRF06_INC-RS485_Modbus_Manual_en.pdf
+    fileLocation: 0
+    usage: doc
