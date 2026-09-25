@@ -1,0 +1,8 @@
+version: "0.1"
+files:
+  - url: specifications/files/thermokon-wrf07/thermokon-wrf07.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf07/WRF0x_Modbus_Manual_RevE.pdf
+    fileLocation: 0
+    usage: doc

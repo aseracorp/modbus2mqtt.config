@@ -1,0 +1,2303 @@
+filename: thermokon-wrf07
+model: WRF07 x / WRF07 x rH
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-wrf07/thermokon-wrf07.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-wrf07/WRF0x_Modbus_Manual_RevE.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.5"
+nextEntityId: 75
+entities:
+  - id: 1
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 500
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: device_identifier
+    name: Device identifier
+  - id: 2
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 501
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: sensor_identifier
+    name: Sensor identifier
+  - id: 3
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 502
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: hw_version_mc
+    name: MC PCB hardware version
+  - id: 4
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 503
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: firmware_version
+    name: Firmware version
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 504
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: hw_version_kl
+    name: KL PCB Hardware version
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 505
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: factory_settings
+    name: Factory settings
+  - id: 7
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 506
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 255
+    valid: true
+    mqttname: sensor_failure
+    name: Sensor failure
+  - id: 8
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 0
+    conditions:
+      - register: 400
+        comparator: eq
+        value: 1
+      - register: 501
+        bit: 0
+        comparator: eq
+        value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: -500
+        max: 1250
+    valid: true
+    mqttname: temperature_si
+    name: Temperature (SI)
+  - id: 9
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 0
+    conditions:
+      - register: 400
+        comparator: eq
+        value: 2
+      - register: 501
+        bit: 0
+        comparator: eq
+        value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °F
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_imperial
+    name: Temperature (Imperial)
+  - id: 10
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1
+    condition:
+      register: 501
+      bit: 1
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: relative_humidity
+    name: Relative humidity
+  - id: 11
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 2
+    condition:
+      register: 501
+      bit: 2
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 830
+    valid: true
+    mqttname: absolute_humidity
+    name: Absolute humidity
+  - id: 12
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 3
+    condition:
+      register: 501
+      bit: 3
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy
+    name: Enthalpy
+  - id: 13
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 4
+    condition:
+      register: 501
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: °C
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_point
+    name: Dew point
+  - id: 14
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 5
+    condition:
+      register: 501
+      bit: 5
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: carbon_dioxide
+      state_class: 1
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2
+    name: CO2
+  - id: 15
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 6
+    condition:
+      register: 501
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: voc
+    name: VOC
+  - id: 16
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 7
+    condition:
+      register: 501
+      bit: 7
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: co2_voc_mix
+    name: CO2 VOC mix
+  - id: 17
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 400
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 2
+    valid: true
+    mqttname: unit_system
+    name: Unit system
+  - id: 18
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 401
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 247
+    valid: true
+    mqttname: modbus_slave_id
+    name: Modbus Slave ID
+  - id: 19
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 402
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: preset_fan_stage
+    name: Preset fan stage
+  - id: 20
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 403
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: auto_fan_available
+    name: AUTO fan stage available
+  - id: 21
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 404
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: fan_stage_after_reset
+    name: Fan stage after reset
+  - id: 22
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 405
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: room_occupancy_after_reset
+    name: Room occupancy after reset
+  - id: 23
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 410
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: button_function_1
+    name: Button function 1
+  - id: 24
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 411
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: button_function_2
+    name: Button function 2
+  - id: 25
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 412
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: button_function_3
+    name: Button function 3
+  - id: 26
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 413
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: button_function_4
+    name: Button function 4
+  - id: 27
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 414
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: button_function_5
+    name: Button function 5
+  - id: 28
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 420
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: digital_input_1_function
+    name: Digital input 1 function
+  - id: 29
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 421
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: digital_input_2_function
+    name: Digital input 2 function
+  - id: 30
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 100
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: offset_temperature
+    name: Offset temperature
+  - id: 31
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 101
+    condition:
+      register: 501
+      bit: 1
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -100
+        max: 100
+    valid: true
+    mqttname: offset_rh
+    name: Offset relative humidity
+  - id: 32
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 102
+    condition:
+      register: 501
+      bit: 5
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: offset_co2
+    name: Offset CO2
+  - id: 33
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 103
+    condition:
+      register: 501
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: -100
+        max: 100
+    valid: true
+    mqttname: offset_voc
+    name: Offset VOC
+  - id: 34
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 104
+    condition:
+      register: 501
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "ppb/%"
+      identification:
+        min: 0
+        max: 10000
+    valid: true
+    mqttname: voc_scale
+    name: VOC Scale
+  - id: 35
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 105
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: m
+      identification:
+        min: -500
+        max: 4000
+    valid: true
+    mqttname: height
+    name: Height
+  - id: 36
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 200
+    condition:
+      register: 400
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: temp_lower_limit_si
+    name: Temperature lower limit (SI)
+  - id: 37
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 200
+    condition:
+      register: 400
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °F
+      identification:
+        min: 320
+        max: 1220
+    valid: true
+    mqttname: temp_lower_limit_imperial
+    name: Temperature lower limit (Imperial)
+  - id: 38
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 201
+    condition:
+      register: 400
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: temp_upper_limit_si
+    name: Temperature upper limit (SI)
+  - id: 39
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 201
+    condition:
+      register: 400
+      comparator: eq
+      value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °F
+      identification:
+        min: 320
+        max: 1220
+    valid: true
+    mqttname: temp_upper_limit_imperial
+    name: Temperature upper limit (Imperial)
+  - id: 40
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 202
+    condition:
+      register: 501
+      bit: 1
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: rh_lower_limit
+    name: Relative humidity lower limit
+  - id: 41
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 203
+    condition:
+      register: 501
+      bit: 1
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: rh_upper_limit
+    name: Relative humidity upper limit
+  - id: 42
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 204
+    condition:
+      register: 501
+      bit: 2
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 830
+    valid: true
+    mqttname: abs_hum_lower_limit
+    name: Absolute humidity lower limit
+  - id: 43
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 205
+    condition:
+      register: 501
+      bit: 2
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 830
+    valid: true
+    mqttname: abs_hum_upper_limit
+    name: Absolute humidity upper limit
+  - id: 44
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 206
+    condition:
+      register: 501
+      bit: 3
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy_lower_limit
+    name: Enthalpy lower limit
+  - id: 45
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 207
+    condition:
+      register: 501
+      bit: 3
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy_upper_limit
+    name: Enthalpy upper limit
+  - id: 46
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 208
+    condition:
+      register: 501
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_lower_limit
+    name: Dew point lower limit
+  - id: 47
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 209
+    condition:
+      register: 501
+      bit: 4
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: °C
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_upper_limit
+    name: Dew point upper limit
+  - id: 48
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 210
+    condition:
+      register: 501
+      bit: 5
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2_lower_limit
+    name: CO2 lower limit
+  - id: 49
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 211
+    condition:
+      register: 501
+      bit: 5
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: ppm
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: co2_upper_limit
+    name: CO2 upper limit
+  - id: 50
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 212
+    condition:
+      register: 501
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: voc_lower_limit
+    name: VOC lower limit
+  - id: 51
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 213
+    condition:
+      register: 501
+      bit: 6
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: voc_upper_limit
+    name: VOC upper limit
+  - id: 52
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 214
+    condition:
+      register: 501
+      bit: 7
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: co2voc_lower_limit
+    name: CO2 VOC mix lower limit
+  - id: 53
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 215
+    condition:
+      register: 501
+      bit: 7
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: co2voc_upper_limit
+    name: CO2 VOC mix upper limit
+  - id: 54
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 216
+    condition:
+      register: 501
+      bit: 7
+      comparator: eq
+      value: 1
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: "%"
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: co2voc_share
+    name: CO2 VOC mix share (CO2 share)
+  - id: 55
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 217
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -300
+        max: 300
+    valid: true
+    mqttname: pot_setpoint_lower_limit
+    name: Potentiometer setpoint lower limit
+  - id: 56
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 218
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: K
+      identification:
+        min: -300
+        max: 300
+    valid: true
+    mqttname: pot_setpoint_upper_limit
+    name: Potentiometer setpoint upper limit
+  - id: 57
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 614
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 10
+    valid: true
+    mqttname: tlf_channel_select
+    name: TLF channel selection
+  - id: 58
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 615
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: tlf_range_1_2
+    name: "TLF Range 1→2"
+  - id: 59
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 616
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 5000
+    valid: true
+    mqttname: tlf_range_2_3
+    name: "TLF Range 2→3"
+  - id: 60
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 617
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: aqi
+      state_class: 1
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: tlf_current_zone
+    name: Current TLF zone
+  - id: 61
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 618
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: current_fan_stage
+    name: Current fan stage
+  - id: 62
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 619
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      uom: s
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: fan_led_overrun
+    name: Fan stage LED overrun time
+  - id: 63
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 803
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_1
+    name: Function LED 1
+  - id: 64
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 804
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_2
+    name: Function LED 2
+  - id: 65
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 805
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_3
+    name: Function LED 3
+  - id: 66
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 806
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_4
+    name: Function LED 4
+  - id: 67
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 807
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_5
+    name: Function LED 5
+  - id: 68
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 808
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_6
+    name: Function LED 6
+  - id: 69
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 809
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_7
+    name: Function LED 7
+  - id: 70
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 810
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_8
+    name: Function LED 8
+  - id: 71
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 811
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: -1
+        max: 9
+    valid: true
+    mqttname: function_led_9
+    name: Function LED 9
+  - id: 72
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 814
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 3
+    valid: true
+    mqttname: lowest_fan_stage
+    name: Lowest fan stage
+  - id: 73
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 815
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 6
+    valid: true
+    mqttname: highest_fan_stage
+    name: Highest fan stage
+  - id: 74
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1000
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: reset_device
+    name: Reset device
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: "WRF07 x / WRF07 x rH"
+      - textId: e1
+        text: Device identifier
+      - textId: e2
+        text: Sensor identifier
+      - textId: e3
+        text: MC PCB hardware version
+      - textId: e4
+        text: Firmware version
+      - textId: e5
+        text: KL PCB Hardware version
+      - textId: e6
+        text: Factory settings
+      - textId: e7
+        text: Sensor failure
+      - textId: e8
+        text: Temperature (SI)
+      - textId: e9
+        text: Temperature (Imperial)
+      - textId: e10
+        text: Relative humidity
+      - textId: e11
+        text: Absolute humidity
+      - textId: e12
+        text: Enthalpy
+      - textId: e13
+        text: Dew point
+      - textId: e14
+        text: CO2
+      - textId: e15
+        text: VOC
+      - textId: e16
+        text: CO2 VOC mix
+      - textId: e17
+        text: Unit system
+      - textId: e18
+        text: Modbus Slave ID
+      - textId: e19
+        text: Preset fan stage
+      - textId: e20
+        text: AUTO fan stage available
+      - textId: e21
+        text: Fan stage after reset
+      - textId: e22
+        text: Room occupancy after reset
+      - textId: e23
+        text: Button function 1
+      - textId: e24
+        text: Button function 2
+      - textId: e25
+        text: Button function 3
+      - textId: e26
+        text: Button function 4
+      - textId: e27
+        text: Button function 5
+      - textId: e28
+        text: Digital input 1 function
+      - textId: e29
+        text: Digital input 2 function
+      - textId: e30
+        text: Offset temperature
+      - textId: e31
+        text: Offset relative humidity
+      - textId: e32
+        text: Offset CO2
+      - textId: e33
+        text: Offset VOC
+      - textId: e34
+        text: VOC Scale
+      - textId: e35
+        text: Height
+      - textId: e36
+        text: Temperature lower limit (SI)
+      - textId: e37
+        text: Temperature lower limit (Imperial)
+      - textId: e38
+        text: Temperature upper limit (SI)
+      - textId: e39
+        text: Temperature upper limit (Imperial)
+      - textId: e40
+        text: Relative humidity lower limit
+      - textId: e41
+        text: Relative humidity upper limit
+      - textId: e42
+        text: Absolute humidity lower limit
+      - textId: e43
+        text: Absolute humidity upper limit
+      - textId: e44
+        text: Enthalpy lower limit
+      - textId: e45
+        text: Enthalpy upper limit
+      - textId: e46
+        text: Dew point lower limit
+      - textId: e47
+        text: Dew point upper limit
+      - textId: e48
+        text: CO2 lower limit
+      - textId: e49
+        text: CO2 upper limit
+      - textId: e50
+        text: VOC lower limit
+      - textId: e51
+        text: VOC upper limit
+      - textId: e52
+        text: CO2 VOC mix lower limit
+      - textId: e53
+        text: CO2 VOC mix upper limit
+      - textId: e54
+        text: CO2 VOC mix share (CO2 share)
+      - textId: e55
+        text: Potentiometer setpoint lower limit
+      - textId: e56
+        text: Potentiometer setpoint upper limit
+      - textId: e57
+        text: TLF channel selection
+      - textId: e58
+        text: "TLF Range 1→2"
+      - textId: e59
+        text: "TLF Range 2→3"
+      - textId: e60
+        text: Current TLF zone
+      - textId: e61
+        text: Current fan stage
+      - textId: e62
+        text: Fan stage LED overrun time
+      - textId: e63
+        text: Function LED 1
+      - textId: e64
+        text: Function LED 2
+      - textId: e65
+        text: Function LED 3
+      - textId: e66
+        text: Function LED 4
+      - textId: e67
+        text: Function LED 5
+      - textId: e68
+        text: Function LED 6
+      - textId: e69
+        text: Function LED 7
+      - textId: e70
+        text: Function LED 8
+      - textId: e71
+        text: Function LED 9
+      - textId: e72
+        text: Lowest fan stage
+      - textId: e73
+        text: Highest fan stage
+      - textId: e74
+        text: Reset device
+  - lang: de
+    texts:
+      - textId: name
+        text: "WRF07 x / WRF07 x rH"
+      - textId: e1
+        text: "Gerätekennung"
+      - textId: e2
+        text: Sensorkennung
+      - textId: e3
+        text: MC PCB Hardware-Version
+      - textId: e4
+        text: Firmware-Version
+      - textId: e5
+        text: KL PCB Hardware-Version
+      - textId: e6
+        text: Werkseinstellungen
+      - textId: e7
+        text: Sensorfehler
+      - textId: e8
+        text: Temperatur (SI)
+      - textId: e9
+        text: Temperatur (°F)
+      - textId: e10
+        text: Relative Feuchte
+      - textId: e11
+        text: Absolute Feuchte
+      - textId: e12
+        text: Enthalpie
+      - textId: e13
+        text: Taupunkt
+      - textId: e14
+        text: CO2
+      - textId: e15
+        text: VOC
+      - textId: e16
+        text: CO2 VOC Mix
+      - textId: e17
+        text: Einheitssystem
+      - textId: e18
+        text: Modbus Slave-ID
+      - textId: e19
+        text: "Vorgegebene Lüfterstufe"
+      - textId: e20
+        text: "AUTO Lüfterstufe verfügbar"
+      - textId: e21
+        text: "Lüfterstufe nach Reset"
+      - textId: e22
+        text: Raumbelegung nach Reset
+      - textId: e23
+        text: Tastenfunktion 1
+      - textId: e24
+        text: Tastenfunktion 2
+      - textId: e25
+        text: Tastenfunktion 3
+      - textId: e26
+        text: Tastenfunktion 4
+      - textId: e27
+        text: Tastenfunktion 5
+      - textId: e28
+        text: Funktion Digitaleingang 1
+      - textId: e29
+        text: Funktion Digitaleingang 2
+      - textId: e30
+        text: Offset Temperatur
+      - textId: e31
+        text: Offset rel. Feuchte
+      - textId: e32
+        text: Offset CO2
+      - textId: e33
+        text: Offset VOC
+      - textId: e34
+        text: VOC-Skala
+      - textId: e35
+        text: "Höhe"
+      - textId: e36
+        text: Temperatur Untergrenze (SI)
+      - textId: e37
+        text: Temperatur Untergrenze (°F)
+      - textId: e38
+        text: Temperatur Obergrenze (SI)
+      - textId: e39
+        text: Temperatur Obergrenze (°F)
+      - textId: e40
+        text: Untergrenze rel. Feuchte
+      - textId: e41
+        text: Obergrenze rel. Feuchte
+      - textId: e42
+        text: Untergrenze abs. Feuchte
+      - textId: e43
+        text: Obergrenze abs. Feuchte
+      - textId: e44
+        text: Enthalpie Untergrenze
+      - textId: e45
+        text: Enthalpie Obergrenze
+      - textId: e46
+        text: Taupunkt Untergrenze
+      - textId: e47
+        text: Taupunkt Obergrenze
+      - textId: e48
+        text: CO2 Untergrenze
+      - textId: e49
+        text: CO2 Obergrenze
+      - textId: e50
+        text: VOC Untergrenze
+      - textId: e51
+        text: VOC Obergrenze
+      - textId: e52
+        text: CO2 VOC Mix Untergrenze
+      - textId: e53
+        text: CO2 VOC Mix Obergrenze
+      - textId: e54
+        text: CO2 VOC Mix Anteil
+      - textId: e55
+        text: Poti-Sollwert Untergrenze
+      - textId: e56
+        text: Poti-Sollwert Obergrenze
+      - textId: e57
+        text: TLF-Kanalwahl
+      - textId: e58
+        text: "TLF-Bereich 1→2"
+      - textId: e59
+        text: "TLF-Bereich 2→3"
+      - textId: e60
+        text: Aktuelle TLF-Zone
+      - textId: e61
+        text: "Aktuelle Lüfterstufe"
+      - textId: e62
+        text: "LED Nachlauf Lüfterstufe"
+      - textId: e63
+        text: Funktions-LED 1
+      - textId: e64
+        text: Funktions-LED 2
+      - textId: e65
+        text: Funktions-LED 3
+      - textId: e66
+        text: Funktions-LED 4
+      - textId: e67
+        text: Funktions-LED 5
+      - textId: e68
+        text: Funktions-LED 6
+      - textId: e69
+        text: Funktions-LED 7
+      - textId: e70
+        text: Funktions-LED 8
+      - textId: e71
+        text: Funktions-LED 9
+      - textId: e72
+        text: "Kleinste Lüfterstufe"
+      - textId: e73
+        text: "Größte Lüfterstufe"
+      - textId: e74
+        text: "Gerät zurücksetzen"
+  - lang: fr
+    texts:
+      - textId: name
+        text: "WRF07 x / WRF07 x rH"
+      - textId: e1
+        text: Identifiant appareil
+      - textId: e2
+        text: Identifiant capteur
+      - textId: e3
+        text: "Version matériel MC PCB"
+      - textId: e4
+        text: Version firmware
+      - textId: e5
+        text: "Version matériel KL PCB"
+      - textId: e6
+        text: "Paramètres d'usine"
+      - textId: e7
+        text: "Défaut capteur"
+      - textId: e8
+        text: "Température (SI)"
+      - textId: e9
+        text: "Température (°F)"
+      - textId: e10
+        text: "Humidité relative"
+      - textId: e11
+        text: "Humidité absolue"
+      - textId: e12
+        text: Enthalpie
+      - textId: e13
+        text: "Point de rosée"
+      - textId: e14
+        text: CO2
+      - textId: e15
+        text: COV
+      - textId: e16
+        text: "Mélange CO2/COV"
+      - textId: e17
+        text: "Système d'unités"
+      - textId: e18
+        text: ID esclave Modbus
+      - textId: e19
+        text: "Vitesse prédéfinie"
+      - textId: e20
+        text: Vitesse AUTO disponible
+      - textId: e21
+        text: "Vitesse après reset"
+      - textId: e22
+        text: "Occupation après reset"
+      - textId: e23
+        text: Fonction touche 1
+      - textId: e24
+        text: Fonction touche 2
+      - textId: e25
+        text: Fonction touche 3
+      - textId: e26
+        text: Fonction touche 4
+      - textId: e27
+        text: Fonction touche 5
+      - textId: e28
+        text: "Fonction entrée num. 1"
+      - textId: e29
+        text: "Fonction entrée num. 2"
+      - textId: e30
+        text: "Offset température"
+      - textId: e31
+        text: "Offset humidité rel."
+      - textId: e32
+        text: Offset CO2
+      - textId: e33
+        text: Offset COV
+      - textId: e34
+        text: "Échelle COV"
+      - textId: e35
+        text: Altitude
+      - textId: e36
+        text: Limite inf. temp (SI)
+      - textId: e37
+        text: Limite inf. temp (°F)
+      - textId: e38
+        text: Limite sup. temp (SI)
+      - textId: e39
+        text: Limite sup. temp (°F)
+      - textId: e40
+        text: "Limite inf. humidité rel."
+      - textId: e41
+        text: "Limite sup. humidité rel."
+      - textId: e42
+        text: "Limite inf. humidité abs."
+      - textId: e43
+        text: "Limite sup. humidité abs."
+      - textId: e44
+        text: Limite inf. enthalpie
+      - textId: e45
+        text: Limite sup. enthalpie
+      - textId: e46
+        text: "Limite inf. point de rosée"
+      - textId: e47
+        text: "Limite sup. point de rosée"
+      - textId: e48
+        text: Limite inf. CO2
+      - textId: e49
+        text: Limite sup. CO2
+      - textId: e50
+        text: Limite inf. COV
+      - textId: e51
+        text: Limite sup. COV
+      - textId: e52
+        text: Limite inf. CO2/COV
+      - textId: e53
+        text: Limite sup. CO2/COV
+      - textId: e54
+        text: "Part CO2 du mélange"
+      - textId: e55
+        text: "Limite inf. consigne potentiomètre"
+      - textId: e56
+        text: "Limite sup. consigne potentiomètre"
+      - textId: e57
+        text: "Sélection canal TLF"
+      - textId: e58
+        text: "Plage TLF 1→2"
+      - textId: e59
+        text: "Plage TLF 2→3"
+      - textId: e60
+        text: Zone TLF actuelle
+      - textId: e61
+        text: Vitesse actuelle
+      - textId: e62
+        text: "Durée LED vitesse"
+      - textId: e63
+        text: LED fonction 1
+      - textId: e64
+        text: LED fonction 2
+      - textId: e65
+        text: LED fonction 3
+      - textId: e66
+        text: LED fonction 4
+      - textId: e67
+        text: LED fonction 5
+      - textId: e68
+        text: LED fonction 6
+      - textId: e69
+        text: LED fonction 7
+      - textId: e70
+        text: LED fonction 8
+      - textId: e71
+        text: LED fonction 9
+      - textId: e72
+        text: Vitesse minimale
+      - textId: e73
+        text: Vitesse maximale
+      - textId: e74
+        text: "Réinitialiser appareil"
+  - lang: it
+    texts:
+      - textId: name
+        text: "WRF07 x / WRF07 x rH"
+      - textId: e1
+        text: Identificatore dispositivo
+      - textId: e2
+        text: Identificatore sensore
+      - textId: e3
+        text: Versione hardware MC PCB
+      - textId: e4
+        text: Versione firmware
+      - textId: e5
+        text: Versione hardware KL PCB
+      - textId: e6
+        text: Impostazioni di fabbrica
+      - textId: e7
+        text: Guasto sensore
+      - textId: e8
+        text: Temperatura (SI)
+      - textId: e9
+        text: Temperatura (°F)
+      - textId: e10
+        text: "Umidità relativa"
+      - textId: e11
+        text: "Umidità assoluta"
+      - textId: e12
+        text: Entalpia
+      - textId: e13
+        text: Punto di rugiada
+      - textId: e14
+        text: CO2
+      - textId: e15
+        text: COV
+      - textId: e16
+        text: Miscela CO2/COV
+      - textId: e17
+        text: "Sistema unità"
+      - textId: e18
+        text: ID slave Modbus
+      - textId: e19
+        text: "Velocità predefinita"
+      - textId: e20
+        text: "Velocità AUTO disponibile"
+      - textId: e21
+        text: "Velocità dopo reset"
+      - textId: e22
+        text: Occupazione dopo reset
+      - textId: e23
+        text: Funzione tasto 1
+      - textId: e24
+        text: Funzione tasto 2
+      - textId: e25
+        text: Funzione tasto 3
+      - textId: e26
+        text: Funzione tasto 4
+      - textId: e27
+        text: Funzione tasto 5
+      - textId: e28
+        text: Funzione ingresso dig. 1
+      - textId: e29
+        text: Funzione ingresso dig. 2
+      - textId: e30
+        text: Offset temperatura
+      - textId: e31
+        text: "Offset umidità rel."
+      - textId: e32
+        text: Offset CO2
+      - textId: e33
+        text: Offset COV
+      - textId: e34
+        text: Scala COV
+      - textId: e35
+        text: Altezza
+      - textId: e36
+        text: Limite inf. temp (SI)
+      - textId: e37
+        text: Limite inf. temp (°F)
+      - textId: e38
+        text: Limite sup. temp (SI)
+      - textId: e39
+        text: Limite sup. temp (°F)
+      - textId: e40
+        text: "Limite inf. umidità rel."
+      - textId: e41
+        text: "Limite sup. umidità rel."
+      - textId: e42
+        text: "Limite inf. umidità ass."
+      - textId: e43
+        text: "Limite sup. umidità ass."
+      - textId: e44
+        text: Limite inf. entalpia
+      - textId: e45
+        text: Limite sup. entalpia
+      - textId: e46
+        text: Limite inf. punto di rugiada
+      - textId: e47
+        text: Limite sup. punto di rugiada
+      - textId: e48
+        text: Limite inf. CO2
+      - textId: e49
+        text: Limite sup. CO2
+      - textId: e50
+        text: Limite inf. COV
+      - textId: e51
+        text: Limite sup. COV
+      - textId: e52
+        text: Limite inf. CO2/COV
+      - textId: e53
+        text: Limite sup. CO2/COV
+      - textId: e54
+        text: Quota CO2 nel mix
+      - textId: e55
+        text: Limite inf. setpoint potenziometro
+      - textId: e56
+        text: Limite sup. setpoint potenziometro
+      - textId: e57
+        text: Selezione canale TLF
+      - textId: e58
+        text: "Intervallo TLF 1→2"
+      - textId: e59
+        text: "Intervallo TLF 2→3"
+      - textId: e60
+        text: Zona TLF attuale
+      - textId: e61
+        text: "Velocità attuale"
+      - textId: e62
+        text: "Durata LED velocità"
+      - textId: e63
+        text: LED funzione 1
+      - textId: e64
+        text: LED funzione 2
+      - textId: e65
+        text: LED funzione 3
+      - textId: e66
+        text: LED funzione 4
+      - textId: e67
+        text: LED funzione 5
+      - textId: e68
+        text: LED funzione 6
+      - textId: e69
+        text: LED funzione 7
+      - textId: e70
+        text: LED funzione 8
+      - textId: e71
+        text: LED funzione 9
+      - textId: e72
+        text: "Velocità minima"
+      - textId: e73
+        text: "Velocità massima"
+      - textId: e74
+        text: Ripristina dispositivo
+testdata:
+  holdingRegisters:
+    - address: 500
+      value: 560
+    - address: 501
+      value: 255
+    - address: 400
+      value: 1
+    - address: 502
+      value: 0
+    - address: 503
+      value: 0
+    - address: 504
+      value: 0
+    - address: 505
+      value: 1
+    - address: 506
+      value: 128
+    - address: 0
+      value: 375
+    - address: 0
+      value: 425
+    - address: 1
+      value: 500
+    - address: 2
+      value: 415
+    - address: 3
+      value: 1370
+    - address: 4
+      value: -300
+    - address: 5
+      value: 2500
+    - address: 6
+      value: 500
+    - address: 7
+      value: 500
+    - address: 401
+      value: 124
+    - address: 402
+      value: 3
+    - address: 403
+      value: 1
+    - address: 404
+      value: 3
+    - address: 405
+      value: 1
+    - address: 410
+      value: 5
+    - address: 411
+      value: 5
+    - address: 412
+      value: 5
+    - address: 413
+      value: 5
+    - address: 414
+      value: 5
+    - address: 420
+      value: 5
+    - address: 421
+      value: 5
+    - address: 100
+      value: 0
+    - address: 101
+      value: 0
+    - address: 102
+      value: 0
+    - address: 103
+      value: 0
+    - address: 104
+      value: 5000
+    - address: 105
+      value: 1750
+    - address: 200
+      value: 250
+    - address: 200
+      value: 770
+    - address: 201
+      value: 250
+    - address: 201
+      value: 770
+    - address: 202
+      value: 500
+    - address: 203
+      value: 500
+    - address: 204
+      value: 415
+    - address: 205
+      value: 415
+    - address: 206
+      value: 1370
+    - address: 207
+      value: 1370
+    - address: 208
+      value: -300
+    - address: 209
+      value: -300
+    - address: 210
+      value: 2500
+    - address: 211
+      value: 2500
+    - address: 212
+      value: 500
+    - address: 213
+      value: 500
+    - address: 214
+      value: 500
+    - address: 215
+      value: 500
+    - address: 216
+      value: 50
+    - address: 217
+      value: 0
+    - address: 218
+      value: 0
+    - address: 614
+      value: 5
+    - address: 615
+      value: 2500
+    - address: 616
+      value: 2500
+    - address: 617
+      value: 2
+    - address: 618
+      value: 3
+    - address: 619
+      value: 32768
+    - address: 803
+      value: 4
+    - address: 804
+      value: 4
+    - address: 805
+      value: 4
+    - address: 806
+      value: 4
+    - address: 807
+      value: 4
+    - address: 808
+      value: 4
+    - address: 809
+      value: 4
+    - address: 810
+      value: 4
+    - address: 811
+      value: 4
+    - address: 814
+      value: 2
+    - address: 815
+      value: 3
+    - address: 1000
+      value: 1
