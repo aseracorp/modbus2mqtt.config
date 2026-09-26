@@ -16,7 +16,6 @@ entities:
     readonly: true
     converter:
       name: number
-    category: config
     entityCategory: diagnostic
     modbusAddress: 0
     converterParameters:
@@ -4224,7 +4223,7 @@ i18n:
       - textId: e61
         text: Belegt-/ECO-Override
       - textId: e62
-        text: SAB-Offset Bad-Funktion
+        text: "SAB-Offset Bad-Funktion"
       - textId: e63
         text: Vorgabe ECO-Modus
       - textId: e64
@@ -4244,101 +4243,101 @@ i18n:
       - textId: e71
         text: "Schwelle Lüfterstufe 3 Ein"
       - textId: e72
-        text: Time channel 1 start hour period 1
+        text: "Zeitkanal 1 Startstunde Periode 1"
       - textId: e73
-        text: Time channel 1 start minute period 1
+        text: "Zeitkanal 1 Startminute Periode 1"
       - textId: e74
-        text: Time channel 1 set point period 1
+        text: "Zeitkanal 1 Sollwert Periode 1"
       - textId: e75
-        text: Time channel 1 fan coil stage period 1
+        text: "Zeitkanal 1 Fan-Coil-Stufe Periode 1"
       - textId: e76
-        text: Time channel 1 start hour period 2
+        text: "Zeitkanal 1 Startstunde Periode 2"
       - textId: e77
-        text: Time channel 1 start minute period 2
+        text: "Zeitkanal 1 Startminute Periode 2"
       - textId: e78
-        text: Time channel 1 set point period 2
+        text: "Zeitkanal 1 Sollwert Periode 2"
       - textId: e79
-        text: Time channel 1 fan coil stage period 2
+        text: "Zeitkanal 1 Fan-Coil-Stufe Periode 2"
       - textId: e80
-        text: Time channel 1 start hour period 3
+        text: "Zeitkanal 1 Startstunde Periode 3"
       - textId: e81
-        text: Time channel 1 start minute period 3
+        text: "Zeitkanal 1 Startminute Periode 3"
       - textId: e82
-        text: Time channel 1 set point period 3
+        text: "Zeitkanal 1 Sollwert Periode 3"
       - textId: e83
-        text: Time channel 1 fan coil stage period 3
+        text: "Zeitkanal 1 Fan-Coil-Stufe Periode 3"
       - textId: e84
-        text: Time channel 1 start hour period 4
+        text: "Zeitkanal 1 Startstunde Periode 4"
       - textId: e85
-        text: Time channel 1 start minute period 4
+        text: "Zeitkanal 1 Startminute Periode 4"
       - textId: e86
-        text: Time channel 1 set point period 4
+        text: "Zeitkanal 1 Sollwert Periode 4"
       - textId: e87
-        text: Time channel 1 fan coil stage period 4
+        text: "Zeitkanal 1 Fan-Coil-Stufe Periode 4"
       - textId: e88
-        text: Time channel 2 start hour period 1
+        text: "Zeitkanal 2 Startstunde Periode 1"
       - textId: e89
-        text: Time channel 2 start minute period 1
+        text: "Zeitkanal 2 Startminute Periode 1"
       - textId: e90
-        text: Time channel 2 set point period 1
+        text: "Zeitkanal 2 Sollwert Periode 1"
       - textId: e91
-        text: Time channel 2 fan coil stage period 1
+        text: "Zeitkanal 2 Fan-Coil-Stufe Periode 1"
       - textId: e92
-        text: Time channel 2 start hour period 2
+        text: "Zeitkanal 2 Startstunde Periode 2"
       - textId: e93
-        text: Time channel 2 start minute period 2
+        text: "Zeitkanal 2 Startminute Periode 2"
       - textId: e94
-        text: Time channel 2 set point period 2
+        text: "Zeitkanal 2 Sollwert Periode 2"
       - textId: e95
-        text: Time channel 2 fan coil stage period 2
+        text: "Zeitkanal 2 Fan-Coil-Stufe Periode 2"
       - textId: e96
-        text: Time channel 2 start hour period 3
+        text: "Zeitkanal 2 Startstunde Periode 3"
       - textId: e97
-        text: Time channel 2 start minute period 3
+        text: "Zeitkanal 2 Startminute Periode 3"
       - textId: e98
-        text: Time channel 2 set point period 3
+        text: "Zeitkanal 2 Sollwert Periode 3"
       - textId: e99
-        text: Time channel 2 fan coil stage period 3
+        text: "Zeitkanal 2 Fan-Coil-Stufe Periode 3"
       - textId: e100
-        text: Time channel 2 start hour period 4
+        text: "Zeitkanal 2 Startstunde Periode 4"
       - textId: e101
-        text: Time channel 2 start minute period 4
+        text: "Zeitkanal 2 Startminute Periode 4"
       - textId: e102
-        text: Time channel 2 set point period 4
+        text: "Zeitkanal 2 Sollwert Periode 4"
       - textId: e103
-        text: Time channel 2 fan coil stage period 4
+        text: "Zeitkanal 2 Fan-Coil-Stufe Periode 4"
       - textId: e104
-        text: Time channel 3 start hour period 1
+        text: "Zeitkanal 3 Startstunde Periode 1"
       - textId: e105
-        text: Time channel 3 start minute period 1
+        text: "Zeitkanal 3 Startminute Periode 1"
       - textId: e106
-        text: Time channel 3 set point period 1
+        text: "Zeitkanal 3 Sollwert Periode 1"
       - textId: e107
-        text: Time channel 3 fan coil stage period 1
+        text: "Zeitkanal 3 Fan-Coil-Stufe Periode 1"
       - textId: e108
-        text: Time channel 3 start hour period 2
+        text: "Zeitkanal 3 Startstunde Periode 2"
       - textId: e109
-        text: Time channel 3 start minute period 2
+        text: "Zeitkanal 3 Startminute Periode 2"
       - textId: e110
-        text: Time channel 3 set point period 2
+        text: "Zeitkanal 3 Sollwert Periode 2"
       - textId: e111
-        text: Time channel 3 fan coil stage period 2
+        text: "Zeitkanal 3 Fan-Coil-Stufe Periode 2"
       - textId: e112
-        text: Time channel 3 start hour period 3
+        text: "Zeitkanal 3 Startstunde Periode 3"
       - textId: e113
-        text: Time channel 3 start minute period 3
+        text: "Zeitkanal 3 Startminute Periode 3"
       - textId: e114
-        text: Time channel 3 set point period 3
+        text: "Zeitkanal 3 Sollwert Periode 3"
       - textId: e115
-        text: Time channel 3 fan coil stage period 3
+        text: "Zeitkanal 3 Fan-Coil-Stufe Periode 3"
       - textId: e116
-        text: Time channel 3 start hour period 4
+        text: "Zeitkanal 3 Startstunde Periode 4"
       - textId: e117
-        text: Time channel 3 start minute period 4
+        text: "Zeitkanal 3 Startminute Periode 4"
       - textId: e118
-        text: Time channel 3 set point period 4
+        text: "Zeitkanal 3 Sollwert Periode 4"
       - textId: e119
-        text: Time channel 3 fan coil stage period 4
+        text: "Zeitkanal 3 Fan-Coil-Stufe Periode 4"
       - textId: e120
         text: Fan-Coil-Zuordnung
       - textId: e121
@@ -4386,7 +4385,7 @@ i18n:
       - textId: e142
         text: "Taste Lüfterstufe mit/ohne AUTO"
       - textId: e143
-        text: EnOcean-Wake-up
+        text: "EnOcean-Aufwachzeit"
       - textId: e144
         text: Min. Laufzeit Reglerausgang
       - textId: e145
@@ -4566,7 +4565,7 @@ i18n:
       - textId: e66
         text: Format heure
       - textId: e67
-        text: Format date
+        text: "Format de la date"
       - textId: e68
         text: Nombre de vitesses ventilateur
       - textId: e69
@@ -4576,101 +4575,101 @@ i18n:
       - textId: e71
         text: Seuil vitesse 3 On
       - textId: e72
-        text: Time channel 1 start hour period 1
+        text: "Canal horaire 1 heure de début période 1"
       - textId: e73
-        text: Time channel 1 start minute period 1
+        text: "Canal horaire 1 minute de début période 1"
       - textId: e74
-        text: Time channel 1 set point period 1
+        text: "Canal horaire 1 point de consigne période 1"
       - textId: e75
-        text: Time channel 1 fan coil stage period 1
+        text: "Canal horaire 1 niveau ventilateur période 1"
       - textId: e76
-        text: Time channel 1 start hour period 2
+        text: "Canal horaire 1 heure de début période 2"
       - textId: e77
-        text: Time channel 1 start minute period 2
+        text: "Canal horaire 1 minute de début période 2"
       - textId: e78
-        text: Time channel 1 set point period 2
+        text: "Canal horaire 1 point de consigne période 2"
       - textId: e79
-        text: Time channel 1 fan coil stage period 2
+        text: "Canal horaire 1 niveau ventilateur période 2"
       - textId: e80
-        text: Time channel 1 start hour period 3
+        text: "Canal horaire 1 heure de début période 3"
       - textId: e81
-        text: Time channel 1 start minute period 3
+        text: "Canal horaire 1 minute de début période 3"
       - textId: e82
-        text: Time channel 1 set point period 3
+        text: "Canal horaire 1 point de consigne période 3"
       - textId: e83
-        text: Time channel 1 fan coil stage period 3
+        text: "Canal horaire 1 niveau ventilateur période 3"
       - textId: e84
-        text: Time channel 1 start hour period 4
+        text: "Canal horaire 1 heure de début période 4"
       - textId: e85
-        text: Time channel 1 start minute period 4
+        text: "Canal horaire 1 minute de début période 4"
       - textId: e86
-        text: Time channel 1 set point period 4
+        text: "Canal horaire 1 point de consigne période 4"
       - textId: e87
-        text: Time channel 1 fan coil stage period 4
+        text: "Canal horaire 1 niveau ventilateur période 4"
       - textId: e88
-        text: Time channel 2 start hour period 1
+        text: "Canal horaire 2 heure de début période 1"
       - textId: e89
-        text: Time channel 2 start minute period 1
+        text: "Canal horaire 2 minute de début période 1"
       - textId: e90
-        text: Time channel 2 set point period 1
+        text: "Canal horaire 2 point de consigne période 1"
       - textId: e91
-        text: Time channel 2 fan coil stage period 1
+        text: "Canal horaire 2 niveau ventilateur période 1"
       - textId: e92
-        text: Time channel 2 start hour period 2
+        text: "Canal horaire 2 heure de début période 2"
       - textId: e93
-        text: Time channel 2 start minute period 2
+        text: "Canal horaire 2 minute de début période 2"
       - textId: e94
-        text: Time channel 2 set point period 2
+        text: "Canal horaire 2 point de consigne période 2"
       - textId: e95
-        text: Time channel 2 fan coil stage period 2
+        text: "Canal horaire 2 niveau ventilateur période 2"
       - textId: e96
-        text: Time channel 2 start hour period 3
+        text: "Canal horaire 2 heure de début période 3"
       - textId: e97
-        text: Time channel 2 start minute period 3
+        text: "Canal horaire 2 minute de début période 3"
       - textId: e98
-        text: Time channel 2 set point period 3
+        text: "Canal horaire 2 point de consigne période 3"
       - textId: e99
-        text: Time channel 2 fan coil stage period 3
+        text: "Canal horaire 2 niveau ventilateur période 3"
       - textId: e100
-        text: Time channel 2 start hour period 4
+        text: "Canal horaire 2 heure de début période 4"
       - textId: e101
-        text: Time channel 2 start minute period 4
+        text: "Canal horaire 2 minute de début période 4"
       - textId: e102
-        text: Time channel 2 set point period 4
+        text: "Canal horaire 2 point de consigne période 4"
       - textId: e103
-        text: Time channel 2 fan coil stage period 4
+        text: "Canal horaire 2 niveau ventilateur période 4"
       - textId: e104
-        text: Time channel 3 start hour period 1
+        text: "Canal horaire 3 heure de début période 1"
       - textId: e105
-        text: Time channel 3 start minute period 1
+        text: "Canal horaire 3 minute de début période 1"
       - textId: e106
-        text: Time channel 3 set point period 1
+        text: "Canal horaire 3 point de consigne période 1"
       - textId: e107
-        text: Time channel 3 fan coil stage period 1
+        text: "Canal horaire 3 niveau ventilateur période 1"
       - textId: e108
-        text: Time channel 3 start hour period 2
+        text: "Canal horaire 3 heure de début période 2"
       - textId: e109
-        text: Time channel 3 start minute period 2
+        text: "Canal horaire 3 minute de début période 2"
       - textId: e110
-        text: Time channel 3 set point period 2
+        text: "Canal horaire 3 point de consigne période 2"
       - textId: e111
-        text: Time channel 3 fan coil stage period 2
+        text: "Canal horaire 3 niveau ventilateur période 2"
       - textId: e112
-        text: Time channel 3 start hour period 3
+        text: "Canal horaire 3 heure de début période 3"
       - textId: e113
-        text: Time channel 3 start minute period 3
+        text: "Canal horaire 3 minute de début période 3"
       - textId: e114
-        text: Time channel 3 set point period 3
+        text: "Canal horaire 3 point de consigne période 3"
       - textId: e115
-        text: Time channel 3 fan coil stage period 3
+        text: "Canal horaire 3 niveau ventilateur période 3"
       - textId: e116
-        text: Time channel 3 start hour period 4
+        text: "Canal horaire 3 heure de début période 4"
       - textId: e117
-        text: Time channel 3 start minute period 4
+        text: "Canal horaire 3 minute de début période 4"
       - textId: e118
-        text: Time channel 3 set point period 4
+        text: "Canal horaire 3 point de consigne période 4"
       - textId: e119
-        text: Time channel 3 fan coil stage period 4
+        text: "Canal horaire 3 niveau ventilateur période 4"
       - textId: e120
         text: Affectation fan coil
       - textId: e121
@@ -4908,101 +4907,101 @@ i18n:
       - textId: e71
         text: "Soglia velocità 3 On"
       - textId: e72
-        text: Time channel 1 start hour period 1
+        text: "Canale orario 1 ora di inizio periodo 1"
       - textId: e73
-        text: Time channel 1 start minute period 1
+        text: "Canale orario 1 minuto di inizio periodo 1"
       - textId: e74
-        text: Time channel 1 set point period 1
+        text: "Canale orario 1 setpoint periodo 1"
       - textId: e75
-        text: Time channel 1 fan coil stage period 1
+        text: "Canale orario 1 stadio ventilatore periodo 1"
       - textId: e76
-        text: Time channel 1 start hour period 2
+        text: "Canale orario 1 ora di inizio periodo 2"
       - textId: e77
-        text: Time channel 1 start minute period 2
+        text: "Canale orario 1 minuto di inizio periodo 2"
       - textId: e78
-        text: Time channel 1 set point period 2
+        text: "Canale orario 1 setpoint periodo 2"
       - textId: e79
-        text: Time channel 1 fan coil stage period 2
+        text: "Canale orario 1 stadio ventilatore periodo 2"
       - textId: e80
-        text: Time channel 1 start hour period 3
+        text: "Canale orario 1 ora di inizio periodo 3"
       - textId: e81
-        text: Time channel 1 start minute period 3
+        text: "Canale orario 1 minuto di inizio periodo 3"
       - textId: e82
-        text: Time channel 1 set point period 3
+        text: "Canale orario 1 setpoint periodo 3"
       - textId: e83
-        text: Time channel 1 fan coil stage period 3
+        text: "Canale orario 1 stadio ventilatore periodo 3"
       - textId: e84
-        text: Time channel 1 start hour period 4
+        text: "Canale orario 1 ora di inizio periodo 4"
       - textId: e85
-        text: Time channel 1 start minute period 4
+        text: "Canale orario 1 minuto di inizio periodo 4"
       - textId: e86
-        text: Time channel 1 set point period 4
+        text: "Canale orario 1 setpoint periodo 4"
       - textId: e87
-        text: Time channel 1 fan coil stage period 4
+        text: "Canale orario 1 stadio ventilatore periodo 4"
       - textId: e88
-        text: Time channel 2 start hour period 1
+        text: "Canale orario 2 ora di inizio periodo 1"
       - textId: e89
-        text: Time channel 2 start minute period 1
+        text: "Canale orario 2 minuto di inizio periodo 1"
       - textId: e90
-        text: Time channel 2 set point period 1
+        text: "Canale orario 2 setpoint periodo 1"
       - textId: e91
-        text: Time channel 2 fan coil stage period 1
+        text: "Canale orario 2 stadio ventilatore periodo 1"
       - textId: e92
-        text: Time channel 2 start hour period 2
+        text: "Canale orario 2 ora di inizio periodo 2"
       - textId: e93
-        text: Time channel 2 start minute period 2
+        text: "Canale orario 2 minuto di inizio periodo 2"
       - textId: e94
-        text: Time channel 2 set point period 2
+        text: "Canale orario 2 setpoint periodo 2"
       - textId: e95
-        text: Time channel 2 fan coil stage period 2
+        text: "Canale orario 2 stadio ventilatore periodo 2"
       - textId: e96
-        text: Time channel 2 start hour period 3
+        text: "Canale orario 2 ora di inizio periodo 3"
       - textId: e97
-        text: Time channel 2 start minute period 3
+        text: "Canale orario 2 minuto di inizio periodo 3"
       - textId: e98
-        text: Time channel 2 set point period 3
+        text: "Canale orario 2 setpoint periodo 3"
       - textId: e99
-        text: Time channel 2 fan coil stage period 3
+        text: "Canale orario 2 stadio ventilatore periodo 3"
       - textId: e100
-        text: Time channel 2 start hour period 4
+        text: "Canale orario 2 ora di inizio periodo 4"
       - textId: e101
-        text: Time channel 2 start minute period 4
+        text: "Canale orario 2 minuto di inizio periodo 4"
       - textId: e102
-        text: Time channel 2 set point period 4
+        text: "Canale orario 2 setpoint periodo 4"
       - textId: e103
-        text: Time channel 2 fan coil stage period 4
+        text: "Canale orario 2 stadio ventilatore periodo 4"
       - textId: e104
-        text: Time channel 3 start hour period 1
+        text: "Canale orario 3 ora di inizio periodo 1"
       - textId: e105
-        text: Time channel 3 start minute period 1
+        text: "Canale orario 3 minuto di inizio periodo 1"
       - textId: e106
-        text: Time channel 3 set point period 1
+        text: "Canale orario 3 setpoint periodo 1"
       - textId: e107
-        text: Time channel 3 fan coil stage period 1
+        text: "Canale orario 3 stadio ventilatore periodo 1"
       - textId: e108
-        text: Time channel 3 start hour period 2
+        text: "Canale orario 3 ora di inizio periodo 2"
       - textId: e109
-        text: Time channel 3 start minute period 2
+        text: "Canale orario 3 minuto di inizio periodo 2"
       - textId: e110
-        text: Time channel 3 set point period 2
+        text: "Canale orario 3 setpoint periodo 2"
       - textId: e111
-        text: Time channel 3 fan coil stage period 2
+        text: "Canale orario 3 stadio ventilatore periodo 2"
       - textId: e112
-        text: Time channel 3 start hour period 3
+        text: "Canale orario 3 ora di inizio periodo 3"
       - textId: e113
-        text: Time channel 3 start minute period 3
+        text: "Canale orario 3 minuto di inizio periodo 3"
       - textId: e114
-        text: Time channel 3 set point period 3
+        text: "Canale orario 3 setpoint periodo 3"
       - textId: e115
-        text: Time channel 3 fan coil stage period 3
+        text: "Canale orario 3 stadio ventilatore periodo 3"
       - textId: e116
-        text: Time channel 3 start hour period 4
+        text: "Canale orario 3 ora di inizio periodo 4"
       - textId: e117
-        text: Time channel 3 start minute period 4
+        text: "Canale orario 3 minuto di inizio periodo 4"
       - textId: e118
-        text: Time channel 3 set point period 4
+        text: "Canale orario 3 setpoint periodo 4"
       - textId: e119
-        text: Time channel 3 fan coil stage period 4
+        text: "Canale orario 3 stadio ventilatore periodo 4"
       - textId: e120
         text: Assegnazione fan coil
       - textId: e121

@@ -26,6 +26,7 @@ entities:
         min: 0
         max: 65535
     valid: true
+    entityCategory: diagnostic
     mqttname: device_identifier
     name: Device identifier
   - id: 2
@@ -43,6 +44,7 @@ entities:
         min: 0
         max: 255
     valid: true
+    entityCategory: diagnostic
     mqttname: sensor_identifier
     name: Sensor identifier
   - id: 3
@@ -60,6 +62,7 @@ entities:
         min: -32768
         max: 32767
     valid: true
+    entityCategory: diagnostic
     mqttname: hw_version_mc
     name: MC PCB hardware version
   - id: 4
@@ -77,6 +80,7 @@ entities:
         min: -32768
         max: 32767
     valid: true
+    entityCategory: diagnostic
     mqttname: firmware_version
     name: Firmware version
   - id: 5
@@ -94,6 +98,7 @@ entities:
         min: -32768
         max: 32767
     valid: true
+    entityCategory: diagnostic
     mqttname: hw_version_kl
     name: KL PCB Hardware version
   - id: 6
@@ -111,6 +116,7 @@ entities:
         min: 0
         max: 1
     valid: true
+    entityCategory: diagnostic
     mqttname: factory_settings
     name: Factory settings
   - id: 7
@@ -128,6 +134,7 @@ entities:
         min: 0
         max: 255
     valid: true
+    entityCategory: diagnostic
     mqttname: sensor_failure
     name: Sensor failure
   - id: 8
@@ -599,6 +606,11 @@ entities:
       name: number
     category: config
     modbusAddress: 100
+    condition:
+      register: 501
+      bit: 0
+      comparator: eq
+      value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -1762,9 +1774,9 @@ i18n:
       - textId: e31
         text: Offset rel. Feuchte
       - textId: e32
-        text: Offset CO2
+        text: "Offset CO2"
       - textId: e33
-        text: Offset VOC
+        text: "Offset VOC"
       - textId: e34
         text: VOC-Skala
       - textId: e35
@@ -1914,7 +1926,7 @@ i18n:
       - textId: e31
         text: "Offset humidité rel."
       - textId: e32
-        text: Offset CO2
+        text: "Décalage CO2"
       - textId: e33
         text: Offset COV
       - textId: e34
@@ -2066,7 +2078,7 @@ i18n:
       - textId: e31
         text: "Offset umidità rel."
       - textId: e32
-        text: Offset CO2
+        text: "Offset CO2"
       - textId: e33
         text: Offset COV
       - textId: e34

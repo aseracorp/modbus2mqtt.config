@@ -2,10 +2,10 @@ filename: thermokon-novos7
 model: NOVOS 7 / NOVOS Touch / thanos EVO
 manufacturer: Thermokon
 files:
-  - url: specifications/files/thermokon-novos/thermokon-novos7.jpg
+  - url: specifications/files/thermokon-novos7/thermokon-novos7.jpg
     fileLocation: 0
     usage: img
-  - url: specifications/files/thermokon-novos/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
+  - url: specifications/files/thermokon-novos7/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
     fileLocation: 0
     usage: doc
 version: "0.5"
@@ -688,6 +688,7 @@ entities:
         min: 0
         max: 65535
     valid: true
+    entityCategory: diagnostic
     mqttname: status_report
     name: Status report
   - id: 37
@@ -1079,65 +1080,65 @@ i18n:
       - textId: e5
         text: "Lüfterstufe (intern)"
       - textId: e6
-        text: Lighting status 1
+        text: "Beleuchtungsstatus 1"
       - textId: e7
-        text: Lighting status 2
+        text: "Beleuchtungsstatus 2"
       - textId: e8
-        text: Lighting status 3
+        text: "Beleuchtungsstatus 3"
       - textId: e9
-        text: Lighting status 4
+        text: "Beleuchtungsstatus 4"
       - textId: e10
-        text: Lighting status 5
+        text: "Beleuchtungsstatus 5"
       - textId: e11
-        text: Lighting status 6
+        text: "Beleuchtungsstatus 6"
       - textId: e12
-        text: Lighting status 7
+        text: "Beleuchtungsstatus 7"
       - textId: e13
-        text: Lighting status 8
+        text: "Beleuchtungsstatus 8"
       - textId: e14
-        text: Lighting 1 Green-value
+        text: "Beleuchtung 1 Grün-Wert"
       - textId: e15
-        text: Lighting 1 Blue value
+        text: "Beleuchtung 1 Blau-Wert"
       - textId: e16
-        text: Lighting 1 White value
+        text: "Beleuchtung 1 Weiß-Wert"
       - textId: e17
-        text: Lighting 2 Green-value
+        text: "Beleuchtung 2 Grün-Wert"
       - textId: e18
-        text: Lighting 2 Blue value
+        text: "Beleuchtung 2 Blau-Wert"
       - textId: e19
-        text: Lighting 2 White value
+        text: "Beleuchtung 2 Weiß-Wert"
       - textId: e20
-        text: Shading status 1
+        text: "Verschattungsstatus 1"
       - textId: e21
-        text: Slat adjustment Blind 1
+        text: "Lamellenverstellung Behänge 1"
       - textId: e22
-        text: Shading status 2
+        text: "Verschattungsstatus 2"
       - textId: e23
-        text: Slat adjustment Blind 2
+        text: "Lamellenverstellung Behänge 2"
       - textId: e24
-        text: Shading status 3
+        text: "Verschattungsstatus 3"
       - textId: e25
-        text: Slat adjustment Blind 3
+        text: "Lamellenverstellung Behänge 3"
       - textId: e26
-        text: Shading status 4
+        text: "Verschattungsstatus 4"
       - textId: e27
-        text: Slat adjustment Blind 4
+        text: "Lamellenverstellung Behänge 4"
       - textId: e28
-        text: Shading status 5
+        text: "Verschattungsstatus 5"
       - textId: e29
-        text: Slat adjustment Blind 5
+        text: "Lamellenverstellung Behänge 5"
       - textId: e30
-        text: Shading status 6
+        text: "Verschattungsstatus 6"
       - textId: e31
-        text: Slat adjustment Blind 6
+        text: "Lamellenverstellung Behänge 6"
       - textId: e32
-        text: Shading status 7
+        text: "Verschattungsstatus 7"
       - textId: e33
-        text: Slat adjustment Blind 7
+        text: "Lamellenverstellung Behänge 7"
       - textId: e34
-        text: Shading status 8
+        text: "Verschattungsstatus 8"
       - textId: e35
-        text: Slat adjustment Blind 8
+        text: "Lamellenverstellung Behänge 8"
       - textId: e36
         text: Statusmeldung
       - textId: e37
@@ -1183,65 +1184,65 @@ i18n:
       - textId: e5
         text: Vitesse (interne)
       - textId: e6
-        text: Lighting status 1
+        text: "État éclairage 1"
       - textId: e7
-        text: Lighting status 2
+        text: "État éclairage 2"
       - textId: e8
-        text: Lighting status 3
+        text: "État éclairage 3"
       - textId: e9
-        text: Lighting status 4
+        text: "État éclairage 4"
       - textId: e10
-        text: Lighting status 5
+        text: "État éclairage 5"
       - textId: e11
-        text: Lighting status 6
+        text: "État éclairage 6"
       - textId: e12
-        text: Lighting status 7
+        text: "État éclairage 7"
       - textId: e13
-        text: Lighting status 8
+        text: "État éclairage 8"
       - textId: e14
-        text: Lighting 1 Green-value
+        text: "Éclairage 1 valeur vert"
       - textId: e15
-        text: Lighting 1 Blue value
+        text: "Éclairage 1 valeur bleu"
       - textId: e16
-        text: Lighting 1 White value
+        text: "Éclairage 1 valeur blanc"
       - textId: e17
-        text: Lighting 2 Green-value
+        text: "Éclairage 2 valeur vert"
       - textId: e18
-        text: Lighting 2 Blue value
+        text: "Éclairage 2 valeur bleu"
       - textId: e19
-        text: Lighting 2 White value
+        text: "Éclairage 2 valeur blanc"
       - textId: e20
-        text: Shading status 1
+        text: "État occultation 1"
       - textId: e21
-        text: Slat adjustment Blind 1
+        text: "Réglage lamelles store 1"
       - textId: e22
-        text: Shading status 2
+        text: "État occultation 2"
       - textId: e23
-        text: Slat adjustment Blind 2
+        text: "Réglage lamelles store 2"
       - textId: e24
-        text: Shading status 3
+        text: "État occultation 3"
       - textId: e25
-        text: Slat adjustment Blind 3
+        text: "Réglage lamelles store 3"
       - textId: e26
-        text: Shading status 4
+        text: "État occultation 4"
       - textId: e27
-        text: Slat adjustment Blind 4
+        text: "Réglage lamelles store 4"
       - textId: e28
-        text: Shading status 5
+        text: "État occultation 5"
       - textId: e29
-        text: Slat adjustment Blind 5
+        text: "Réglage lamelles store 5"
       - textId: e30
-        text: Shading status 6
+        text: "État occultation 6"
       - textId: e31
-        text: Slat adjustment Blind 6
+        text: "Réglage lamelles store 6"
       - textId: e32
-        text: Shading status 7
+        text: "État occultation 7"
       - textId: e33
-        text: Slat adjustment Blind 7
+        text: "Réglage lamelles store 7"
       - textId: e34
-        text: Shading status 8
+        text: "État occultation 8"
       - textId: e35
-        text: Slat adjustment Blind 8
+        text: "Réglage lamelles store 8"
       - textId: e36
         text: "Rapport d'état"
       - textId: e37
@@ -1287,69 +1288,69 @@ i18n:
       - textId: e5
         text: "Velocità (interna)"
       - textId: e6
-        text: Lighting status 1
+        text: "Stato illuminazione 1"
       - textId: e7
-        text: Lighting status 2
+        text: "Stato illuminazione 2"
       - textId: e8
-        text: Lighting status 3
+        text: "Stato illuminazione 3"
       - textId: e9
-        text: Lighting status 4
+        text: "Stato illuminazione 4"
       - textId: e10
-        text: Lighting status 5
+        text: "Stato illuminazione 5"
       - textId: e11
-        text: Lighting status 6
+        text: "Stato illuminazione 6"
       - textId: e12
-        text: Lighting status 7
+        text: "Stato illuminazione 7"
       - textId: e13
-        text: Lighting status 8
+        text: "Stato illuminazione 8"
       - textId: e14
-        text: Lighting 1 Green-value
+        text: "Illuminazione 1 valore verde"
       - textId: e15
-        text: Lighting 1 Blue value
+        text: "Illuminazione 1 valore blu"
       - textId: e16
-        text: Lighting 1 White value
+        text: "Illuminazione 1 valore bianco"
       - textId: e17
-        text: Lighting 2 Green-value
+        text: "Illuminazione 2 valore verde"
       - textId: e18
-        text: Lighting 2 Blue value
+        text: "Illuminazione 2 valore blu"
       - textId: e19
-        text: Lighting 2 White value
+        text: "Illuminazione 2 valore bianco"
       - textId: e20
-        text: Shading status 1
+        text: "Stato oscuramento 1"
       - textId: e21
-        text: Slat adjustment Blind 1
+        text: "Regolazione lamelle tenda 1"
       - textId: e22
-        text: Shading status 2
+        text: "Stato oscuramento 2"
       - textId: e23
-        text: Slat adjustment Blind 2
+        text: "Regolazione lamelle tenda 2"
       - textId: e24
-        text: Shading status 3
+        text: "Stato oscuramento 3"
       - textId: e25
-        text: Slat adjustment Blind 3
+        text: "Regolazione lamelle tenda 3"
       - textId: e26
-        text: Shading status 4
+        text: "Stato oscuramento 4"
       - textId: e27
-        text: Slat adjustment Blind 4
+        text: "Regolazione lamelle tenda 4"
       - textId: e28
-        text: Shading status 5
+        text: "Stato oscuramento 5"
       - textId: e29
-        text: Slat adjustment Blind 5
+        text: "Regolazione lamelle tenda 5"
       - textId: e30
-        text: Shading status 6
+        text: "Stato oscuramento 6"
       - textId: e31
-        text: Slat adjustment Blind 6
+        text: "Regolazione lamelle tenda 6"
       - textId: e32
-        text: Shading status 7
+        text: "Stato oscuramento 7"
       - textId: e33
-        text: Slat adjustment Blind 7
+        text: "Regolazione lamelle tenda 7"
       - textId: e34
-        text: Shading status 8
+        text: "Stato oscuramento 8"
       - textId: e35
-        text: Slat adjustment Blind 8
+        text: "Regolazione lamelle tenda 8"
       - textId: e36
         text: Rapporto stato
       - textId: e37
-        text: Display OFF
+        text: "Display OFF"
       - textId: e38
         text: LED ON/OFF
       - textId: e39

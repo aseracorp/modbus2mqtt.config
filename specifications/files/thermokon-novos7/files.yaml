@@ -1,0 +1,8 @@
+version: "0.1"
+files:
+  - url: specifications/files/thermokon-novos7/thermokon-novos7.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-novos7/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
+    fileLocation: 0
+    usage: doc
