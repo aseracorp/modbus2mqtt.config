@@ -2,10 +2,10 @@ filename: thermokon-novos3
 model: NOVOS 3
 manufacturer: Thermokon
 files:
-  - url: specifications/files/thermokon-novos/thermokon-novos3.jpg
+  - url: specifications/files/thermokon-novos3/thermokon-novos3.jpg
     fileLocation: 0
     usage: img
-  - url: specifications/files/thermokon-novos/NOVOS_3_RS485-Modbus_english_RevL.pdf
+  - url: specifications/files/thermokon-novos3/NOVOS_3_RS485-Modbus_english_RevL.pdf
     fileLocation: 0
     usage: doc
 version: "0.5"
@@ -26,6 +26,7 @@ entities:
         min: 0
         max: 255
     valid: true
+    entityCategory: diagnostic
     mqttname: sensor_setup
     name: Sensor setup
   - id: 2
@@ -43,6 +44,7 @@ entities:
         min: -32768
         max: 32767
     valid: true
+    entityCategory: diagnostic
     mqttname: hardware_version
     name: Hardware version
   - id: 3
@@ -60,6 +62,7 @@ entities:
         min: -32768
         max: 32767
     valid: true
+    entityCategory: diagnostic
     mqttname: firmware_version_main
     name: Firmware version main
   - id: 4
@@ -77,6 +80,7 @@ entities:
         min: -32768
         max: 32767
     valid: true
+    entityCategory: diagnostic
     mqttname: firmware_version_revision
     name: Firmware version revision
   - id: 5
@@ -123,7 +127,6 @@ entities:
     readonly: false
     converter:
       name: number
-    category: config
     modbusAddress: 103
     converterParameters:
       multiplier: 0.1
@@ -453,6 +456,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2111
     converterParameters:
       multiplier: 0.1
@@ -472,6 +476,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 3, comparator: eq, value: 1 }
     modbusAddress: 2511
     converterParameters:
       multiplier: 1
@@ -491,6 +496,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 2, comparator: eq, value: 1 }
     modbusAddress: 2611
     converterParameters:
       multiplier: 0.1
@@ -529,6 +535,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2112
     converterParameters:
       multiplier: 0.1
@@ -548,6 +555,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2113
     converterParameters:
       multiplier: 0.1
@@ -567,6 +575,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 3, comparator: eq, value: 1 }
     modbusAddress: 2512
     converterParameters:
       multiplier: 1
@@ -586,6 +595,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 3, comparator: eq, value: 1 }
     modbusAddress: 2513
     converterParameters:
       multiplier: 1
@@ -605,6 +615,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 2, comparator: eq, value: 1 }
     modbusAddress: 2612
     converterParameters:
       multiplier: 0.1
@@ -624,6 +635,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 2, comparator: eq, value: 1 }
     modbusAddress: 2613
     converterParameters:
       multiplier: 0.1
@@ -643,6 +655,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 3, comparator: eq, value: 1 }
     modbusAddress: 2712
     converterParameters:
       multiplier: 0.1
@@ -662,6 +675,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 3, comparator: eq, value: 1 }
     modbusAddress: 2713
     converterParameters:
       multiplier: 0.1
@@ -719,6 +733,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2212
     converterParameters:
       multiplier: 0.1
@@ -738,6 +753,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2213
     converterParameters:
       multiplier: 0.1
@@ -757,6 +773,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2312
     converterParameters:
       multiplier: 0.1
@@ -776,6 +793,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2313
     converterParameters:
       multiplier: 0.1
@@ -795,6 +813,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2412
     converterParameters:
       multiplier: 0.1
@@ -814,6 +833,7 @@ entities:
     converter:
       name: number
     category: config
+    condition: { register: 1025, bit: 0, comparator: eq, value: 1 }
     modbusAddress: 2413
     converterParameters:
       multiplier: 0.1
@@ -1206,9 +1226,9 @@ i18n:
       - textId: e22
         text: Offset relative Feuchte
       - textId: e23
-        text: Offset CO2
+        text: "Offset CO2"
       - textId: e24
-        text: Offset VOC
+        text: "Offset VOC"
       - textId: e25
         text: Offset Temperatur
       - textId: e26
@@ -1316,7 +1336,7 @@ i18n:
       - textId: e22
         text: "Offset humidité relative"
       - textId: e23
-        text: Offset CO2
+        text: "Décalage CO2"
       - textId: e24
         text: Offset COV
       - textId: e25
@@ -1426,7 +1446,7 @@ i18n:
       - textId: e22
         text: "Offset umidità relativa"
       - textId: e23
-        text: Offset CO2
+        text: "Offset CO2"
       - textId: e24
         text: Offset COV
       - textId: e25

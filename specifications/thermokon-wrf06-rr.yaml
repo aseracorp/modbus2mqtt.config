@@ -841,7 +841,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: Thermokon WRF06 RR
+        text: "Thermokon WRF06 RR"
       - textId: e1
         text: Taste 1
       - textId: e2
@@ -923,7 +923,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: Thermokon WRF06 RR
+        text: "Thermokon WRF06 RR"
       - textId: e1
         text: Bouton 1
       - textId: e2
@@ -1005,7 +1005,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: Thermokon WRF06 RR
+        text: "Thermokon WRF06 RR"
       - textId: e1
         text: Pulsante 1
       - textId: e2

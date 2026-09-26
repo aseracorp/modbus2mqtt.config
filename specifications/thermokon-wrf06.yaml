@@ -312,6 +312,7 @@ entities:
       name: number
     modbusAddress: 100
     category: config
+    condition: { register: 501, bit: 0, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -332,6 +333,7 @@ entities:
       name: number
     modbusAddress: 101
     category: config
+    condition: { register: 501, bit: 1, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -352,6 +354,7 @@ entities:
       name: number
     modbusAddress: 102
     category: config
+    condition: { register: 501, bit: 5, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 1
       offset: 0
@@ -372,6 +375,7 @@ entities:
       name: number
     modbusAddress: 103
     category: config
+    condition: { register: 501, bit: 6, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 1
       offset: 0
@@ -392,6 +396,7 @@ entities:
       name: number
     modbusAddress: 200
     category: config
+    condition: { register: 501, bit: 0, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -412,6 +417,7 @@ entities:
       name: number
     modbusAddress: 201
     category: config
+    condition: { register: 501, bit: 0, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -432,6 +438,7 @@ entities:
       name: number
     modbusAddress: 202
     category: config
+    condition: { register: 501, bit: 1, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -452,6 +459,7 @@ entities:
       name: number
     modbusAddress: 203
     category: config
+    condition: { register: 501, bit: 1, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -472,6 +480,7 @@ entities:
       name: number
     modbusAddress: 210
     category: config
+    condition: { register: 501, bit: 5, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 1
       offset: 0
@@ -492,6 +501,7 @@ entities:
       name: number
     modbusAddress: 211
     category: config
+    condition: { register: 501, bit: 5, comparator: eq, value: 1 }
     converterParameters:
       multiplier: 1
       offset: 0
@@ -627,7 +637,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: Thermokon WRF06
+        text: "Thermokon WRF06"
       - textId: e1
         text: Sensoridentifikation
       - textId: e2
@@ -647,7 +657,7 @@ i18n:
       - textId: e8
         text: VOC
       - textId: e9
-        text: CO2 VOC Mix
+        text: "CO2-VOC-Mix"
       - textId: e10
         text: Einheiten-System
       - textId: e11
@@ -655,9 +665,9 @@ i18n:
       - textId: e12
         text: Offset relative Feuchte
       - textId: e13
-        text: Offset CO2
+        text: "Offset CO2"
       - textId: e14
-        text: Offset VOC
+        text: "Offset VOC"
       - textId: e15
         text: Temperatur Untergrenze
       - textId: e16
@@ -681,7 +691,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: Thermokon WRF06
+        text: "Thermokon WRF06"
       - textId: e1
         text: Identification du capteur
       - textId: e2
@@ -709,7 +719,7 @@ i18n:
       - textId: e12
         text: "Offset humidité relative"
       - textId: e13
-        text: Offset CO2
+        text: "Décalage CO2"
       - textId: e14
         text: Offset COV
       - textId: e15
@@ -735,7 +745,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: Thermokon WRF06
+        text: "Thermokon WRF06"
       - textId: e1
         text: Identificazione sensore
       - textId: e2
@@ -763,7 +773,7 @@ i18n:
       - textId: e12
         text: "Offset umidità relativa"
       - textId: e13
-        text: Offset CO2
+        text: "Offset CO2"
       - textId: e14
         text: Offset COV
       - textId: e15
