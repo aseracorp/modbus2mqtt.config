@@ -2,7 +2,7 @@ filename: thermokon-novos7
 model: NOVOS 7 / NOVOS Touch / thanos EVO
 manufacturer: Thermokon
 files:
-  - url: specifications/files/thermokon-novos/thermokon-novos.jpg
+  - url: specifications/files/thermokon-novos/thermokon-novos7.jpg
     fileLocation: 0
     usage: img
   - url: specifications/files/thermokon-novos/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf

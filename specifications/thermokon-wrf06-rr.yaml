@@ -5,7 +5,7 @@ files:
   - url: specifications/files/thermokon-wrf06-rr/thermokon-wrf06-rr.jpg
     fileLocation: 0
     usage: img
-  - url: specifications/files/thermokon-wrf06-rr/WRF06_LCD_RS485-Modbus_Manual_RevT_english.pdf
+  - url: specifications/files/thermokon-wrf06-rr/WRF06_(LCD)_RS485-Modbus_Manual_RevT_english.pdf
     fileLocation: 0
     usage: doc
 version: "0.5"

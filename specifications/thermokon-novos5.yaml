@@ -2,14 +2,14 @@ filename: thermokon-novos5
 model: NOVOS 5
 manufacturer: Thermokon
 files:
-  - url: specifications/files/thermokon-novos/thermokon-novos.jpg
+  - url: specifications/files/thermokon-novos/thermokon-novos5.jpg
     fileLocation: 0
     usage: img
-  - url: specifications/files/thermokon-novos/NOVOS_5_RS485-Modbus_english_RevL.pdf
+  - url: specifications/files/thermokon-novos/NOVOS_5_RS485-Modbus_english_RevI.pdf
     fileLocation: 0
     usage: doc
 version: "0.5"
-nextEntityId: 44
+nextEntityId: 50
 entities:
   - id: 1
     registerType: 3
@@ -863,6 +863,117 @@ entities:
     valid: true
     mqttname: fanstage_min
     name: Smallest selectable fanstage
+  - id: 44
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1301
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: setpoint_display_mode
+    name: Set point display mode
+  - id: 45
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1302
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: "°C"
+      identification:
+        min: 0
+        max: 500
+    valid: true
+    mqttname: base_setpoint
+    name: Base set point
+  - id: 46
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1303
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 100
+    valid: true
+    mqttname: setpoint_adjustment_range
+    name: Set point adjustment range
+  - id: 47
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1304
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      uom: K
+      identification:
+        min: 0
+        max: 20
+    valid: true
+    mqttname: setpoint_adjustment_step
+    name: Set point adjustment step
+  - id: 48
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1307
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: occupancy_after_reset
+    name: Room occupancy after reset
+  - id: 49
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 1206
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 1
+        max: 2
+    valid: true
+    mqttname: display_mode
+    name: Display mode
 i18n:
   - lang: en
     texts:
@@ -954,6 +1065,18 @@ i18n:
         text: Availability fanstage Auto
       - textId: e43
         text: Smallest selectable fanstage
+      - textId: e44
+        text: Set point display mode
+      - textId: e45
+        text: Base set point
+      - textId: e46
+        text: Set point adjustment range
+      - textId: e47
+        text: Set point adjustment step
+      - textId: e48
+        text: Room occupancy after reset
+      - textId: e49
+        text: Display mode
   - lang: de
     texts:
       - textId: name
@@ -1044,6 +1167,18 @@ i18n:
         text: "Verfügbarkeit Lüfterstufe Auto"
       - textId: e43
         text: "Kleinste wählbare Lüfterstufe"
+      - textId: e44
+        text: Sollwert Anzeigemodus
+      - textId: e45
+        text: Basissollwert
+      - textId: e46
+        text: Sollwertverstellbereich
+      - textId: e47
+        text: Sollwert Schrittweite
+      - textId: e48
+        text: Raumbelegung nach Reset
+      - textId: e49
+        text: Anzeigemodus
   - lang: fr
     texts:
       - textId: name
@@ -1134,6 +1269,18 @@ i18n:
         text: "Disponibilité vitesse Auto"
       - textId: e43
         text: "Vitesse min sélectionnable"
+      - textId: e44
+        text: Mode d'affichage consigne
+      - textId: e45
+        text: Consigne de base
+      - textId: e46
+        text: Plage de réglage consigne
+      - textId: e47
+        text: Pas de réglage consigne
+      - textId: e48
+        text: Occupation après reset
+      - textId: e49
+        text: Mode d'affichage
   - lang: it
     texts:
       - textId: name
@@ -1224,6 +1371,18 @@ i18n:
         text: "Disponibilità velocità Auto"
       - textId: e43
         text: "Velocità min selezionabile"
+      - textId: e44
+        text: Modalità visualizzazione setpoint
+      - textId: e45
+        text: Setpoint base
+      - textId: e46
+        text: Gamma regolazione setpoint
+      - textId: e47
+        text: Incremento setpoint
+      - textId: e48
+        text: Occupazione dopo reset
+      - textId: e49
+        text: Modalità display
 testdata:
   holdingRegisters:
     - address: 1025
@@ -1308,6 +1467,18 @@ testdata:
       value: -300
     - address: 2413
       value: -300
+    - address: 1301
+      value: 0
+    - address: 1302
+      value: 250
+    - address: 1303
+      value: 100
+    - address: 1304
+      value: 10
+    - address: 1307
+      value: 1
+    - address: 1206
+      value: 2
     - address: 1310
       value: 1
     - address: 1311
