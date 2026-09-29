@@ -1180,7 +1180,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "NOVOS 3 (Room Operating Units)"
+        text: "NOVOS 3 (Raumbediengeräte)"
       - textId: e1
         text: Sensor-Setup
       - textId: e2
@@ -1290,7 +1290,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "NOVOS 3 (Room Operating Units)"
+        text: "NOVOS 3 (Unités de commande de pièce)"
       - textId: e1
         text: Configuration capteur
       - textId: e2
@@ -1400,7 +1400,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "NOVOS 3 (Room Operating Units)"
+        text: "NOVOS 3 (Unità di comando ambiente)"
       - textId: e1
         text: Configurazione sensore
       - textId: e2

@@ -234,7 +234,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "WRF06 INC (Room Operating Units)"
+        text: "WRF06 INC (Raumbediengeräte)"
       - textId: e1
         text: Sollwert-Offset Anzeige
       - textId: e2
@@ -258,7 +258,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "WRF06 INC (Room Operating Units)"
+        text: "WRF06 INC (Unités de commande de pièce)"
       - textId: e1
         text: Offset consigne affichage
       - textId: e2
@@ -282,7 +282,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "WRF06 INC (Room Operating Units)"
+        text: "WRF06 INC (Unità di comando ambiente)"
       - textId: e1
         text: Offset setpoint display
       - textId: e2

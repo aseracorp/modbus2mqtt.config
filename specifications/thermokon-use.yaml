@@ -2050,7 +2050,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "USE (Field Sensors)"
+        text: "USE (Feldsensoren)"
       - textId: e1
         text: Sensoridentifikation
       - textId: e2
@@ -2244,7 +2244,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "USE (Field Sensors)"
+        text: "USE (Capteurs de terrain)"
       - textId: e1
         text: Identification du capteur
       - textId: e2
@@ -2438,7 +2438,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "USE (Field Sensors)"
+        text: "USE (Sensori da campo)"
       - textId: e1
         text: Identificazione sensore
       - textId: e2

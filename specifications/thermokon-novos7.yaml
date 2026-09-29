@@ -1068,7 +1068,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "NOVOS 7 / NOVOS Touch / thanos EVO (Room Operating Units)"
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO (Raumbediengeräte)"
       - textId: e1
         text: Raumbelegung
       - textId: e2
@@ -1172,7 +1172,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "NOVOS 7 / NOVOS Touch / thanos EVO (Room Operating Units)"
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO (Unités de commande de pièce)"
       - textId: e1
         text: Occupation
       - textId: e2
@@ -1276,7 +1276,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "NOVOS 7 / NOVOS Touch / thanos EVO (Room Operating Units)"
+        text: "NOVOS 7 / NOVOS Touch / thanos EVO (Unità di comando ambiente)"
       - textId: e1
         text: Occupazione
       - textId: e2

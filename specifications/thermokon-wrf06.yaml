@@ -637,7 +637,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "WRF06 (Room Sensors)"
+        text: "WRF06 (Raumsensoren)"
       - textId: e1
         text: Sensoridentifikation
       - textId: e2
@@ -691,7 +691,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "WRF06 (Room Sensors)"
+        text: "WRF06 (Capteurs de pièce)"
       - textId: e1
         text: Identification du capteur
       - textId: e2
@@ -745,7 +745,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "WRF06 (Room Sensors)"
+        text: "WRF06 (Sensori ambiente)"
       - textId: e1
         text: Identificazione sensore
       - textId: e2
