@@ -1,5 +1,5 @@
 filename: thermokon-wrf07
-model: WRF07 x / WRF07 x rH
+model: WRF06 / WRF07 x
 manufacturer: Thermokon
 files:
   - url: specifications/files/thermokon-wrf07/thermokon-wrf07.jpg
