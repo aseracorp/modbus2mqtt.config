@@ -998,7 +998,7 @@ i18n:
   - lang: en
     texts:
       - textId: name
-        text: NOVOS 5
+        text: "NOVOS 5 (Room Operating Units)"
       - textId: e1
         text: Sensor setup
       - textId: e2
@@ -1100,7 +1100,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: NOVOS 5
+        text: "NOVOS 5 (Room Operating Units)"
       - textId: e1
         text: Sensor-Setup
       - textId: e2
@@ -1202,7 +1202,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: NOVOS 5
+        text: "NOVOS 5 (Room Operating Units)"
       - textId: e1
         text: Configuration capteur
       - textId: e2
@@ -1304,7 +1304,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: NOVOS 5
+        text: "NOVOS 5 (Room Operating Units)"
       - textId: e1
         text: Configurazione sensore
       - textId: e2

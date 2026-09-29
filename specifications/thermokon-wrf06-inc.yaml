@@ -210,7 +210,7 @@ i18n:
   - lang: en
     texts:
       - textId: name
-        text: WRF06 INC
+        text: "WRF06 INC (Room Operating Units)"
       - textId: e1
         text: Set point offset display
       - textId: e2
@@ -234,7 +234,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: WRF06 INC
+        text: "WRF06 INC (Room Operating Units)"
       - textId: e1
         text: Sollwert-Offset Anzeige
       - textId: e2
@@ -258,7 +258,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: WRF06 INC
+        text: "WRF06 INC (Room Operating Units)"
       - textId: e1
         text: Offset consigne affichage
       - textId: e2
@@ -282,7 +282,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: WRF06 INC
+        text: "WRF06 INC (Room Operating Units)"
       - textId: e1
         text: Offset setpoint display
       - textId: e2
