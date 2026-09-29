@@ -1,5 +1,5 @@
 filename: thermokon-use
-model: USE-RS485
+model: USE
 manufacturer: Thermokon
 files:
   - url: specifications/files/thermokon-use/thermokon-use.jpg

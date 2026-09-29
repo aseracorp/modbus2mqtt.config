@@ -1,5 +1,5 @@
 filename: thermokon-wrf06-rr
-model: WRF06 RR
+model: WRF06 (LCD) RC
 manufacturer: Thermokon
 files:
   - url: specifications/files/thermokon-wrf06-rr/thermokon-wrf06-rr.jpg
