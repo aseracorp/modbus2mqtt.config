@@ -1146,9 +1146,9 @@ i18n:
       - textId: e22
         text: Offset relative Feuchte
       - textId: e23
-        text: "Offset CO2"
+        text: "CO2-Offset"
       - textId: e24
-        text: "Offset VOC"
+        text: "VOC-Offset"
       - textId: e25
         text: Offset Temperatur
       - textId: e26

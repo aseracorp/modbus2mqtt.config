@@ -1273,7 +1273,7 @@ entities:
         max: 50
     valid: true
     mqttname: sab_offset_bad
-    name: SAB-Offset Bad-Funktion
+    name: "SAB offset bathroom function"
   - id: 63
     registerType: 3
     readonly: false
@@ -3891,7 +3891,7 @@ i18n:
       - textId: e61
         text: Occupied-/ECO-override
       - textId: e62
-        text: SAB-Offset Bad-Funktion
+        text: "SAB offset bathroom function"
       - textId: e63
         text: Default ECO mode
       - textId: e64
@@ -4223,7 +4223,7 @@ i18n:
       - textId: e61
         text: Belegt-/ECO-Override
       - textId: e62
-        text: "SAB-Offset Bad-Funktion"
+        text: "SAB-Offset Badezimmer-Funktion"
       - textId: e63
         text: Vorgabe ECO-Modus
       - textId: e64
