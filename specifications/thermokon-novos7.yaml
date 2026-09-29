@@ -1248,7 +1248,7 @@ i18n:
       - textId: e37
         text: "Écran OFF"
       - textId: e38
-        text: LED ON/OFF
+        text: "LED marche/arrêt"
       - textId: e39
         text: Couleur LED
       - textId: e40
@@ -1350,9 +1350,9 @@ i18n:
       - textId: e36
         text: Rapporto stato
       - textId: e37
-        text: "Display OFF"
+        text: "Display spento"
       - textId: e38
-        text: LED ON/OFF
+        text: "LED accesa/spenta"
       - textId: e39
         text: Colore LED
       - textId: e40
