@@ -1558,7 +1558,7 @@ i18n:
   - lang: en
     texts:
       - textId: name
-        text: "WRF07 x / WRF07 x rH"
+        text: "WRF06 / WRF07 x (Room Operating Units)"
       - textId: e1
         text: Device identifier
       - textId: e2
@@ -1710,7 +1710,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "WRF07 x / WRF07 x rH"
+        text: "WRF06 / WRF07 x (Room Operating Units)"
       - textId: e1
         text: "Gerätekennung"
       - textId: e2
@@ -1862,7 +1862,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "WRF07 x / WRF07 x rH"
+        text: "WRF06 / WRF07 x (Room Operating Units)"
       - textId: e1
         text: Identifiant appareil
       - textId: e2
@@ -2014,7 +2014,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "WRF07 x / WRF07 x rH"
+        text: "WRF06 / WRF07 x (Room Operating Units)"
       - textId: e1
         text: Identificatore dispositivo
       - textId: e2

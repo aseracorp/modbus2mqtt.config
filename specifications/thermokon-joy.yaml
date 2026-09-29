@@ -3767,7 +3767,7 @@ i18n:
   - lang: en
     texts:
       - textId: name
-        text: JOY
+        text: "JOY (Room Controllers)"
       - textId: e1
         text: Device type (device coding)
       - textId: e2
@@ -4099,7 +4099,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: JOY
+        text: "JOY (Room Controllers)"
       - textId: e1
         text: "Gerätetyp (Device-Coding)"
       - textId: e2
@@ -4431,7 +4431,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: JOY
+        text: "JOY (Room Controllers)"
       - textId: e1
         text: "Type d'appareil (device coding)"
       - textId: e2
@@ -4763,7 +4763,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: JOY
+        text: "JOY (Room Controllers)"
       - textId: e1
         text: Tipo dispositivo (device coding)
       - textId: e2

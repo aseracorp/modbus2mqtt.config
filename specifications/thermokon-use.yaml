@@ -1856,7 +1856,7 @@ i18n:
   - lang: en
     texts:
       - textId: name
-        text: Thermokon USE-RS485
+        text: "USE (Field Sensors)"
       - textId: e1
         text: Sensor identification
       - textId: e2
@@ -2050,7 +2050,7 @@ i18n:
   - lang: de
     texts:
       - textId: name
-        text: "Thermokon USE-RS485"
+        text: "USE (Field Sensors)"
       - textId: e1
         text: Sensoridentifikation
       - textId: e2
@@ -2244,7 +2244,7 @@ i18n:
   - lang: fr
     texts:
       - textId: name
-        text: "Thermokon USE-RS485"
+        text: "USE (Field Sensors)"
       - textId: e1
         text: Identification du capteur
       - textId: e2
@@ -2438,7 +2438,7 @@ i18n:
   - lang: it
     texts:
       - textId: name
-        text: "Thermokon USE-RS485"
+        text: "USE (Field Sensors)"
       - textId: e1
         text: Identificazione sensore
       - textId: e2
