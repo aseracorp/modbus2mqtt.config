@@ -8,6 +8,11 @@ files:
   - url: specifications/files/thermokon-novos7/NOVOS_7_Touch_thanos_EVO_Manual_en_RevM.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-novos7/NOVOS_7_Touch_thanos_EVO_Handbuch_de_RevM.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de
 version: "0.5"
 nextEntityId: 51
 entities:

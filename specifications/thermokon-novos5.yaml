@@ -8,6 +8,11 @@ files:
   - url: specifications/files/thermokon-novos5/NOVOS_5_RS485-Modbus_english_RevI.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-novos5/NOVOS_5_RS485-Modbus_german_RevI.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de
 version: "0.5"
 nextEntityId: 50
 entities:
