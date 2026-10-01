@@ -35,6 +35,7 @@ entities:
     mqttname: device_type
     name: Device type (device coding)
   - id: 2
+    qos: 1000
     registerType: 4
     readonly: true
     converter:
@@ -55,6 +56,7 @@ entities:
     mqttname: internal_temperature
     name: Internal temperature sensor
   - id: 3
+    qos: 1000
     registerType: 4
     readonly: true
     converter:
@@ -75,6 +77,7 @@ entities:
     mqttname: external_temperature
     name: External temperature sensor
   - id: 4
+    qos: 1000
     registerType: 4
     readonly: true
     converter:
@@ -100,6 +103,7 @@ entities:
     mqttname: internal_humidity
     name: Internal humidity sensor
   - id: 5
+    qos: 1000
     registerType: 4
     readonly: true
     converter:
@@ -125,6 +129,7 @@ entities:
     mqttname: co2
     name: CO2 sensor
   - id: 6
+    qos: 0
     registerType: 4
     readonly: true
     converter:

@@ -96,6 +96,7 @@ entities:
     mqttname: setpoint_effective
     name: Setpoint (effective)
   - id: 5
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -114,6 +115,7 @@ entities:
     mqttname: fan_stage_internal
     name: Fan stage (internal)
   - id: 6
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -133,6 +135,7 @@ entities:
     mqttname: lighting_status_1
     name: Lighting status 1
   - id: 7
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -152,6 +155,7 @@ entities:
     mqttname: lighting_status_2
     name: Lighting status 2
   - id: 8
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -171,6 +175,7 @@ entities:
     mqttname: lighting_status_3
     name: Lighting status 3
   - id: 9
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -190,6 +195,7 @@ entities:
     mqttname: lighting_status_4
     name: Lighting status 4
   - id: 10
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -209,6 +215,7 @@ entities:
     mqttname: lighting_status_5
     name: Lighting status 5
   - id: 11
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -228,6 +235,7 @@ entities:
     mqttname: lighting_status_6
     name: Lighting status 6
   - id: 12
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -247,6 +255,7 @@ entities:
     mqttname: lighting_status_7
     name: Lighting status 7
   - id: 13
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -374,6 +383,7 @@ entities:
     mqttname: lighting2_white
     name: Lighting 2 White value
   - id: 20
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -393,6 +403,7 @@ entities:
     mqttname: shading_status_1
     name: Shading status 1
   - id: 21
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -412,6 +423,7 @@ entities:
     mqttname: slat_adjustment_1
     name: Slat adjustment Blind 1
   - id: 22
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -431,6 +443,7 @@ entities:
     mqttname: shading_status_2
     name: Shading status 2
   - id: 23
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -450,6 +463,7 @@ entities:
     mqttname: slat_adjustment_2
     name: Slat adjustment Blind 2
   - id: 24
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -469,6 +483,7 @@ entities:
     mqttname: shading_status_3
     name: Shading status 3
   - id: 25
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -488,6 +503,7 @@ entities:
     mqttname: slat_adjustment_3
     name: Slat adjustment Blind 3
   - id: 26
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -507,6 +523,7 @@ entities:
     mqttname: shading_status_4
     name: Shading status 4
   - id: 27
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -526,6 +543,7 @@ entities:
     mqttname: slat_adjustment_4
     name: Slat adjustment Blind 4
   - id: 28
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -545,6 +563,7 @@ entities:
     mqttname: shading_status_5
     name: Shading status 5
   - id: 29
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -564,6 +583,7 @@ entities:
     mqttname: slat_adjustment_5
     name: Slat adjustment Blind 5
   - id: 30
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -583,6 +603,7 @@ entities:
     mqttname: shading_status_6
     name: Shading status 6
   - id: 31
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -602,6 +623,7 @@ entities:
     mqttname: slat_adjustment_6
     name: Slat adjustment Blind 6
   - id: 32
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -621,6 +643,7 @@ entities:
     mqttname: shading_status_7
     name: Shading status 7
   - id: 33
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -640,6 +663,7 @@ entities:
     mqttname: slat_adjustment_7
     name: Slat adjustment Blind 7
   - id: 34
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -659,6 +683,7 @@ entities:
     mqttname: shading_status_8
     name: Shading status 8
   - id: 35
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -789,6 +814,7 @@ entities:
     mqttname: piezo_duration
     name: Piezo-buzzer duration
   - id: 42
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -809,6 +835,7 @@ entities:
     mqttname: temperature
     name: Temperature
   - id: 43
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -829,6 +856,7 @@ entities:
     mqttname: relative_humidity
     name: Relative humidity
   - id: 44
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -849,6 +877,7 @@ entities:
     mqttname: absolute_humidity
     name: Absolute humidity
   - id: 45
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -868,6 +897,7 @@ entities:
     mqttname: enthalpy
     name: Enthalpy
   - id: 46
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -888,6 +918,7 @@ entities:
     mqttname: dew_point
     name: Dew point
   - id: 47
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -908,6 +939,7 @@ entities:
     mqttname: co2
     name: CO2
   - id: 48
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -927,6 +959,7 @@ entities:
     mqttname: voc
     name: VOC
   - id: 49
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -946,6 +979,7 @@ entities:
     mqttname: co2_voc_mix
     name: CO2 / VOC MIX
   - id: 50
+    qos: 1000
     registerType: 3
     readonly: true
     converter:

@@ -17,6 +17,7 @@ version: "0.5"
 nextEntityId: 40
 entities:
   - id: 1
+    qos: 0
     registerType: 4
     readonly: true
     converter:
@@ -35,6 +36,7 @@ entities:
     mqttname: button_1
     name: Button 1
   - id: 2
+    qos: 0
     registerType: 4
     readonly: true
     converter:
@@ -53,6 +55,7 @@ entities:
     mqttname: button_pressed
     name: Button pressed status
   - id: 3
+    qos: 1000
     registerType: 4
     readonly: true
     converter:
@@ -167,6 +170,7 @@ entities:
     mqttname: fan_stage
     name: Fan stage
   - id: 9
+    qos: 0
     registerType: 4
     readonly: true
     converter:
@@ -278,6 +282,7 @@ entities:
     mqttname: controller_mode
     name: Controller mode
   - id: 15
+    qos: 1000
     registerType: 4
     readonly: true
     converter:
