@@ -1,0 +1,872 @@
+filename: thermokon-thevios3
+model: THEVIOS 3
+manufacturer: Thermokon
+files:
+  - url: specifications/files/thermokon-thevios3/thermokon-thevios3.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-thevios3/thevios_3-RS485_Modbus_Manual_en.pdf
+    fileLocation: 0
+    usage: doc
+  - url: specifications/files/thermokon-thevios3/thevios_3-RS485_Modbus_Handbuch_de.pdf
+    fileLocation: 0
+    usage: doc
+version: "0.5"
+nextEntityId: 30
+entities:
+  - id: 1
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 118
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    entityCategory: diagnostic
+    mqttname: sensor_error
+    name: Sensor error
+  - id: 2
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 100
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      device_class: occupancy
+      state_class: 1
+      identification:
+        min: 0
+        max: 1
+    valid: true
+    mqttname: movement
+    name: Movement
+  - id: 3
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 110
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 1
+      uom: lx
+      identification:
+        min: 0
+        max: 200000
+    valid: true
+    mqttname: luminosity
+    name: Luminosity
+  - id: 4
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 101
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature
+    name: Temperature
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 102
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_ir
+    name: Temperature IR
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 111
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_mix
+    name: Temperature MIX
+  - id: 7
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 103
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "%"
+      identification:
+        min: 0
+        max: 1000
+    valid: true
+    mqttname: relative_humidity
+    name: Relative humidity
+  - id: 8
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 104
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "g/m³"
+      identification:
+        min: 0
+        max: 2000
+    valid: true
+    mqttname: absolute_humidity
+    name: Absolute humidity
+  - id: 9
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 105
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: kJ/kg
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy
+    name: Enthalpy
+  - id: 10
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 106
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_point
+    name: Dew point
+  - id: 11
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1230
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    entityCategory: diagnostic
+    mqttname: production_date_md
+    name: Production date month/day
+  - id: 12
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1231
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    entityCategory: diagnostic
+    mqttname: production_date_year
+    name: Production date year
+  - id: 13
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1232
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      state_class: 3
+      uom: h
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    entityCategory: diagnostic
+    mqttname: operating_hours
+    name: Operating hours counter
+  - id: 14
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1234
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    entityCategory: diagnostic
+    mqttname: firmware_version_major
+    name: Firmware version (major/minor)
+  - id: 15
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 1235
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    entityCategory: diagnostic
+    mqttname: firmware_version_revision
+    name: Firmware version (revision/build)
+  - id: 16
+    registerType: 3
+    readonly: false
+    converter:
+      name: select
+    modbusAddress: 2100
+    category: config
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      options:
+        - key: 1
+          name: SI
+        - key: 2
+          name: Imperial
+      identification:
+        min: 1
+        max: 2
+    valid: true
+    mqttname: unit_system
+    name: Unit system
+  - id: 17
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3011
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: movement_offset
+    name: Movement offset
+  - id: 18
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3030
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: -32768
+        max: 32767
+    valid: true
+    mqttname: sensitivity
+    name: Sensitivity
+  - id: 19
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3031
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 32767
+    valid: true
+    mqttname: movement_delay_time
+    name: Movement delay time
+  - id: 20
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3032
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      identification:
+        min: 0
+        max: 2
+    valid: true
+    mqttname: pir_led_mode
+    name: PIR LED mode
+  - id: 21
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3111
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      uom: "°C"
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: temperature_offset
+    name: Temperature offset
+  - id: 22
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3211
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      uom: "°C"
+      identification:
+        min: -500
+        max: 500
+    valid: true
+    mqttname: temperature_ir_offset
+    name: Temperature IR offset
+  - id: 23
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3311
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 2
+      uom: "%"
+      identification:
+        min: -100
+        max: 100
+    valid: true
+    mqttname: humidity_offset
+    name: Humidity offset
+  - id: 24
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3723
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: luminosity_factor
+    name: Luminosity factor
+  - id: 25
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 119
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 7
+    valid: true
+    mqttname: led_color
+    name: LED color
+  - id: 26
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 2102
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: maintenance_countdown
+    name: Maintenance countdown
+  - id: 27
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 2103
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: calibration_countdown
+    name: Calibration countdown
+  - id: 28
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 2104
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: maintenance_interval
+    name: Maintenance interval
+  - id: 29
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 2105
+    converterParameters:
+      multiplier: 1
+      offset: 0
+      decimals: 0
+      numberFormat: 0
+      identification:
+        min: 0
+        max: 65535
+    valid: true
+    mqttname: calibration_interval
+    name: Calibration interval
+i18n:
+  - lang: en
+    texts:
+      - textId: name
+        text: "THEVIOS 3 (Ceiling Sensors)"
+      - textId: e1
+        text: Sensor error
+      - textId: e2
+        text: Movement
+      - textId: e3
+        text: Luminosity
+      - textId: e4
+        text: Temperature
+      - textId: e5
+        text: Temperature IR
+      - textId: e6
+        text: Temperature MIX
+      - textId: e7
+        text: Relative humidity
+      - textId: e8
+        text: Absolute humidity
+      - textId: e9
+        text: Enthalpy
+      - textId: e10
+        text: Dew point
+      - textId: e11
+        text: Production date month/day
+      - textId: e12
+        text: Production date year
+      - textId: e13
+        text: Operating hours counter
+      - textId: e14
+        text: Firmware version (major/minor)
+      - textId: e15
+        text: Firmware version (revision/build)
+      - textId: e16
+        text: Unit system
+      - textId: e17
+        text: Movement offset
+      - textId: e18
+        text: Sensitivity
+      - textId: e19
+        text: Movement delay time
+      - textId: e20
+        text: PIR LED mode
+      - textId: e21
+        text: Temperature offset
+      - textId: e22
+        text: Temperature IR offset
+      - textId: e23
+        text: Humidity offset
+      - textId: e24
+        text: Luminosity factor
+      - textId: e25
+        text: LED color
+      - textId: e26
+        text: Maintenance countdown
+      - textId: e27
+        text: Calibration countdown
+      - textId: e28
+        text: Maintenance interval
+      - textId: e29
+        text: Calibration interval
+  - lang: de
+    texts:
+      - textId: name
+        text: "THEVIOS 3 (Multi-Deckensensor)"
+      - textId: e27
+        text: Kalibrier-Countdown
+      - textId: e28
+        text: Wartungsintervall
+      - textId: e29
+        text: Kalibrierintervall
+      - textId: e1
+        text: Sensorfehler
+      - textId: e2
+        text: Bewegung
+      - textId: e3
+        text: Helligkeit
+      - textId: e4
+        text: Temperatur
+      - textId: e5
+        text: Temperatur IR
+      - textId: e6
+        text: Temperatur MIX
+      - textId: e7
+        text: Relative Feuchte
+      - textId: e8
+        text: Absolute Feuchte
+      - textId: e9
+        text: Enthalpie
+      - textId: e10
+        text: Taupunkt
+      - textId: e11
+        text: Produktionsdatum Monat/Tag
+      - textId: e12
+        text: Produktionsdatum Jahr
+      - textId: e13
+        text: Betriebsstundenzähler
+      - textId: e14
+        text: Firmware-Version (Major/Minor)
+      - textId: e15
+        text: Firmware-Version (Revision/Build)
+      - textId: e16
+        text: Einheiten-System
+      - textId: e17
+        text: Offset Bewegung
+      - textId: e18
+        text: Empfindlichkeit
+      - textId: e19
+        text: Nachlaufzeit
+      - textId: e20
+        text: PIR LED-Modus
+      - textId: e21
+        text: Offset Temperatur
+      - textId: e22
+        text: Offset Temperatur IR
+      - textId: e23
+        text: Offset relative Feuchte
+      - textId: e24
+        text: Faktor Helligkeit
+      - textId: e25
+        text: LED-Farbe
+      - textId: e26
+        text: Wartungs-Countdown
+  - lang: fr
+    texts:
+      - textId: name
+        text: "THEVIOS 3 (Détecteurs de plafond)"
+      - textId: e1
+        text: Erreur capteur
+      - textId: e2
+        text: Mouvement
+      - textId: e3
+        text: Luminosité
+      - textId: e4
+        text: Température
+      - textId: e5
+        text: Température IR
+      - textId: e6
+        text: Température MIX
+      - textId: e7
+        text: Humidité relative
+      - textId: e8
+        text: Humidité absolue
+      - textId: e9
+        text: Enthalpie
+      - textId: e10
+        text: Point de rosée
+      - textId: e11
+        text: Date de production mois/jour
+      - textId: e12
+        text: Date de production année
+      - textId: e13
+        text: Compteur d'heures de fonctionnement
+      - textId: e14
+        text: Version du firmware (majeure/mineure)
+      - textId: e15
+        text: Version du firmware (révision/build)
+      - textId: e16
+        text: Système d'unités
+      - textId: e17
+        text: Offset mouvement
+      - textId: e18
+        text: Sensibilité
+      - textId: e19
+        text: Temps de temporisation
+      - textId: e20
+        text: Mode LED PIR
+      - textId: e21
+        text: Offset température
+      - textId: e22
+        text: Offset température IR
+      - textId: e23
+        text: Offset humidité relative
+      - textId: e24
+        text: Facteur de luminosité
+      - textId: e25
+        text: Couleur de la LED
+      - textId: e26
+        text: Compte à rebours de maintenance
+      - textId: e27
+        text: Compte à rebours d'étalonnage
+      - textId: e28
+        text: Intervalle de maintenance
+      - textId: e29
+        text: Intervalle d'étalonnage
+  - lang: it
+    texts:
+      - textId: name
+        text: "THEVIOS 3 (Sensori da soffitto)"
+      - textId: e1
+        text: Errore sensore
+      - textId: e2
+        text: Movimento
+      - textId: e3
+        text: Luminosità
+      - textId: e4
+        text: Temperatura
+      - textId: e5
+        text: Temperatura IR
+      - textId: e6
+        text: Temperatura MIX
+      - textId: e7
+        text: Umidità relativa
+      - textId: e8
+        text: Umidità assoluta
+      - textId: e9
+        text: Entalpia
+      - textId: e10
+        text: Punto di rugiada
+      - textId: e11
+        text: Data di produzione mese/giorno
+      - textId: e12
+        text: Data di produzione anno
+      - textId: e13
+        text: Contatore ore di funzionamento
+      - textId: e14
+        text: Versione firmware (maggiore/minore)
+      - textId: e15
+        text: Versione firmware (revisione/build)
+      - textId: e16
+        text: Sistema di unità
+      - textId: e17
+        text: Offset movimento
+      - textId: e18
+        text: Sensibilità
+      - textId: e19
+        text: Tempo di ritardo
+      - textId: e20
+        text: Modalità LED PIR
+      - textId: e21
+        text: Offset temperatura
+      - textId: e22
+        text: Offset temperatura IR
+      - textId: e23
+        text: Offset umidità relativa
+      - textId: e24
+        text: Fattore di luminosità
+      - textId: e25
+        text: Colore LED
+      - textId: e26
+        text: Conto alla rovescia manutenzione
+      - textId: e27
+        text: Conto alla rovescia calibrazione
+      - textId: e28
+        text: Intervallo di manutenzione
+      - textId: e29
+        text: Intervallo di calibrazione
+testdata:
+  holdingRegisters:
+    - address: 118
+      value: 0
+    - address: 100
+      value: 1
+    - address: 110
+      value: 456
+    - address: 101
+      value: 234
+    - address: 102
+      value: 241
+    - address: 111
+      value: 234
+    - address: 103
+      value: 455
+    - address: 104
+      value: 112
+    - address: 105
+      value: 402
+    - address: 106
+      value: 122
+    - address: 1230
+      value: 108
+    - address: 1231
+      value: 2026
+    - address: 1232
+      value: 42
+    - address: 1234
+      value: 257
+    - address: 1235
+      value: 515
+    - address: 2100
+      value: 1
+    - address: 3011
+      value: 0
+    - address: 3030
+      value: 50
+    - address: 3031
+      value: 30
+    - address: 3032
+      value: 0
+    - address: 3111
+      value: 0
+    - address: 3211
+      value: 0
+    - address: 3311
+      value: 0
+    - address: 3723
+      value: 1000
+    - address: 119
+      value: 0
+    - address: 2102
+      value: 0
+    - address: 2103
+      value: 0
+    - address: 2104
+      value: 0
+    - address: 2105
+      value: 0

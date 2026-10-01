@@ -1,0 +1,11 @@
+version: "0.1"
+files:
+  - url: specifications/files/thermokon-thevios3/thermokon-thevios3.jpg
+    fileLocation: 0
+    usage: img
+  - url: specifications/files/thermokon-thevios3/thevios_3-RS485_Modbus_Manual_en.pdf
+    fileLocation: 0
+    usage: doc
+  - url: specifications/files/thermokon-thevios3/thevios_3-RS485_Modbus_Handbuch_de.pdf
+    fileLocation: 0
+    usage: doc
