@@ -30,6 +30,7 @@ entities:
     mqttname: device_identifier
     name: Device identifier
   - id: 2
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -48,6 +49,7 @@ entities:
     mqttname: sensor_identifier
     name: Sensor identifier
   - id: 3
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -66,6 +68,7 @@ entities:
     mqttname: hw_version_mc
     name: MC PCB hardware version
   - id: 4
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -84,6 +87,7 @@ entities:
     mqttname: firmware_version
     name: Firmware version
   - id: 5
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -102,6 +106,7 @@ entities:
     mqttname: hw_version_kl
     name: KL PCB Hardware version
   - id: 6
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -120,6 +125,7 @@ entities:
     mqttname: factory_settings
     name: Factory settings
   - id: 7
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -138,6 +144,7 @@ entities:
     mqttname: sensor_failure
     name: Sensor failure
   - id: 8
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -166,6 +173,7 @@ entities:
     mqttname: temperature_si
     name: Temperature (SI)
   - id: 9
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -194,6 +202,7 @@ entities:
     mqttname: temperature_imperial
     name: Temperature (Imperial)
   - id: 10
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -219,6 +228,7 @@ entities:
     mqttname: relative_humidity
     name: Relative humidity
   - id: 11
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -244,6 +254,7 @@ entities:
     mqttname: absolute_humidity
     name: Absolute humidity
   - id: 12
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -268,6 +279,7 @@ entities:
     mqttname: enthalpy
     name: Enthalpy
   - id: 13
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -293,6 +305,7 @@ entities:
     mqttname: dew_point
     name: Dew point
   - id: 14
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -1302,6 +1315,7 @@ entities:
     mqttname: tlf_current_zone
     name: Current TLF zone
   - id: 61
+    qos: 0
     registerType: 3
     readonly: true
     converter:

@@ -198,6 +198,7 @@ entities:
     mqttname: led_illumination
     name: LED illumination
   - id: 11
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -218,6 +219,7 @@ entities:
     mqttname: temperature
     name: Temperature
   - id: 12
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -243,6 +245,7 @@ entities:
     mqttname: temperature_rh
     name: "Temperature (rH+Temp variant)"
   - id: 13
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -268,6 +271,7 @@ entities:
     mqttname: relative_humidity
     name: Relative humidity
   - id: 14
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -293,6 +297,7 @@ entities:
     mqttname: absolute_humidity
     name: Absolute humidity
   - id: 15
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -317,6 +322,7 @@ entities:
     mqttname: enthalpy
     name: Enthalpy
   - id: 16
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -342,6 +348,7 @@ entities:
     mqttname: dew_point
     name: Dew point
   - id: 17
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -367,6 +374,7 @@ entities:
     mqttname: co2
     name: CO2
   - id: 18
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -391,6 +399,7 @@ entities:
     mqttname: voc
     name: VOC
   - id: 19
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -433,6 +442,7 @@ entities:
     mqttname: unit_system
     name: Unit system
   - id: 21
+    qos: 0
     registerType: 3
     readonly: true
     converter:

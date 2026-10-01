@@ -35,6 +35,7 @@ entities:
 
   # ---- Value registers (conditional on the sensor-identification bitmask) ----
   - id: 2
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -95,6 +96,7 @@ entities:
     name: Temperature
 
   - id: 3
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -122,6 +124,7 @@ entities:
     name: Relative humidity
 
   - id: 4
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -149,6 +152,7 @@ entities:
     name: Absolute humidity
 
   - id: 5
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -175,6 +179,7 @@ entities:
     name: Enthalpy
 
   - id: 6
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -202,6 +207,7 @@ entities:
     name: Dew point
 
   - id: 7
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -229,6 +235,7 @@ entities:
     name: CO2
 
   - id: 8
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -255,6 +262,7 @@ entities:
     name: VOC
 
   - id: 9
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -282,6 +290,7 @@ entities:
 
   # ---- Config registers (device configuration - NOT published to MQTT/HA) ----
   - id: 10
+    qos: 1000
     registerType: 3
     readonly: false
     converter:

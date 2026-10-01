@@ -407,6 +407,7 @@ entities:
     mqttname: condensate_raw
     name: Condensate raw value
   - id: 21
+    qos: 1000
     registerType: 3
     readonly: true
     conditions: [{ register: 501, bit: 8, comparator: eq, value: 0 }, { register: 501, bit: 10, comparator: eq, value: 1 }]
@@ -466,6 +467,7 @@ entities:
     mqttname: illumination_2
     name: Illumination 2
   - id: 24
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -486,6 +488,7 @@ entities:
     mqttname: input_1_ntc
     name: Input 1 temperature NTC10k
   - id: 25
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -506,6 +509,7 @@ entities:
     mqttname: input_2_ntc
     name: Input 2 temperature NTC10k
   - id: 26
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -524,6 +528,7 @@ entities:
     mqttname: input_1_switch
     name: Input 1 switch contact
   - id: 27
+    qos: 0
     registerType: 3
     readonly: true
     converter:

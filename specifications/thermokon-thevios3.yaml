@@ -34,6 +34,7 @@ entities:
     mqttname: sensor_error
     name: Sensor error
   - id: 2
+    qos: 0
     registerType: 3
     readonly: true
     converter:
@@ -53,6 +54,7 @@ entities:
     mqttname: movement
     name: Movement
   - id: 3
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -72,6 +74,7 @@ entities:
     mqttname: luminosity
     name: Luminosity
   - id: 4
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -93,6 +96,7 @@ entities:
     name: Relative humidity
   # ---- Unit-system conditional registers (register 2100: 1=SI, 2=Imperial) ----
   - id: 5
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -117,6 +121,7 @@ entities:
     mqttname: temperature_si
     name: Temperature (SI)
   - id: 6
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -141,6 +146,7 @@ entities:
     mqttname: temperature_imperial
     name: Temperature (Imperial)
   - id: 7
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -165,6 +171,7 @@ entities:
     mqttname: temperature_ir_si
     name: Temperature IR (SI)
   - id: 8
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -189,6 +196,7 @@ entities:
     mqttname: temperature_ir_imperial
     name: Temperature IR (Imperial)
   - id: 9
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -213,6 +221,7 @@ entities:
     mqttname: temperature_mix_si
     name: Temperature MIX (SI)
   - id: 10
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -237,6 +246,7 @@ entities:
     mqttname: temperature_mix_imperial
     name: Temperature MIX (Imperial)
   - id: 11
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -261,6 +271,7 @@ entities:
     mqttname: absolute_humidity_si
     name: Absolute humidity (SI)
   - id: 12
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -285,6 +296,7 @@ entities:
     mqttname: absolute_humidity_imperial
     name: Absolute humidity (Imperial)
   - id: 13
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -308,6 +320,7 @@ entities:
     mqttname: enthalpy_si
     name: Enthalpy (SI)
   - id: 14
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -331,6 +344,7 @@ entities:
     mqttname: enthalpy_imperial
     name: Enthalpy (Imperial)
   - id: 15
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
@@ -355,6 +369,7 @@ entities:
     mqttname: dew_point_si
     name: Dew point (SI)
   - id: 16
+    qos: 1000
     registerType: 3
     readonly: true
     converter:
