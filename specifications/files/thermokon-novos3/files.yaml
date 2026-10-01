@@ -6,3 +6,8 @@ files:
   - url: specifications/files/thermokon-novos3/NOVOS_3_RS485-Modbus_english_RevL.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-novos3/NOVOS_3_RS485-Modbus_german_RevL.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de

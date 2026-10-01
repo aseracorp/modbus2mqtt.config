@@ -8,6 +8,11 @@ files:
   - url: specifications/files/thermokon-wrf06-rr/WRF06_(LCD)_RS485-Modbus_Manual_RevT_english.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-wrf06-rr/WRF06_(LCD)_RS485-Modbus_Handbuch_RevT_deutsch.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de
 version: "0.5"
 nextEntityId: 40
 entities:

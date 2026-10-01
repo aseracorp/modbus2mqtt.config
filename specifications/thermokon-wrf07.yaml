@@ -5,7 +5,15 @@ files:
   - url: specifications/files/thermokon-wrf07/thermokon-wrf07.jpg
     fileLocation: 0
     usage: img
-  - url: specifications/files/thermokon-wrf07/WRF0x_Modbus_Manual_RevE.pdf
+  - url: specifications/files/thermokon-wrf07/WRF07_RS485-Modbus_english_RevN.pdf
+    fileLocation: 0
+    usage: doc
+    lang: en
+  - url: specifications/files/thermokon-wrf07/WRF07_RS485-Modbus_german_RevN.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de
+  - url: specifications/files/thermokon-wrf07/wiring_rs485_network.pdf
     fileLocation: 0
     usage: doc
 version: "0.5"
