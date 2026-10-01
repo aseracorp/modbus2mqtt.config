@@ -1,5 +1,5 @@
 filename: thermokon-thevios3
-model: THEVIOS 3
+model: thevios 3
 manufacturer: Thermokon
 files:
   - url: specifications/files/thermokon-thevios3/thermokon-thevios3.jpg
@@ -12,8 +12,9 @@ files:
     fileLocation: 0
     usage: doc
 version: "0.5"
-nextEntityId: 30
+nextEntityId: 38
 entities:
+  # ---- Unconditional measurement registers ----
   - id: 1
     registerType: 3
     readonly: true
@@ -75,66 +76,6 @@ entities:
     readonly: true
     converter:
       name: number
-    modbusAddress: 101
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      device_class: temperature
-      state_class: 1
-      uom: "°C"
-      identification:
-        min: -400
-        max: 1250
-    valid: true
-    mqttname: temperature
-    name: Temperature
-  - id: 5
-    registerType: 3
-    readonly: true
-    converter:
-      name: number
-    modbusAddress: 102
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      device_class: temperature
-      state_class: 1
-      uom: "°C"
-      identification:
-        min: -400
-        max: 1250
-    valid: true
-    mqttname: temperature_ir
-    name: Temperature IR
-  - id: 6
-    registerType: 3
-    readonly: true
-    converter:
-      name: number
-    modbusAddress: 111
-    converterParameters:
-      multiplier: 0.1
-      offset: 0
-      decimals: 1
-      numberFormat: 0
-      device_class: temperature
-      state_class: 1
-      uom: "°C"
-      identification:
-        min: -400
-        max: 1250
-    valid: true
-    mqttname: temperature_mix
-    name: Temperature MIX
-  - id: 7
-    registerType: 3
-    readonly: true
-    converter:
-      name: number
     modbusAddress: 103
     converterParameters:
       multiplier: 0.1
@@ -150,12 +91,161 @@ entities:
     valid: true
     mqttname: relative_humidity
     name: Relative humidity
+  # ---- Unit-system conditional registers (register 2100: 1=SI, 2=Imperial) ----
+  - id: 5
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 101
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_si
+    name: Temperature (SI)
+  - id: 6
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 101
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°F"
+      identification:
+        min: -400
+        max: 2570
+    valid: true
+    mqttname: temperature_imperial
+    name: Temperature (Imperial)
+  - id: 7
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 102
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_ir_si
+    name: Temperature IR (SI)
   - id: 8
     registerType: 3
     readonly: true
     converter:
       name: number
+    modbusAddress: 102
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°F"
+      identification:
+        min: -400
+        max: 2570
+    valid: true
+    mqttname: temperature_ir_imperial
+    name: Temperature IR (Imperial)
+  - id: 9
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 111
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°C"
+      identification:
+        min: -400
+        max: 1250
+    valid: true
+    mqttname: temperature_mix_si
+    name: Temperature MIX (SI)
+  - id: 10
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 111
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°F"
+      identification:
+        min: -400
+        max: 2570
+    valid: true
+    mqttname: temperature_mix_imperial
+    name: Temperature MIX (Imperial)
+  - id: 11
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
     modbusAddress: 104
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -168,14 +258,42 @@ entities:
         min: 0
         max: 2000
     valid: true
-    mqttname: absolute_humidity
-    name: Absolute humidity
-  - id: 9
+    mqttname: absolute_humidity_si
+    name: Absolute humidity (SI)
+  - id: 12
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 104
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: humidity
+      state_class: 1
+      uom: "gr/ft³"
+      identification:
+        min: 0
+        max: 2000
+    valid: true
+    mqttname: absolute_humidity_imperial
+    name: Absolute humidity (Imperial)
+  - id: 13
     registerType: 3
     readonly: true
     converter:
       name: number
     modbusAddress: 105
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -187,14 +305,41 @@ entities:
         min: 0
         max: 2740
     valid: true
-    mqttname: enthalpy
-    name: Enthalpy
-  - id: 10
+    mqttname: enthalpy_si
+    name: Enthalpy (SI)
+  - id: 14
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 105
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      state_class: 1
+      uom: BTU/lb
+      identification:
+        min: 0
+        max: 2740
+    valid: true
+    mqttname: enthalpy_imperial
+    name: Enthalpy (Imperial)
+  - id: 15
     registerType: 3
     readonly: true
     converter:
       name: number
     modbusAddress: 106
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -207,9 +352,34 @@ entities:
         min: -1100
         max: 500
     valid: true
-    mqttname: dew_point
-    name: Dew point
-  - id: 11
+    mqttname: dew_point_si
+    name: Dew point (SI)
+  - id: 16
+    registerType: 3
+    readonly: true
+    converter:
+      name: number
+    modbusAddress: 106
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 0
+      device_class: temperature
+      state_class: 1
+      uom: "°F"
+      identification:
+        min: -1100
+        max: 500
+    valid: true
+    mqttname: dew_point_imperial
+    name: Dew point (Imperial)
+  # ---- Diagnostics (unconditional) ----
+  - id: 17
     registerType: 3
     readonly: true
     converter:
@@ -227,7 +397,7 @@ entities:
     entityCategory: diagnostic
     mqttname: production_date_md
     name: Production date month/day
-  - id: 12
+  - id: 18
     registerType: 3
     readonly: true
     converter:
@@ -245,7 +415,7 @@ entities:
     entityCategory: diagnostic
     mqttname: production_date_year
     name: Production date year
-  - id: 13
+  - id: 19
     registerType: 3
     readonly: true
     converter:
@@ -265,7 +435,7 @@ entities:
     entityCategory: diagnostic
     mqttname: operating_hours
     name: Operating hours counter
-  - id: 14
+  - id: 20
     registerType: 3
     readonly: true
     converter:
@@ -283,7 +453,7 @@ entities:
     entityCategory: diagnostic
     mqttname: firmware_version_major
     name: Firmware version (major/minor)
-  - id: 15
+  - id: 21
     registerType: 3
     readonly: true
     converter:
@@ -301,7 +471,8 @@ entities:
     entityCategory: diagnostic
     mqttname: firmware_version_revision
     name: Firmware version (revision/build)
-  - id: 16
+  # ---- Configuration registers ----
+  - id: 22
     registerType: 3
     readonly: false
     converter:
@@ -324,7 +495,7 @@ entities:
     valid: true
     mqttname: unit_system
     name: Unit system
-  - id: 17
+  - id: 23
     registerType: 3
     readonly: false
     converter:
@@ -342,7 +513,7 @@ entities:
     valid: true
     mqttname: movement_offset
     name: Movement offset
-  - id: 18
+  - id: 24
     registerType: 3
     readonly: false
     converter:
@@ -360,7 +531,7 @@ entities:
     valid: true
     mqttname: sensitivity
     name: Sensitivity
-  - id: 19
+  - id: 25
     registerType: 3
     readonly: false
     converter:
@@ -378,7 +549,7 @@ entities:
     valid: true
     mqttname: movement_delay_time
     name: Movement delay time
-  - id: 20
+  - id: 26
     registerType: 3
     readonly: false
     converter:
@@ -396,13 +567,17 @@ entities:
     valid: true
     mqttname: pir_led_mode
     name: PIR LED mode
-  - id: 21
+  - id: 27
     registerType: 3
     readonly: false
     converter:
       name: number
     category: config
     modbusAddress: 3111
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -413,15 +588,42 @@ entities:
         min: -500
         max: 500
     valid: true
-    mqttname: temperature_offset
-    name: Temperature offset
-  - id: 22
+    mqttname: temperature_offset_si
+    name: Temperature offset (SI)
+  - id: 28
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3111
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      uom: "°F"
+      identification:
+        min: -900
+        max: 900
+    valid: true
+    mqttname: temperature_offset_imperial
+    name: Temperature offset (Imperial)
+  - id: 29
     registerType: 3
     readonly: false
     converter:
       name: number
     category: config
     modbusAddress: 3211
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 1
     converterParameters:
       multiplier: 0.1
       offset: 0
@@ -432,9 +634,32 @@ entities:
         min: -500
         max: 500
     valid: true
-    mqttname: temperature_ir_offset
-    name: Temperature IR offset
-  - id: 23
+    mqttname: temperature_ir_offset_si
+    name: Temperature IR offset (SI)
+  - id: 30
+    registerType: 3
+    readonly: false
+    converter:
+      name: number
+    category: config
+    modbusAddress: 3211
+    conditions:
+      - register: 2100
+        comparator: eq
+        value: 2
+    converterParameters:
+      multiplier: 0.1
+      offset: 0
+      decimals: 1
+      numberFormat: 2
+      uom: "°F"
+      identification:
+        min: -900
+        max: 900
+    valid: true
+    mqttname: temperature_ir_offset_imperial
+    name: Temperature IR offset (Imperial)
+  - id: 31
     registerType: 3
     readonly: false
     converter:
@@ -453,7 +678,7 @@ entities:
     valid: true
     mqttname: humidity_offset
     name: Humidity offset
-  - id: 24
+  - id: 32
     registerType: 3
     readonly: false
     converter:
@@ -471,7 +696,7 @@ entities:
     valid: true
     mqttname: luminosity_factor
     name: Luminosity factor
-  - id: 25
+  - id: 33
     registerType: 3
     readonly: false
     converter:
@@ -489,7 +714,7 @@ entities:
     valid: true
     mqttname: led_color
     name: LED color
-  - id: 26
+  - id: 34
     registerType: 3
     readonly: false
     converter:
@@ -507,7 +732,7 @@ entities:
     valid: true
     mqttname: maintenance_countdown
     name: Maintenance countdown
-  - id: 27
+  - id: 35
     registerType: 3
     readonly: false
     converter:
@@ -525,7 +750,7 @@ entities:
     valid: true
     mqttname: calibration_countdown
     name: Calibration countdown
-  - id: 28
+  - id: 36
     registerType: 3
     readonly: false
     converter:
@@ -543,7 +768,7 @@ entities:
     valid: true
     mqttname: maintenance_interval
     name: Maintenance interval
-  - id: 29
+  - id: 37
     registerType: 3
     readonly: false
     converter:
@@ -565,7 +790,7 @@ i18n:
   - lang: en
     texts:
       - textId: name
-        text: "THEVIOS 3 (Ceiling Sensors)"
+        text: "thevios 3 (Ceiling Sensors)"
       - textId: e1
         text: Sensor error
       - textId: e2
@@ -573,67 +798,77 @@ i18n:
       - textId: e3
         text: Luminosity
       - textId: e4
-        text: Temperature
-      - textId: e5
-        text: Temperature IR
-      - textId: e6
-        text: Temperature MIX
-      - textId: e7
         text: Relative humidity
+      - textId: e5
+        text: Temperature (SI)
+      - textId: e6
+        text: Temperature (Imperial)
+      - textId: e7
+        text: Temperature IR (SI)
       - textId: e8
-        text: Absolute humidity
+        text: Temperature IR (Imperial)
       - textId: e9
-        text: Enthalpy
+        text: Temperature MIX (SI)
       - textId: e10
-        text: Dew point
+        text: Temperature MIX (Imperial)
       - textId: e11
-        text: Production date month/day
+        text: Absolute humidity (SI)
       - textId: e12
-        text: Production date year
+        text: Absolute humidity (Imperial)
       - textId: e13
-        text: Operating hours counter
+        text: Enthalpy (SI)
       - textId: e14
-        text: Firmware version (major/minor)
+        text: Enthalpy (Imperial)
       - textId: e15
-        text: Firmware version (revision/build)
+        text: Dew point (SI)
       - textId: e16
-        text: Unit system
+        text: Dew point (Imperial)
       - textId: e17
-        text: Movement offset
+        text: Production date month/day
       - textId: e18
-        text: Sensitivity
+        text: Production date year
       - textId: e19
-        text: Movement delay time
+        text: Operating hours counter
       - textId: e20
-        text: PIR LED mode
+        text: Firmware version (major/minor)
       - textId: e21
-        text: Temperature offset
+        text: Firmware version (revision/build)
       - textId: e22
-        text: Temperature IR offset
+        text: Unit system
       - textId: e23
-        text: Humidity offset
+        text: Movement offset
       - textId: e24
-        text: Luminosity factor
+        text: Sensitivity
       - textId: e25
-        text: LED color
+        text: Movement delay time
       - textId: e26
-        text: Maintenance countdown
+        text: PIR LED mode
       - textId: e27
-        text: Calibration countdown
+        text: Temperature offset (SI)
       - textId: e28
-        text: Maintenance interval
+        text: Temperature offset (Imperial)
       - textId: e29
+        text: Temperature IR offset (SI)
+      - textId: e30
+        text: Temperature IR offset (Imperial)
+      - textId: e31
+        text: Humidity offset
+      - textId: e32
+        text: Luminosity factor
+      - textId: e33
+        text: LED color
+      - textId: e34
+        text: Maintenance countdown
+      - textId: e35
+        text: Calibration countdown
+      - textId: e36
+        text: Maintenance interval
+      - textId: e37
         text: Calibration interval
   - lang: de
     texts:
       - textId: name
-        text: "THEVIOS 3 (Multi-Deckensensor)"
-      - textId: e27
-        text: Kalibrier-Countdown
-      - textId: e28
-        text: Wartungsintervall
-      - textId: e29
-        text: Kalibrierintervall
+        text: "thevios 3 (Multi-Deckensensor)"
       - textId: e1
         text: Sensorfehler
       - textId: e2
@@ -641,55 +876,77 @@ i18n:
       - textId: e3
         text: Helligkeit
       - textId: e4
-        text: Temperatur
-      - textId: e5
-        text: Temperatur IR
-      - textId: e6
-        text: Temperatur MIX
-      - textId: e7
         text: Relative Feuchte
+      - textId: e5
+        text: Temperatur (SI)
+      - textId: e6
+        text: Temperatur (Imperial)
+      - textId: e7
+        text: Temperatur IR (SI)
       - textId: e8
-        text: Absolute Feuchte
+        text: Temperatur IR (Imperial)
       - textId: e9
-        text: Enthalpie
+        text: Temperatur MIX (SI)
       - textId: e10
-        text: Taupunkt
+        text: Temperatur MIX (Imperial)
       - textId: e11
-        text: Produktionsdatum Monat/Tag
+        text: Absolute Feuchte (SI)
       - textId: e12
-        text: Produktionsdatum Jahr
+        text: Absolute Feuchte (Imperial)
       - textId: e13
-        text: Betriebsstundenzähler
+        text: Enthalpie (SI)
       - textId: e14
-        text: Firmware-Version (Major/Minor)
+        text: Enthalpie (Imperial)
       - textId: e15
-        text: Firmware-Version (Revision/Build)
+        text: Taupunkt (SI)
       - textId: e16
-        text: Einheiten-System
+        text: Taupunkt (Imperial)
       - textId: e17
-        text: Offset Bewegung
+        text: Produktionsdatum Monat/Tag
       - textId: e18
-        text: Empfindlichkeit
+        text: Produktionsdatum Jahr
       - textId: e19
-        text: Nachlaufzeit
+        text: Betriebsstundenzähler
       - textId: e20
-        text: PIR LED-Modus
+        text: Firmware-Version (Major/Minor)
       - textId: e21
-        text: Offset Temperatur
+        text: Firmware-Version (Revision/Build)
       - textId: e22
-        text: Offset Temperatur IR
+        text: Einheiten-System
       - textId: e23
-        text: Offset relative Feuchte
+        text: Offset Bewegung
       - textId: e24
-        text: Faktor Helligkeit
+        text: Empfindlichkeit
       - textId: e25
-        text: LED-Farbe
+        text: Nachlaufzeit
       - textId: e26
+        text: PIR LED-Modus
+      - textId: e27
+        text: Offset Temperatur (SI)
+      - textId: e28
+        text: Offset Temperatur (Imperial)
+      - textId: e29
+        text: Offset Temperatur IR (SI)
+      - textId: e30
+        text: Offset Temperatur IR (Imperial)
+      - textId: e31
+        text: Offset relative Feuchte
+      - textId: e32
+        text: Faktor Helligkeit
+      - textId: e33
+        text: LED-Farbe
+      - textId: e34
         text: Wartungs-Countdown
+      - textId: e35
+        text: Kalibrier-Countdown
+      - textId: e36
+        text: Wartungsintervall
+      - textId: e37
+        text: Kalibrierintervall
   - lang: fr
     texts:
       - textId: name
-        text: "THEVIOS 3 (Détecteurs de plafond)"
+        text: "thevios 3 (Détecteurs de plafond)"
       - textId: e1
         text: Erreur capteur
       - textId: e2
@@ -697,61 +954,77 @@ i18n:
       - textId: e3
         text: Luminosité
       - textId: e4
-        text: Température
-      - textId: e5
-        text: Température IR
-      - textId: e6
-        text: Température MIX
-      - textId: e7
         text: Humidité relative
+      - textId: e5
+        text: Température (SI)
+      - textId: e6
+        text: Température (Impérial)
+      - textId: e7
+        text: Température IR (SI)
       - textId: e8
-        text: Humidité absolue
+        text: Température IR (Impérial)
       - textId: e9
-        text: Enthalpie
+        text: Température MIX (SI)
       - textId: e10
-        text: Point de rosée
+        text: Température MIX (Impérial)
       - textId: e11
-        text: Date de production mois/jour
+        text: Humidité absolue (SI)
       - textId: e12
-        text: Date de production année
+        text: Humidité absolue (Impérial)
       - textId: e13
-        text: Compteur d'heures de fonctionnement
+        text: Enthalpie (SI)
       - textId: e14
-        text: Version du firmware (majeure/mineure)
+        text: Enthalpie (Impérial)
       - textId: e15
-        text: Version du firmware (révision/build)
+        text: Point de rosée (SI)
       - textId: e16
-        text: Système d'unités
+        text: Point de rosée (Impérial)
       - textId: e17
-        text: Offset mouvement
+        text: Date de production mois/jour
       - textId: e18
-        text: Sensibilité
+        text: Date de production année
       - textId: e19
-        text: Temps de temporisation
+        text: Compteur d'heures de fonctionnement
       - textId: e20
-        text: Mode LED PIR
+        text: Version du firmware (majeure/mineure)
       - textId: e21
-        text: Offset température
+        text: Version du firmware (révision/build)
       - textId: e22
-        text: Offset température IR
+        text: Système d'unités
       - textId: e23
-        text: Offset humidité relative
+        text: Offset mouvement
       - textId: e24
-        text: Facteur de luminosité
+        text: Sensibilité
       - textId: e25
-        text: Couleur de la LED
+        text: Temps de temporisation
       - textId: e26
-        text: Compte à rebours de maintenance
+        text: Mode LED PIR
       - textId: e27
-        text: Compte à rebours d'étalonnage
+        text: Offset température (SI)
       - textId: e28
-        text: Intervalle de maintenance
+        text: Offset température (Impérial)
       - textId: e29
+        text: Offset température IR (SI)
+      - textId: e30
+        text: Offset température IR (Impérial)
+      - textId: e31
+        text: Offset humidité relative
+      - textId: e32
+        text: Facteur de luminosité
+      - textId: e33
+        text: Couleur de la LED
+      - textId: e34
+        text: Compte à rebours de maintenance
+      - textId: e35
+        text: Compte à rebours d'étalonnage
+      - textId: e36
+        text: Intervalle de maintenance
+      - textId: e37
         text: Intervalle d'étalonnage
   - lang: it
     texts:
       - textId: name
-        text: "THEVIOS 3 (Sensori da soffitto)"
+        text: "thevios 3 (Sensori da soffitto)"
       - textId: e1
         text: Errore sensore
       - textId: e2
@@ -759,56 +1032,72 @@ i18n:
       - textId: e3
         text: Luminosità
       - textId: e4
-        text: Temperatura
-      - textId: e5
-        text: Temperatura IR
-      - textId: e6
-        text: Temperatura MIX
-      - textId: e7
         text: Umidità relativa
+      - textId: e5
+        text: Temperatura (SI)
+      - textId: e6
+        text: Temperatura (Imperiale)
+      - textId: e7
+        text: Temperatura IR (SI)
       - textId: e8
-        text: Umidità assoluta
+        text: Temperatura IR (Imperiale)
       - textId: e9
-        text: Entalpia
+        text: Temperatura MIX (SI)
       - textId: e10
-        text: Punto di rugiada
+        text: Temperatura MIX (Imperiale)
       - textId: e11
-        text: Data di produzione mese/giorno
+        text: Umidità assoluta (SI)
       - textId: e12
-        text: Data di produzione anno
+        text: Umidità assoluta (Imperiale)
       - textId: e13
-        text: Contatore ore di funzionamento
+        text: Entalpia (SI)
       - textId: e14
-        text: Versione firmware (maggiore/minore)
+        text: Entalpia (Imperiale)
       - textId: e15
-        text: Versione firmware (revisione/build)
+        text: Punto di rugiada (SI)
       - textId: e16
-        text: Sistema di unità
+        text: Punto di rugiada (Imperiale)
       - textId: e17
-        text: Offset movimento
+        text: Data di produzione mese/giorno
       - textId: e18
-        text: Sensibilità
+        text: Data di produzione anno
       - textId: e19
-        text: Tempo di ritardo
+        text: Contatore ore di funzionamento
       - textId: e20
-        text: Modalità LED PIR
+        text: Versione firmware (maggiore/minore)
       - textId: e21
-        text: Offset temperatura
+        text: Versione firmware (revisione/build)
       - textId: e22
-        text: Offset temperatura IR
+        text: Sistema di unità di misura
       - textId: e23
-        text: Offset umidità relativa
+        text: Offset movimento
       - textId: e24
-        text: Fattore di luminosità
+        text: Sensibilità
       - textId: e25
-        text: Colore LED
+        text: Tempo di ritardo
       - textId: e26
-        text: Conto alla rovescia manutenzione
+        text: Modalità LED PIR
       - textId: e27
-        text: Conto alla rovescia calibrazione
+        text: Offset temperatura (SI)
       - textId: e28
-        text: Intervallo di manutenzione
+        text: Offset temperatura (Imperiale)
       - textId: e29
+        text: Offset temperatura IR (SI)
+      - textId: e30
+        text: Offset temperatura IR (Imperiale)
+      - textId: e31
+        text: Offset umidità relativa
+      - textId: e32
+        text: Fattore di luminosità
+      - textId: e33
+        text: Colore LED
+      - textId: e34
+        text: Conto alla rovescia manutenzione
+      - textId: e35
+        text: Conto alla rovescia calibrazione
+      - textId: e36
+        text: Intervallo di manutenzione
+      - textId: e37
         text: Intervallo di calibrazione
 testdata:
   holdingRegisters:
@@ -818,14 +1107,14 @@ testdata:
       value: 1
     - address: 110
       value: 456
+    - address: 103
+      value: 455
     - address: 101
       value: 234
     - address: 102
       value: 241
     - address: 111
       value: 234
-    - address: 103
-      value: 455
     - address: 104
       value: 112
     - address: 105
