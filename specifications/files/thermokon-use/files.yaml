@@ -6,3 +6,8 @@ files:
   - url: specifications/files/thermokon-use/Specification_USE-RS485_Modbus.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-use/Spezifikation_USE-RS485_Modbus.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de

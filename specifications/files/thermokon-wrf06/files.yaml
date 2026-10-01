@@ -6,3 +6,8 @@ files:
   - url: specifications/files/thermokon-wrf06/Specifikation_WRF06_AQ_FTW06_Modbus_en_Rev_C.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-wrf06/Spezifikation_WRF06_AQ_FTW06_Modbus_de_Rev_D.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de

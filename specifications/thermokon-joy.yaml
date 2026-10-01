@@ -8,6 +8,11 @@ files:
   - url: specifications/files/thermokon-joy/Joy-RS485_Modbus_Manual_en.pdf
     fileLocation: 0
     usage: doc
+    lang: en
+  - url: specifications/files/thermokon-joy/Joy-RS485_Modbus_Handbuch_de.pdf
+    fileLocation: 0
+    usage: doc
+    lang: de
 version: "0.5"
 nextEntityId: 165
 entities:
